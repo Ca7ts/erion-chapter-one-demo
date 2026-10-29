@@ -1,0 +1,1159 @@
+厄里昂 · 第一章試玩
+遊戲美術、配音與劇情未因第三方音效授權而開放再利用。
+
+Three.js — MIT
+The MIT License
+
+Copyright © 2010-2025 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+厄里昂 第一章劇情音效來源／署名
+更新：2026-10-21 · chapter-sfx-applied-6
+
+依使用者逐項選擇；本輪聲音已確認套用。已確認音檔不重製。
+作者設計音／混音不等於自然事件實錄；本次由免費素材剪輯調音，沒有付費生成。
+三處指定舊版為原有本機程序／設計音，直接引用，不標作外部實錄或CC0。
+
+【ceramic-single】
+作者：TheMikirog
+作品：Freesound - Bottle hitting a table by TheMikirog
+來源：https://freesound.org/people/TheMikirog/sounds/331646/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：單次器皿置桌；作者標記玻璃／陶器，僅候選
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：器皿輕置木桌候選
+音檔：assets/audio/source-review-v3/bowl-place.wav
+處理：原檔選段自 0.000 秒；固定增益 -5.21 dB、邊緣淡化。作者標記玻璃／陶器；材質音色仍待試聽。
+
+【cloth-tear】
+作者：fotoshop
+作品：Freesound - Fabric Rip.wav by fotoshop
+來源：https://freesound.org/people/fotoshop/sounds/93346/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：舊棉衣撕裂實錄
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：棉布撕裂
+音檔：assets/audio/source-review-v3/cloth-tear.wav
+處理：原檔選段自 0.095 秒；固定增益 0.05 dB、邊緣淡化。
+
+【impact-sounds/footstep_concrete_000】
+作者：Kenney
+作品：footstep_concrete_000.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：石地腳步
+音檔：assets/audio/kenney-ch1-v2/steps.wav
+處理：四步交替，石地腳步與極輕衣料聲配合。
+使用／存檔候選：石地急促腳步
+音檔：assets/audio/kenney-story-v2/steps-run.wav
+處理：原石地腳步按較快步頻排列，不加速單個音檔或改變音高。
+使用／存檔候選：石地退後兩步
+音檔：assets/audio/kenney-story-v2/steps-two.wav
+處理：依台詞只保留兩步；沒有使用原四步片段。
+
+【impact-sounds/footstep_concrete_001】
+作者：Kenney
+作品：footstep_concrete_001.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：石地腳步
+音檔：assets/audio/kenney-ch1-v2/steps.wav
+處理：四步交替，石地腳步與極輕衣料聲配合。
+使用／存檔候選：石地急促腳步
+音檔：assets/audio/kenney-story-v2/steps-run.wav
+處理：原石地腳步按較快步頻排列，不加速單個音檔或改變音高。
+
+【impact-sounds/footstep_concrete_002】
+作者：Kenney
+作品：footstep_concrete_002.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：石地腳步
+音檔：assets/audio/kenney-ch1-v2/steps.wav
+處理：四步交替，石地腳步與極輕衣料聲配合。
+使用／存檔候選：石地急促腳步
+音檔：assets/audio/kenney-story-v2/steps-run.wav
+處理：原石地腳步按較快步頻排列，不加速單個音檔或改變音高。
+使用／存檔候選：石地退後兩步
+音檔：assets/audio/kenney-story-v2/steps-two.wav
+處理：依台詞只保留兩步；沒有使用原四步片段。
+
+【impact-sounds/footstep_concrete_003】
+作者：Kenney
+作品：footstep_concrete_003.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：石地腳步
+音檔：assets/audio/kenney-ch1-v2/steps.wav
+處理：四步交替，石地腳步與極輕衣料聲配合。
+使用／存檔候選：石地急促腳步
+音檔：assets/audio/kenney-story-v2/steps-run.wav
+處理：原石地腳步按較快步頻排列，不加速單個音檔或改變音高。
+
+【impact-sounds/footstep_concrete_004】
+作者：Kenney
+作品：footstep_concrete_004.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：石地急促腳步
+音檔：assets/audio/kenney-story-v2/steps-run.wav
+處理：原石地腳步按較快步頻排列，不加速單個音檔或改變音高。
+
+【impact-sounds/footstep_grass_000】
+作者：Kenney
+作品：footstep_grass_000.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：土草地腳步
+音檔：assets/audio/kenney-story-v2/steps-grass.wav
+處理：草地腳步按行走步頻排列；用於林間道路。
+使用／存檔候選：林間急促腳步
+音檔：assets/audio/kenney-story-v2/steps-grass-run.wav
+處理：草地腳步按奔跑步頻排列；不沿用礦坑硬地音。
+
+【impact-sounds/footstep_grass_001】
+作者：Kenney
+作品：footstep_grass_001.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：土草地腳步
+音檔：assets/audio/kenney-story-v2/steps-grass.wav
+處理：草地腳步按行走步頻排列；用於林間道路。
+使用／存檔候選：林間急促腳步
+音檔：assets/audio/kenney-story-v2/steps-grass-run.wav
+處理：草地腳步按奔跑步頻排列；不沿用礦坑硬地音。
+
+【impact-sounds/footstep_grass_002】
+作者：Kenney
+作品：footstep_grass_002.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：土草地腳步
+音檔：assets/audio/kenney-story-v2/steps-grass.wav
+處理：草地腳步按行走步頻排列；用於林間道路。
+使用／存檔候選：林間急促腳步
+音檔：assets/audio/kenney-story-v2/steps-grass-run.wav
+處理：草地腳步按奔跑步頻排列；不沿用礦坑硬地音。
+
+【impact-sounds/footstep_grass_003】
+作者：Kenney
+作品：footstep_grass_003.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：土草地腳步
+音檔：assets/audio/kenney-story-v2/steps-grass.wav
+處理：草地腳步按行走步頻排列；用於林間道路。
+使用／存檔候選：林間急促腳步
+音檔：assets/audio/kenney-story-v2/steps-grass-run.wav
+處理：草地腳步按奔跑步頻排列；不沿用礦坑硬地音。
+
+【impact-sounds/footstep_grass_004】
+作者：Kenney
+作品：footstep_grass_004.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：林間急促腳步
+音檔：assets/audio/kenney-story-v2/steps-grass-run.wav
+處理：草地腳步按奔跑步頻排列；不沿用礦坑硬地音。
+
+【impact-sounds/impactBell_heavy_000】
+作者：Kenney
+作品：impactBell_heavy_000.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：礦窟銅鐘・三短一長
+音檔：assets/audio/kenney-story-v2/alarm-bell.wav
+處理：前三擊各保留0.22秒並收尾，第四擊保留原始餘韻；未添加合成鐘音。
+
+【impact-sounds/impactBell_heavy_001】
+作者：Kenney
+作品：impactBell_heavy_001.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：礦窟銅鐘・三短一長
+音檔：assets/audio/kenney-story-v2/alarm-bell.wav
+處理：前三擊各保留0.22秒並收尾，第四擊保留原始餘韻；未添加合成鐘音。
+
+【impact-sounds/impactBell_heavy_002】
+作者：Kenney
+作品：impactBell_heavy_002.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：礦窟銅鐘・三短一長
+音檔：assets/audio/kenney-story-v2/alarm-bell.wav
+處理：前三擊各保留0.22秒並收尾，第四擊保留原始餘韻；未添加合成鐘音。
+
+【impact-sounds/impactMetal_heavy_000】
+作者：Kenney
+作品：impactMetal_heavy_000.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：巨大青銅・沉重拖行
+音檔：assets/audio/source-review-v4/bronze-drag.wav
+處理：大型金屬板刮擦錄音降低約五半音，疊Kenney金屬重擊低層，製作三次不等力的落足—拖擦—頓停；不是普通人腳步，也不宣稱青銅巨人實錄。
+使用／存檔候選：巨大青銅・低沉拖行
+音檔：assets/audio/source-review-v5/bronze-drag-deep.wav
+處理：依備註將v4刮擦層再降低兩個半音，補償速度保留原拖行節奏，2800Hz削減3dB並柔化尖銳高頻；重擊層不變。長度仍5.6秒。
+
+【impact-sounds/impactMetal_light_001】
+作者：Kenney
+作品：impactMetal_light_001.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：銅件鬆動
+音檔：assets/audio/kenney-ch1-v2/metal.wav
+處理：金屬扣件與輕碰聲；避免把銅件做成現代機械警示音。
+使用／存檔候選：青銅零件落地
+音檔：assets/audio/kenney-story-v2/bronze-fall.wav
+處理：單次小金屬碰撞；不表示大型神衛倒地。
+
+【impact-sounds/impactMining_000】
+作者：Kenney
+作品：impactMining_000.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：岩壁暗號 · 近處
+音檔：assets/audio/kenney-ch1-v2/knock.wav
+處理：三下、停頓、兩下。採礦敲擊交替，保留石壁回音。
+使用／存檔候選：岩壁暗號 · 深處
+音檔：assets/audio/kenney-ch1-v2/distant-knock.wav
+處理：同一暗號經岩層傳來，降低高頻與音量，避免回音被誤認成第六下。
+使用／存檔候選：外側回應與開鑿
+音檔：assets/audio/kenney-ch1-v2/reply.wav
+處理：遠處三下、兩下回應後，才開始兩次工具開鑿。
+使用／存檔候選：破壁碎石
+音檔：assets/audio/kenney-ch1-v2/breach.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：刻印 · 石面鑿刻
+音檔：assets/audio/kenney-ch1-v2/carve.wav
+處理：三次細工具接觸石面；原錄音經輕微加速與音量整理。此檔沒有合成符文音。
+
+【impact-sounds/impactMining_001】
+作者：Kenney
+作品：impactMining_001.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：岩壁暗號 · 近處
+音檔：assets/audio/kenney-ch1-v2/knock.wav
+處理：三下、停頓、兩下。採礦敲擊交替，保留石壁回音。
+使用／存檔候選：岩壁暗號 · 深處
+音檔：assets/audio/kenney-ch1-v2/distant-knock.wav
+處理：同一暗號經岩層傳來，降低高頻與音量，避免回音被誤認成第六下。
+使用／存檔候選：外側回應與開鑿
+音檔：assets/audio/kenney-ch1-v2/reply.wav
+處理：遠處三下、兩下回應後，才開始兩次工具開鑿。
+使用／存檔候選：破壁碎石
+音檔：assets/audio/kenney-ch1-v2/breach.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：刻印 · 石面鑿刻
+音檔：assets/audio/kenney-ch1-v2/carve.wav
+處理：三次細工具接觸石面；原錄音經輕微加速與音量整理。此檔沒有合成符文音。
+
+【impact-sounds/impactMining_002】
+作者：Kenney
+作品：impactMining_002.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：岩壁暗號 · 近處
+音檔：assets/audio/kenney-ch1-v2/knock.wav
+處理：三下、停頓、兩下。採礦敲擊交替，保留石壁回音。
+使用／存檔候選：岩壁暗號 · 深處
+音檔：assets/audio/kenney-ch1-v2/distant-knock.wav
+處理：同一暗號經岩層傳來，降低高頻與音量，避免回音被誤認成第六下。
+使用／存檔候選：外側回應與開鑿
+音檔：assets/audio/kenney-ch1-v2/reply.wav
+處理：遠處三下、兩下回應後，才開始兩次工具開鑿。
+使用／存檔候選：破壁碎石
+音檔：assets/audio/kenney-ch1-v2/breach.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：刻印 · 石面鑿刻
+音檔：assets/audio/kenney-ch1-v2/carve.wav
+處理：三次細工具接觸石面；原錄音經輕微加速與音量整理。此檔沒有合成符文音。
+使用／存檔候選：刻印 · 單次落鑿
+音檔：assets/audio/kenney-ch1-v2/one-carve.wav
+處理：單次細工具接觸石面；原錄音經輕微加速與音量整理。
+
+【impact-sounds/impactMining_003】
+作者：Kenney
+作品：impactMining_003.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：外側回應與開鑿
+音檔：assets/audio/kenney-ch1-v2/reply.wav
+處理：遠處三下、兩下回應後，才開始兩次工具開鑿。
+使用／存檔候選：破壁碎石
+音檔：assets/audio/kenney-ch1-v2/breach.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+【impact-sounds/impactMining_004】
+作者：Kenney
+作品：impactMining_004.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：外側回應與開鑿
+音檔：assets/audio/kenney-ch1-v2/reply.wav
+處理：遠處三下、兩下回應後，才開始兩次工具開鑿。
+使用／存檔候選：破壁碎石
+音檔：assets/audio/kenney-ch1-v2/breach.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+【impact-sounds/impactWood_heavy_000】
+作者：Kenney
+作品：impactWood_heavy_000.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：破壁碎石
+音檔：assets/audio/kenney-ch1-v2/breach.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：木門撞動／木杖落地
+音檔：assets/audio/kenney-story-v2/wood-thud.wav
+處理：原木質撞擊；只調整音量。
+
+【impact-sounds/impactWood_light_001】
+作者：Kenney
+作品：impactWood_light_001.ogg
+來源：https://kenney.nl/assets/impact-sounds
+授權：CC0-1.0
+使用／存檔候選：危梁吱響
+音檔：assets/audio/kenney-ch1-v2/wood-creak.wav
+處理：木梁吱響與輕木撞擊，用於木頭承重的動作。
+使用／存檔候選：木杖落地
+音檔：assets/audio/kenney-story-v2/wood-small.wav
+處理：原輕木質撞擊；不使用關門聲。
+
+【leaves】
+作者：ericnorcross81
+作品：Freesound - Leaves Rustling by ericnorcross81
+來源：https://freesound.org/people/ericnorcross81/sounds/570759/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：乾植物葉片搖動實錄；不含風
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：乾葉與藥草摩擦
+音檔：assets/audio/source-review-v3/leaf-rustle.wav
+處理：原檔選段自 30.000 秒；固定增益 22.14 dB、邊緣淡化。
+
+【metal-creak】
+作者：ingudios
+作品：Freesound - Metal Creak 4.wav by ingudios
+來源：https://freesound.org/people/ingudios/sounds/119468/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：金屬吱響；青銅承重動作候選，非青銅實錄保證
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：金屬關節受力吱響
+音檔：assets/audio/source-review-v3/bronze-scrape.wav
+處理：原檔選段自 0.000 秒；固定增益 16.97 dB、邊緣淡化。濾波：lowpass=f=4200。金屬吱響的擬用，非宣稱實錄青銅守衛。
+
+【metal-drag-raw】
+作者：magnuswaker
+作品：Freesound - Metal Scrape by magnuswaker
+來源：https://freesound.org/people/magnuswaker/sounds/530075/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：大型金屬板刮擦舊 ATX 面板的錄音；用於設計巨大青銅拖行，非青銅實錄
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：巨大青銅・沉重拖行
+音檔：assets/audio/source-review-v4/bronze-drag.wav
+處理：大型金屬板刮擦錄音降低約五半音，疊Kenney金屬重擊低層，製作三次不等力的落足—拖擦—頓停；不是普通人腳步，也不宣稱青銅巨人實錄。
+使用／存檔候選：巨大青銅・低沉拖行
+音檔：assets/audio/source-review-v5/bronze-drag-deep.wav
+處理：依備註將v4刮擦層再降低兩個半音，補償速度保留原拖行節奏，2800Hz削減3dB並柔化尖銳高頻；重擊層不變。長度仍5.6秒。
+
+【pot】
+作者：anna_bliss
+作品：Freesound - Breaking pot low by anna_bliss
+來源：https://freesound.org/people/anna_bliss/sounds/810042/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：大型陶盆受鎚碎裂；供陶甕撞牆聲的材質候選
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：陶甕碎裂・已選低沉陶盆
+音檔：assets/audio/source-review-v3/jar-break-low.wav
+處理：原檔選段自 0.015 秒；固定增益 -0.00 dB、邊緣淡化。
+
+【pot-short】
+作者：anna_bliss
+作品：Freesound - Breaking pot short by anna_bliss
+來源：https://freesound.org/people/anna_bliss/sounds/810043/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：陶盆單次碎裂；另一候選
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：陶甕碎裂・單次陶盆破裂
+音檔：assets/audio/source-review-v3/jar-break.wav
+處理：原檔選段自 0.727 秒；固定增益 -0.62 dB、邊緣淡化。
+
+【quake】
+作者：uagadugu
+作品：Freesound - Cracking Earthquake (cracking soil, cracking stone) by uagadugu
+來源：https://freesound.org/people/uagadugu/sounds/222521/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：作者混合土石、木塊與低鳴的地裂設計音，非地震實錄
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：岩縫裂響候選
+音檔：assets/audio/source-review-v3/soft-split.wav
+處理：原檔選段自 0.400 秒；固定增益 6.72 dB、邊緣淡化。濾波：highpass=f=140,lowpass=f=4800。
+使用／存檔候選：遠方地鳴
+音檔：assets/audio/source-review-v3/distant-rumble.wav
+處理：原檔選段自 2.000 秒；固定增益 -7.61 dB、邊緣淡化。濾波：lowpass=f=300。同一地裂素材的低頻遠景，非重新合成。
+使用／存檔候選：土石震裂
+音檔：assets/audio/source-review-v3/ground-drop.wav
+處理：原檔選段自 0.015 秒；固定增益 -10.41 dB、邊緣淡化。作者製作的地裂設計音，非地震實錄。
+使用／存檔候選：岩縫裂開・加強版
+音檔：assets/audio/source-review-v4/soft-split-bold.wav
+處理：沿上一版裂石片段增加4.8 dB，保留原裂響、不更改原音檔。
+
+【roots】
+作者：prozaciswack
+作品：Freesound - Digging.wav by prozaciswack
+來源：https://freesound.org/people/prozaciswack/sounds/82722/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：作者混合挖土、粗根撕裂與低鳴的設計音
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：粗根翻動土壤
+音檔：assets/audio/source-review-v3/roots-emerge.wav
+處理：原檔選段自 0.000 秒；固定增益 -7.85 dB、邊緣淡化。作者混音，用於荊根獸撐開土壤。
+使用／存檔候選：粗根破土・厚重翻湧
+音檔：assets/audio/source-review-v4/roots-emerge-bold.wav
+處理：保留原粗根素材，加厚降低約四半音的低層，後段補一次推土裂響；長度4秒，增加量感。
+使用／存檔候選：岩縫裂開・共用厚重破土聲
+音檔：assets/audio/source-review-v4/roots-emerge-bold.wav
+處理：直接引用已通過 roots-emerge-bold 原檔，不重新加工；此處角色動作音量仍維持0.56。原素材處理：保留原粗根素材，加厚降低約四半音的低層，後段補一次推土裂響；長度4秒，增加量感。
+
+【rope-tension】
+作者：vestibule-door
+作品：Freesound - rope leathery creaking.wav by vestibule-door
+來源：https://freesound.org/people/vestibule-door/sounds/664929/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：繩索／皮革受力吱響錄音，作為荊根扭緊的擬音素材
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：荊根扭緊・雙段勒束
+音檔：assets/audio/source-review-v4/roots-wring.wav
+處理：繩索／皮革受力錄音選段自 2.25 秒，兩次扭緊並有停頓；第二次加快12%，疊輕衣帶摩擦。借用動漫擰毛巾的節奏，不含潑水或滑稽口哨。
+
+【rpg-audio/beltHandle1】
+作者：Kenney
+作品：beltHandle1.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：整理行囊
+音檔：assets/audio/kenney-ch1-v2/pack.wav
+處理：母親把麵包、油罐放進行囊並繫緊袋口；達蒙遞上鑿具皮套。對應既有離村畫面。
+
+【rpg-audio/chop】
+作者：Kenney
+作品：chop.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：荊根被砍斷
+音檔：assets/audio/kenney-story-v2/roots-cut.wav
+處理：木質砍擊素材，對應刀刃砍斷根部；不拿它表示整片荊根自行枯萎。
+
+【rpg-audio/cloth1】
+作者：Kenney
+作品：cloth1.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：衣料摩擦
+音檔：assets/audio/kenney-ch1-v2/cloth.wav
+處理：衣料摩擦取代原先合成雜訊，保持輕聲。
+
+【rpg-audio/cloth2】
+作者：Kenney
+作品：cloth2.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：石地腳步
+音檔：assets/audio/kenney-ch1-v2/steps.wav
+處理：四步交替，石地腳步與極輕衣料聲配合。
+
+【rpg-audio/cloth3】
+作者：Kenney
+作品：cloth3.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：衣料摩擦
+音檔：assets/audio/kenney-ch1-v2/cloth.wav
+處理：衣料摩擦取代原先合成雜訊，保持輕聲。
+
+【rpg-audio/clothBelt】
+作者：Kenney
+作品：clothBelt.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：整理行囊
+音檔：assets/audio/kenney-ch1-v2/pack.wav
+處理：母親把麵包、油罐放進行囊並繫緊袋口；達蒙遞上鑿具皮套。對應既有離村畫面。
+使用／存檔候選：荊根扭緊・雙段勒束
+音檔：assets/audio/source-review-v4/roots-wring.wav
+處理：繩索／皮革受力錄音選段自 2.25 秒，兩次扭緊並有停頓；第二次加快12%，疊輕衣帶摩擦。借用動漫擰毛巾的節奏，不含潑水或滑稽口哨。
+
+【rpg-audio/creak1】
+作者：Kenney
+作品：creak1.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：危梁吱響
+音檔：assets/audio/kenney-ch1-v2/wood-creak.wav
+處理：木梁吱響與輕木撞擊，用於木頭承重的動作。
+
+【rpg-audio/handleSmallLeather】
+作者：Kenney
+作品：handleSmallLeather.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：整理行囊
+音檔：assets/audio/kenney-ch1-v2/pack.wav
+處理：母親把麵包、油罐放進行囊並繫緊袋口；達蒙遞上鑿具皮套。對應既有離村畫面。
+使用／存檔候選：翻動皮袋與鑿具
+音檔：assets/audio/kenney-story-v2/toolbag.wav
+處理：皮袋與工具原音按動作前後排列；未加入其他聲源。
+
+【rpg-audio/metalClick】
+作者：Kenney
+作品：metalClick.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：銅件鬆動
+音檔：assets/audio/kenney-ch1-v2/metal.wav
+處理：金屬扣件與輕碰聲；避免把銅件做成現代機械警示音。
+使用／存檔候選：翻動皮袋與鑿具
+音檔：assets/audio/kenney-story-v2/toolbag.wav
+處理：皮袋與工具原音按動作前後排列；未加入其他聲源。
+
+【rpg-audio/metalLatch】
+作者：Kenney
+作品：metalLatch.ogg
+來源：https://kenney.nl/assets/rpg-audio
+授權：CC0-1.0
+使用／存檔候選：銅件鬆動
+音檔：assets/audio/kenney-ch1-v2/metal.wav
+處理：金屬扣件與輕碰聲；避免把銅件做成現代機械警示音。
+使用／存檔候選：提燈金屬扣件輕碰
+音檔：assets/audio/kenney-story-v2/lantern.wav
+處理：單次金屬扣件聲，不播放整段三次拆機音。
+
+【rubble】
+作者：iwanPlays
+作品：Freesound - Bricks/Stones/Rocks/Gravel Falling by iwanPlays
+來源：https://freesound.org/people/iwanPlays/sounds/567249/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：作者以三份 CC0 石塊錄音混合的落石聲
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：石塊崩落與碎石滾動
+音檔：assets/audio/source-review-v3/rubble.wav
+處理：原檔選段自 0.000 秒；固定增益 -1.79 dB、邊緣淡化。作者已有混音，不是本次自行合成。
+
+【splash】
+作者：designerschoice
+作品：Freesound - WATRSplsh_Water Splash, Big, Dive Into Water, Person or Animal_Nicholas Judy_TDC by designerschoice
+來源：https://freesound.org/people/designerschoice/sounds/811439/
+授權：CC-BY-4.0
+授權連結：https://creativecommons.org/licenses/by/4.0/
+來源說明：大型入水聲；物體落水候選
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：重物落水與水花
+音檔：assets/audio/source-review-v3/water-splash.wav
+處理：原檔選段自 0.000 秒；固定增益 0.43 dB、邊緣淡化。來源為大型入水錄音，按母蟲倒入黑水情境選用。
+
+【wade】
+作者：ryansitz
+作品：Freesound - Wading in Shallow Water.wav by ryansitz
+來源：https://freesound.org/people/ryansitz/sounds/342932/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：淺水涉行實錄
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：淺水涉行
+音檔：assets/audio/source-review-v3/water-wade.wav
+處理：原檔選段自 1.000 秒；固定增益 1.23 dB、邊緣淡化。
+
+【wings】
+作者：Rickplayer
+作品：Freesound - Birds Flapping Wings by Rickplayer
+來源：https://freesound.org/people/Rickplayer/sounds/530479/
+授權：CC0-1.0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+來源說明：作者提供羽翼拍動聲；原始錄製方式未說明
+使用作者公開的高品質預聽 MP3；非登入後原始 WAV。
+使用／存檔候選：羽翼拍動候選
+音檔：assets/audio/source-review-v3/wing-beat.wav
+處理：原檔選段自 0.126 秒；固定增益 3.92 dB、邊緣淡化。不變速、不拉長成巨翼。
+
+【world-birds】
+作者：isaiah658
+作品：birds-isaiah658_0.ogg
+來源：https://opengameart.org/content/ambient-bird-sounds
+授權：CC0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：遠處村莊氣息
+音檔：assets/audio/world-loops-v1/E02.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+【world-cave】
+作者：JaggedStone
+作品：dungeon_ambient_1_0.ogg
+來源：https://opengameart.org/node/29778
+授權：CC0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：礦窟空氣低鳴
+音檔：assets/audio/world-loops-v1/E01R.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+【world-creatures】
+作者：rubberduck
+作品：80-CC0-creature-SFX_0.zip
+來源：https://opengameart.org/content/80-cc0-creature-sfx
+授權：CC0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：獅鷲原貌長鳴
+音檔：assets/audio/world-revisions-v4/B03-v4.mp3
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：岩殼蟲窸窣
+音檔：assets/audio/world-revisions-v2/B08-v2.mp3
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+【world-deep-roar】
+作者：trazzz123
+作品：monster_roar.wav
+來源：https://opengameart.org/content/cc0-deep-monster-roar
+授權：CC0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：傷獸低鳴・沿用第四版
+音檔：assets/audio/world-revisions-v4/B04-v4.mp3
+處理：原檔不改；僅在受傷警戒低吼使用。
+
+【world-fire】
+作者：PagDev
+作品：fire.wav
+來源：https://opengameart.org/content/fireplace-sound-loop
+授權：CC0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：爐火底聲・沿用已確認版
+音檔：assets/audio/world-loops-v1/E04R.wav
+處理：播放已確認原檔的前 4 秒，原檔不變。
+使用／存檔候選：爐火劈啪・沿用已確認爐火
+音檔：assets/audio/world-loops-v1/E04R.wav
+處理：播放已確認原檔的前 2.1 秒，原檔不變。
+使用／存檔候選：低聲爐火
+音檔：assets/audio/world-loops-v1/E04R.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+【world-stream】
+作者：kurt
+作品：stream-waterfall.zip
+來源：https://opengameart.org/content/stream-sounds
+授權：CC-BY 3.0
+授權連結：https://creativecommons.org/licenses/by/3.0/
+使用／存檔候選：泉眼細流
+音檔：assets/audio/world-loops-v1/W01.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：地下湧水
+音檔：assets/audio/world-loops-v1/W02.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：岩縫湧水・沿用已確認流水
+音檔：assets/audio/world-loops-v1/W02.wav
+處理：播放已確認原檔的前 4 秒，原檔不變。
+使用／存檔候選：細流滲水・沿用已確認流水
+音檔：assets/audio/world-loops-v1/W01.wav
+處理：播放已確認原檔的前 3.2 秒，原檔不變。
+
+【world-wind】
+作者：Luke.RUSTLTD
+作品：wind1.wav
+來源：https://opengameart.org/content/wind1
+授權：CC0
+授權連結：https://creativecommons.org/publicdomain/zero/1.0/
+使用／存檔候選：礦窟空氣低鳴
+音檔：assets/audio/world-loops-v1/E01R.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+使用／存檔候選：崖間山風
+音檔：assets/audio/world-loops-v1/E03.wav
+處理：原音檔逐位元保留，不重新輸出、不改音高或音色。
+
+其他舊版來源
+Q版聲：沿用assets/audio-audition/hurt_eagle.mp3角色音庫，不標作CC0。
+磨石：已確認的本機程序擬音；破壁：已確認Kenney／舊程序混音。
+暖流、輕震、金褐靈光：依使用者指示引用chapter-soundtrack-v1原檔，僅限此次指定三處。
+既有環境及配樂來源另見world-audio-credits.txt，所有配音與配樂原檔未改動。
+
+播放混音更新：chapter-sfx-volume-7。只調整章節播放增益與對話降音量，不更動音檔、來源或授權。
+
+清晨油坊三項調音（2026-10-21；oilmill-focus-9）
+僅R1-00:9使用oilmill-ground-drop、oilmill-fire-pops、oilmill-distant-rumble。沉陷與悶響沿用uagadugu 222521（CC0-1.0）；爐火取已確認PagDev E04R的25.62–27.87秒（CC0），做濾波、壓縮、增益及淡化，不新增合成爆炸。完整處理資訊在製作資料/清晨油坊三項音效_v9。
+保留原始音檔與其他章節同名聲音。旁白、音樂與玩家音量設定未修改。三項增強的峰值上限分別-4.5、-7、-5.5dBFS，降低語音清晰頻帶競爭；不宣稱對所有喇叭及個人滑桿配置都不會掩蓋旁白。
+悶響從原第66字改第62字「發出一聲」觸發，2.8秒自然淡出；以目前1.5倍旁白速度，於句末之前收尾。無旁白現場演出改4.9秒開始，7.7秒結束，保留8秒場次。
+本輪沒有進行全章測試或宣稱人耳驗收。
+
+
+第一章節奏與連戲 v11：
+Nox_Sound · https://freesound.org/people/Nox_Sound/sounds/752708/ · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/
+去除低頻、限制高頻、響度整理與淡出。
+SpliceSound · https://freesound.org/people/SpliceSound/sounds/260121/ · CC0-1.0
+https://creativecommons.org/publicdomain/zero/1.0/
+取原錄音第5秒起7.8秒；柔化高頻、音量緩慢起伏、淡入淡出。室內錄音作為遠處人聲層，非戶外實錄。
+
+
+第十一輪完整組合與保留單項來源｜2026-10-29
+使用者核准 M01B 第十版後，製作 D01–D05 五組完整試聽。50 項單項音檔位元保留。未套入遊戲，並非發行清單。
+音效使用已登錄 CC0 素材；組合中的既有 OwlAI 劇情配音不是 CC0 音效，應依遊戲本身的配音使用權管理。
+逐層來源、裁切、放置時間與來源雜湊見 manifest-revision-11.json 及製作資料/音效試聽_20261029/revision11-report.json。
+
+Earthquake and Open sesame — mieki256
+https://opengameart.org/content/earthquake-and-open-sesame
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Earthquake and Open sesame — mieki256
+https://opengameart.org/content/earthquake-and-open-sesame
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+rumble fx — cinameng
+https://opengameart.org/content/rumble-fx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+rumble fx — cinameng
+https://opengameart.org/content/rumble-fx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Swish - bamboo stick weapon swhoshes — qubodup
+https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Swish - bamboo stick weapon swhoshes — qubodup
+https://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Metal Impact Sounds — Brian MacIntosh / BMacZero
+https://opengameart.org/content/metal-impact-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Metal Impact Sounds — Brian MacIntosh / BMacZero
+https://opengameart.org/content/metal-impact-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Earth Element Magic Spell — qubodup
+https://opengameart.org/content/earth-element-magic-spell
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Earth Element Magic Spell — qubodup
+https://opengameart.org/content/earth-element-magic-spell
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+40 CC0 water / splash / slime SFX — rubberduck
+https://opengameart.org/content/40-cc0-water-splash-slime-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+40 CC0 water / splash / slime SFX — rubberduck
+https://opengameart.org/content/40-cc0-water-splash-slime-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+75 CC0 breaking / falling / hit sfx — rubberduck
+https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+75 CC0 breaking / falling / hit sfx — rubberduck
+https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Chain winch sounds — bart
+https://opengameart.org/content/chain-winch-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Chain winch sounds — bart
+https://opengameart.org/content/chain-winch-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Healing Spell Impacts — lentikula
+https://lentikula.itch.io/healing-spell-impacts
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Healing Spell Impacts — lentikula
+https://lentikula.itch.io/healing-spell-impacts
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Impact Sounds — Kenney
+https://kenney.nl/assets/impact-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Impact Sounds — Kenney
+https://kenney.nl/assets/impact-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+RPG Audio — Kenney
+https://kenney.nl/assets/rpg-audio
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+RPG Audio — Kenney
+https://kenney.nl/assets/rpg-audio
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+fire — PagDev
+https://opengameart.org/content/fireplace-sound-loop
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+fire — PagDev
+https://opengameart.org/content/fireplace-sound-loop
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+wind — Luke.RUSTLTD
+https://opengameart.org/content/wind1
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+wind — Luke.RUSTLTD
+https://opengameart.org/content/wind1
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+creatures — rubberduck
+https://opengameart.org/content/80-cc0-creature-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+creatures — rubberduck
+https://opengameart.org/content/80-cc0-creature-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+birds — isaiah658
+https://opengameart.org/content/ambient-bird-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+birds — isaiah658
+https://opengameart.org/content/ambient-bird-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+cave — JaggedStone
+https://opengameart.org/node/29778
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+cave — JaggedStone
+https://opengameart.org/node/29778
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Freesound - Breaking pot low by anna_bliss — anna_bliss
+https://freesound.org/people/anna_bliss/sounds/810042/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Freesound - Breaking pot low by anna_bliss — anna_bliss
+https://freesound.org/people/anna_bliss/sounds/810042/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Freesound - Cracking Earthquake (cracking soil, cracking stone) by uagadugu — uagadugu
+https://freesound.org/people/uagadugu/sounds/222521/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Freesound - Cracking Earthquake (cracking soil, cracking stone) by uagadugu — uagadugu
+https://freesound.org/people/uagadugu/sounds/222521/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Freesound - Metal Scrape by magnuswaker — magnuswaker
+https://freesound.org/people/magnuswaker/sounds/530075/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Freesound - Metal Scrape by magnuswaker — magnuswaker
+https://freesound.org/people/magnuswaker/sounds/530075/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Impact — qubodup
+https://opengameart.org/content/impact
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Impact — qubodup
+https://opengameart.org/content/impact
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+68 Workshop Sounds — bart
+https://opengameart.org/content/68-workshop-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+68 Workshop Sounds — bart
+https://opengameart.org/content/68-workshop-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Scrapes — AntumDeluge
+https://opengameart.org/content/scrapes
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Scrapes — AntumDeluge
+https://opengameart.org/content/scrapes
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Magic Words healing sound effect — Spring Spring / Julie Damsgaard
+https://opengameart.org/content/magic-words-healing-sound-effect
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Magic Words healing sound effect — Spring Spring / Julie Damsgaard
+https://opengameart.org/content/magic-words-healing-sound-effect
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+100 CC0 metal and wood SFX — rubberduck
+https://opengameart.org/content/100-cc0-metal-and-wood-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+100 CC0 metal and wood SFX — rubberduck
+https://opengameart.org/content/100-cc0-metal-and-wood-sfx
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Electricity sound effects — BMacZero / Brian MacIntosh
+https://opengameart.org/content/electricity-sound-effects-0
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Electricity sound effects — BMacZero / Brian MacIntosh
+https://opengameart.org/content/electricity-sound-effects-0
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Sound Effects Pack — OwlishMedia
+https://opengameart.org/content/sound-effects-pack
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Sound Effects Pack — OwlishMedia
+https://opengameart.org/content/sound-effects-pack
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Rocks Fall.wav — MTJohnson
+https://freesound.org/people/MTJohnson/sounds/426318/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Rocks Fall.wav — MTJohnson
+https://freesound.org/people/MTJohnson/sounds/426318/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Dragging Chain.wav — Hitrison
+https://freesound.org/people/Hitrison/sounds/191513/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Dragging Chain.wav — Hitrison
+https://freesound.org/people/Hitrison/sounds/191513/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Chains rattle on floor.flac — genel
+https://freesound.org/people/genel/sounds/611669/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Chains rattle on floor.flac — genel
+https://freesound.org/people/genel/sounds/611669/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Chain — Purely_Green
+https://freesound.org/people/Purely_Green/sounds/812386/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Chain — Purely_Green
+https://freesound.org/people/Purely_Green/sounds/812386/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Dry Grass Rustle.wav — TheSupremeMuffinPooter
+https://freesound.org/people/TheSupremeMuffinPooter/sounds/525268/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Dry Grass Rustle.wav — TheSupremeMuffinPooter
+https://freesound.org/people/TheSupremeMuffinPooter/sounds/525268/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Large Splash — roboroo
+https://freesound.org/people/roboroo/sounds/436792/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Large Splash — roboroo
+https://freesound.org/people/roboroo/sounds/436792/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Pain sounds by EmoPreben — Lasse Bührmann / EmoPreben
+https://opengameart.org/content/pain-sounds-by-emopreben
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Pain sounds by EmoPreben — Lasse Bührmann / EmoPreben
+https://opengameart.org/content/pain-sounds-by-emopreben
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Male Grunt/Yelling sounds — HaelDB
+https://opengameart.org/content/male-gruntyelling-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Male Grunt/Yelling sounds — HaelDB
+https://opengameart.org/content/male-gruntyelling-sounds
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Stone hit — CamoMano
+https://freesound.org/people/CamoMano/sounds/431019/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Stone hit — CamoMano
+https://freesound.org/people/CamoMano/sounds/431019/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+20 Sword Sound Effects (Attacks and Clashes) — StarNinjas
+https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+20 Sword Sound Effects (Attacks and Clashes) — StarNinjas
+https://opengameart.org/content/20-sword-sound-effects-attacks-and-clashes
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+Swishes Sound Pack — artisticdude
+https://opengameart.org/content/swishes-sound-pack
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Swishes Sound Pack — artisticdude
+https://opengameart.org/content/swishes-sound-pack
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+修改：裁切、響度／音高／時間調整、等化與分層；詳細原檔見 manifest-revision-9.json。
+不表示作者為本作品背書。
+
+CC0 Deep Monster Roar — trazzz123
+https://opengameart.org/content/cc0-deep-monster-roar
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+CC0 Deep Monster Roar — trazzz123
+來源：https://opengameart.org/content/cc0-deep-monster-roar
+授權：CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/
+取得：2026-10-29；作者為巨型沙蟲／怪物製作的設計吼聲；使用作者公開下載的 WAV，並非神獸實錄。
+加工：裁切、有限音高／速度調整、濾波、層疊、立體聲延遲回聲與峰值保護；本輪 B04 試聽候選，尚未套入遊戲。
+原檔 SHA-256：040d2841619c732098c30a638731317d13d7647e5ce1a75a3246219ce4b162ff
+
+DRAGON_ROAR.wav — JoelAudio
+https://freesound.org/people/JoelAudio/sounds/85568/
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+DRAGON_ROAR.wav — JoelAudio
+來源：https://freesound.org/people/JoelAudio/sounds/85568/
+授權：CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/
+取得：2026-10-29；作者設計的龍吼聲；使用公開高品質預聽 MP3，並非登入後原始 WAV，也非實錄克拉肯。
+加工：裁切、有限音高／速度調整、濾波、層疊、立體聲延遲回聲與峰值保護；本輪 B04 試聽候選，尚未套入遊戲。
+原檔 SHA-256：1599bee81b306ebdb9624c487f53817d0ade96026e04614edbc31a3f3e0ee880
+
+Explosions — EZduzziteh
+https://opengameart.org/content/explosions-4
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Explosions — EZduzziteh
+https://opengameart.org/content/explosions-4
+CC0-1.0 https://creativecommons.org/publicdomain/zero/1.0/
+作者為遊戲製作的爆炸音效；此處使用 explosion2.ogg，呈現短促的火藥爆破感，非現場爆破實錄。
+加工：裁切、等化、淡出與分層，見 manifest-revision-9.json。僅試聽比較候選，未套入遊戲。
+
+Synthesized explosion — qubodup / Iwan Gabovitch
+https://opengameart.org/content/synthesized-explosion
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Synthesized explosion — qubodup / Iwan Gabovitch
+https://opengameart.org/content/synthesized-explosion
+CC0-1.0 https://creativecommons.org/publicdomain/zero/1.0/
+作者公開的合成爆炸設計音；此處只取低頻爆發與短衰減，不是本機另造的無來源音效，也非實錄。
+加工：裁切、等化、淡出與分層，見 manifest-revision-9.json。僅試聽比較候選，未套入遊戲。
+
+Explosions — EZduzziteh
+https://opengameart.org/content/explosions-4
+CC0-1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Explosions / explosion1.ogg — EZduzziteh
+https://opengameart.org/content/explosions-4
+CC0-1.0 https://creativecommons.org/publicdomain/zero/1.0/
+第十輪 M01B：使用已保存原檔 explosion1_0.ogg；等化、增益、淡出及層疊。僅試聽候選，未套入遊戲。
+
+
+厄里昂｜環境、神獸與既有配樂試聽 v1 — 2026-10-21
+狀態：僅試聽。未修改遊戲音效或音樂綁定，未產生任何付費生成。
+
+免費音效來源與署名（原檔及來源頁保存在本資料夾）
+ocean — jasinski / qubodup — CC0
+https://opengameart.org/content/beach-ocean-waves
+https://creativecommons.org/publicdomain/zero/1.0/
+
+stream — kurt — CC-BY 3.0
+https://opengameart.org/content/stream-sounds
+https://creativecommons.org/licenses/by/3.0/
+
+fire — PagDev — CC0
+https://opengameart.org/content/fireplace-sound-loop
+https://creativecommons.org/publicdomain/zero/1.0/
+
+wind — Luke.RUSTLTD — CC0
+https://opengameart.org/content/wind1
+https://creativecommons.org/publicdomain/zero/1.0/
+
+creatures — rubberduck — CC0
+https://opengameart.org/content/80-cc0-creature-sfx
+https://creativecommons.org/publicdomain/zero/1.0/
+
+deep-roar — trazzz123 — CC0
+https://opengameart.org/content/cc0-deep-monster-roar
+https://creativecommons.org/publicdomain/zero/1.0/
+
+birds — isaiah658 — CC0
+https://opengameart.org/content/ambient-bird-sounds
+https://creativecommons.org/publicdomain/zero/1.0/
+
+cave — JaggedStone — CC0
+https://opengameart.org/node/29778
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Stream Sounds by kurt, https://opengameart.org/content/stream-sounds
+Licensed under CC BY 3.0, https://creativecommons.org/licenses/by/3.0/
+Modified for these auditions: excerpting, fades, level adjustment and MP3 conversion.
+No endorsement by the original authors is implied.
+
+神獸候選包含人聲擬音與調音混合；不是動物種類的真實錄音保證。
+既有 19 首配樂來自專案本機素材庫及 Lyria 3 Pro 生成紀錄，不標成 CC0。
+音效處理：以固定增益平衡響度，保留瞬態；沒有動態壓縮到同一力度。
+試聽頁輸出預設 75%；配樂有獨立的試聽音量平衡係數，原音檔逐位元保留。
+未逐一完成人工聽覺驗收；音色適配由使用者試聽選定後再精修和套用。
+此頁的喜好與備註存於 erion-world-audio-audition-v1，不使用遊戲存檔。
+溪流、鳥鳴等是片段；正式環境循環接縫、距離衰減與配音避讓尚待採用後處理。
+修訂 B03R：混入 eagle.ogg，mia28portman，CC0 1.0。
+https://freesound.org/people/mia28portman/sounds/380124/
+下載檔：官方高品質預聽 MP3，裁切混音；來源頁存於場景音景套用紀錄。

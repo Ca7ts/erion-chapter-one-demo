@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161d1b"><link rel="icon" href="data:,"><title>厄里昂 · 第一章試玩</title><meta name="description" content="厄里昂第一章：地脈初醒。探索、劇情與指令戰鬥的網頁試玩版。"><link rel="stylesheet" href="app.min.css"></head>
+<body>
+<header class="top"><a class="brand" href="./">厄里昂 <small>ERION</small></a><div class="heading"><span>第一章 · 地脈初醒</span><strong>丘陵與古祠</strong></div><nav><button id="regions-toggle">地區</button><button id="travel-bag">行囊與符文</button><button id="task-reset-open">任務重置</button><button id="travel-tips">旅途提示</button><button id="overview">旅程路線</button><button hidden id="route-toggle" aria-pressed="false">可走範圍</button><button id="motion-toggle" aria-pressed="true">動態 開</button></nav></header><div style="position:fixed;top:82px;right:20px;z-index:20;background:#102020dc;padding:7px 12px;border-radius:8px;font:14px system-ui;pointer-events:none"><span style="color:#ffd05a">！主線</span>　<span style="color:#76e5ff">！支線</span>　<span style="color:#b4b8bd">？進行中</span>　<span style="color:#ffd05a">？主線可完成</span>　<span style="color:#76e5ff">？支線可完成</span></div>
+<div class="layout"><aside id="regions"><div class="shelf-title"><span>走過的土地</span><small>九處地點 · 依故事逐步走訪</small></div><div id="region-list"></div><section id="quest-ledger"><small>當前主線</small><h2 id="quest-title"></h2><p id="quest-detail"></p><button id="quest-guide">帶我到附近</button><div id="quest-stats"></div><p id="side-progress"></p></section><p class="preview-note">第一章試玩 · 自動保存<br><a href="credits.txt" target="_blank" rel="noopener">製作與素材授權</a></p></aside>
+<main><section id="stage"><canvas id="map" aria-label="區域地圖：點擊人物或物件走近互動，點擊地面自由移動" aria-describedby="map-help"></canvas><div id="object-access" class="sr-only" role="group" aria-label="地圖上的互動物件"></div><div id="object-tooltip" hidden role="tooltip"><strong></strong><span></span></div><div class="place"><span id="place-sub"></span><h1 id="place-name"></h1></div><div class="map-controls"><button id="zoom-out" aria-label="縮小">−</button><button id="fit">全景</button><button id="zoom-in" aria-label="放大">＋</button></div><canvas id="region-minimap" width="220" height="140" aria-label="當前區域小地圖：白點為主角、金點為可接或可完成主線、水藍點為可接或可完成支線、灰點為進行中任務"></canvas><div id="loading">正在展開地圖…</div><div id="toast" role="status" aria-live="polite"></div><div id="fade"></div><dialog id="info" aria-labelledby="info-title" aria-describedby="info-body"><button class="close" id="info-close" aria-label="關閉">×</button><span class="eyebrow" id="info-category">沿途見聞</span><h2 id="info-title"></h2><div id="info-body"></div><div id="info-actions"></div></dialog></section><footer id="map-help"><div><small id="place-type"></small><p id="place-purpose"></p></div><span>直接點人物或物件互動 · 點地面自由行走<br>滾輪縮放 · WASD／方向鍵移動 · 附近按 E</span></footer></main></div>
+
+<dialog id="atlas"><button class="close" id="atlas-close" aria-label="關閉">×</button><span class="eyebrow">CHAPTER I · THE JOURNEY</span><h2>由村莊出發，循地脈而行</h2><p>救援、調查與修復，決定旅程如何展開。各地可依事件延伸支道，不以固定戰鬥數分割。</p><div id="journey-route"></div><div class="legend">地圖上的人物與物件可以直接互動。主線依事件順序推進；危險區域行走時可能遭遇敵人或沿途事件。村莊與救援返程保持安全。主線進度會自動保存；本版使用獨立存檔。</div></dialog>
+ <dialog id="cinematic" aria-label="劇情分鏡與配音"><div class="cinematic-top"><span id="cinematic-place"></span><button id="pause-story">暫停，回到探索</button></div><canvas id="scene-screen" width="1920" height="1080"></canvas><section class="dialogue"><div class="speaker-line"><strong id="speaker"></strong><span id="line-number"></span></div><p id="story-text"></p><div class="dialogue-actions"><label><input type="checkbox" id="auto-story" checked> 演出結束後接續</label><button id="next-line" class="gold">繼續 →</button></div></section></dialog>
+ <section id="battle" hidden aria-label="第一人稱指令戰鬥">
+  <canvas id="battle-field"></canvas><div class="battle-top"><div><small id="battle-kind">野外遭遇</small><h2 id="battle-title"></h2></div><span id="round">第 1 回合</span><button id="battle-music-toggle">戰鬥音樂</button></div>
+  <div id="enemy-targets" aria-label="選擇敵人"></div><div id="battle-message" role="status" aria-live="polite"></div><div id="battle-alert"></div>
+  <section class="command-deck"><div class="battle-stats"><strong>厄里昂</strong><span id="battle-hp"></span><span id="battle-mp"></span><small id="battle-cooldown"></small></div><div id="commands"></div><p id="command-hint"></p></section>
+ </section>
+
+<script src="app.min.js"></script></body></html>
+
+
+
+
+
+
+
+
+
+
