@@ -88,11 +88,19 @@
    const timer = setTimeout(() => { navigator.serviceWorker.removeEventListener('controllerchange', changed); reject(Error('快取服務尚未啟用，請重新整理頁面')); }, 15000);
    navigator.serviceWorker.addEventListener('controllerchange', changed, { once: true });
   });
-  cache = await caches.open('erion-demo-resources-' + manifest.version);
+  cache = await caches.open('erion-demo-resources-' + (manifest.cacheVersion || manifest.version));
   finished = 0; done = 0; queue = []; blocked = [];
   const existing = new Set((await cache.keys()).map(request => request.url));
   for (const file of manifest.files) {
-   if (existing.has(new URL(file.path, location.href).href)) { finished += file.bytes; done++; }
+   const url=new URL(file.path,location.href).href;
+   let valid=existing.has(url);
+   // Recheck narration and code, including updates within a compatible media
+   // cache. Merely finding a URL does not establish that its version is right.
+   if(valid && /\.(?:js|css|mp3|wav|ogg|m4a)$/i.test(file.path)){
+    const saved=await cache.match(url);
+    valid=!!saved&&saved.headers.get('X-Erion-SHA256')===file.sha256;
+   }
+   if (valid) { finished += file.bytes; done++; }
    else queue.push({ file, attempt: 0, nextAt: 0 });
   }
   $('download-description').textContent = `第一章包含高清場景與配音，共約 ${Math.ceil(total / 1048576)} MB。首次下載需要時間，之後會使用本機快取。`;
@@ -103,7 +111,7 @@
   ready = true; $('download-progress').value = 1; status('遊戲資源已備妥');
   $('download-detail').textContent = `${manifest.files.length} 個檔案已完整下載`;
   $('download-eta').textContent = '下載完成，可開始遊玩'; action.disabled = false; action.textContent = '進入第一章';
-  navigator.serviceWorker.controller?.postMessage({ type: 'activate-cache', name: 'erion-demo-resources-' + manifest.version });
+  navigator.serviceWorker.controller?.postMessage({ type: 'activate-cache', name: 'erion-demo-resources-' + (manifest.cacheVersion || manifest.version) });
  }
  function retryAfter(response) {
   const value = response.headers.get('Retry-After'); if (!value) return 0;
@@ -200,8 +208,8 @@
  async function launch() {
   document.querySelector('link[href^="app.min.css"]').href = 'app.min.css?v=' + manifest.version;
   action.disabled = true; action.textContent = '正在開啟遊戲…';
-  const script = document.createElement('script'); script.src = 'app.min.js?v=entrance-prefix-1';
-  script.onload = () => host.remove(); script.onerror = () => { status('遊戲程式未能啟動'); action.disabled = false; action.textContent = '重試開啟'; };
+  const script = document.createElement('script'); script.src = 'app.min.js?v=' + manifest.version;
+  script.onload = () => {host.remove();window.dispatchEvent(new Event('erion:ready'));}; script.onerror = () => { status('遊戲程式未能啟動'); action.disabled = false; action.textContent = '重試開啟'; };
   document.body.append(script);
  }
  action.onclick = async () => {
