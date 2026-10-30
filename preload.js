@@ -12,6 +12,8 @@
  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
  let manifest, cache, busy = false, ready = false, paused = false, fatal = null;
  let finished = 0, total = 0, done = 0, queue = [], blocked = [], samples = [], transferred = 0, lastData = 0, ticker;
+ const connections = 4;
+ let connectionSpeed = 0, requestOverhead = 0, measuredRequests = 0;
  const active = new Map(), controllers = new Set(), wakes = new Set();
  const status = text => { $('download-status').textContent = text; };
  function wake() { for (const fn of [...wakes]) fn(); }
@@ -49,7 +51,16 @@
     eta = `等待連線恢復 · ${seconds} 秒後自動重試`;
    } else if (settling && bytes === total) eta = '正在驗證並儲存最後的檔案…';
    else if (now - lastData > 12000) eta = '連線回應較慢，下載器會自動重試';
-   else if (speed > 0) eta = `預估剩餘時間：${duration((total - bytes) / speed)}（依目前網速）`;
+   else if (speed > 0) {
+    // Voice clips are much smaller than scene art. Their request latency must
+    // not be mistaken for the link's large-file bandwidth when predicting the
+    // remaining artwork. Estimate both transfer time and per-file overhead.
+    const remaining = manifest.files.length - done;
+    const seconds = connectionSpeed > 0
+     ? ((total - bytes) / connectionSpeed + remaining * requestOverhead) / Math.max(1, Math.min(connections, remaining))
+     : (total - bytes) / speed;
+    eta = `預估剩餘時間：${duration(seconds)}（依目前網速）`;
+   }
    else eta = '預估剩餘時間：正在測量下載速度…';
    if (speed > 0) detail += ` · ${fmt(speed)}/秒`;
    if (retries) detail += ` · ${retries} 個檔案等待自動重試`;
@@ -101,7 +112,8 @@
  }
  async function transfer(entry) {
   const { file } = entry, ctl = new AbortController(), activity = { bytes: 0, verifying: false };
-  let timer;
+  let timer, firstByte = 0, firstChunkBytes = 0;
+  const began = performance.now();
   const arm = () => { clearTimeout(timer); timer = setTimeout(() => ctl.abort(), 60000); };
   active.set(file.path, activity); controllers.add(ctl);
   try {
@@ -117,10 +129,12 @@
    const reader = response.body.getReader(), parts = [];
    while (true) {
     const chunk = await reader.read(); if (chunk.done) break;
+    if (!firstByte) { firstByte = performance.now(); firstChunkBytes = chunk.value.byteLength; }
     arm(); parts.push(chunk.value); activity.bytes += chunk.value.byteLength;
     transferred += chunk.value.byteLength; lastData = performance.now();
    }
    clearTimeout(timer);
+   const bodyFinished = performance.now();
    if (activity.bytes !== file.bytes) { const error = Error('傳回的檔案長度不完整'); error.integrity = true; throw error; }
    activity.verifying = true;
    const blob = new Blob(parts, { type: response.headers.get('Content-Type') || 'application/octet-stream' });
@@ -129,6 +143,14 @@
    // Keep the asset cache version unchanged across loader-only updates.
    // Only complete, verified resources count as saved progress.
    await cache.put(new URL(file.path, location.href).href, new Response(blob, { headers: { 'Content-Type': blob.type, 'Content-Length': String(file.bytes), 'X-Erion-SHA256': hash } }));
+   const ended = performance.now();
+   const overhead = ((firstByte || bodyFinished) - began + ended - bodyFinished) / 1000;
+   requestOverhead = measuredRequests++ ? requestOverhead * .85 + overhead * .15 : overhead;
+   const bodySeconds = (bodyFinished - firstByte) / 1000;
+   if (file.bytes >= 262144 && bodySeconds >= .02 && firstChunkBytes < file.bytes) {
+    const rate = (file.bytes - firstChunkBytes) / bodySeconds;
+    connectionSpeed = connectionSpeed ? connectionSpeed * .75 + rate * .25 : rate;
+   }
    finished += file.bytes; done++;
   } finally { clearTimeout(timer); active.delete(file.path); controllers.delete(ctl); wake(); }
  }
@@ -163,7 +185,7 @@
   $('download-errors').hidden = true; action.disabled = false; action.textContent = '暫停下載';
   transferred = 0; lastData = performance.now(); samples = [{ time: lastData, bytes: 0 }];
   ticker = setInterval(update, 250); update();
-  try { await Promise.all(Array.from({ length: 2 }, worker)); }
+  try { await Promise.all(Array.from({ length: connections }, worker)); }
   finally { busy = false; clearInterval(ticker); }
   if (done === manifest.files.length) { complete(); return; }
   update(); action.disabled = false; action.textContent = '繼續下載';
