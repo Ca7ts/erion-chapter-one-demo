@@ -110,7 +110,7 @@
  }
  function complete() {
   ready = true; $('download-progress').value = 1; status('遊戲資源已備妥');
-  $('download-detail').textContent = `${manifest.files.length} 個檔案已完整下載 · 劇情銜接與任務標記修正 10/30-5`;
+  $('download-detail').textContent = `${manifest.files.length} 個檔案已完整下載 · 背景音量調整 10/30-6`;
   $('download-eta').textContent = '下載完成，可開始遊玩'; action.disabled = false; action.textContent = '進入第一章';
   navigator.serviceWorker.controller?.postMessage({ type: 'activate-cache', name: 'erion-demo-resources-' + (manifest.cacheVersion || manifest.version) });
  }
