@@ -97,7 +97,7 @@
    let valid=existing.has(url);
    // Recheck narration and code, including updates within a compatible media
    // cache. Merely finding a URL does not establish that its version is right.
-   if(valid && /\.(?:js|css|mp3|wav|ogg|m4a)$/i.test(file.path)){
+   if(valid){
     const saved=await cache.match(url);
     valid=!!saved&&saved.headers.get('X-Erion-SHA256')===file.sha256;
    }
