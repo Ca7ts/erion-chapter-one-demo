@@ -13,7 +13,7 @@
  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
  let manifest, cache, busy = false, ready = false, paused = false, fatal = null;
  let finished = 0, total = 0, done = 0, queue = [], blocked = [], samples = [], transferred = 0, lastData = 0, ticker;
- const connections = 4;
+ const connections = matchMedia('(pointer:coarse)').matches ? 2 : 4;
  let connectionSpeed = 0, requestOverhead = 0, measuredRequests = 0;
  const active = new Map(), controllers = new Set(), wakes = new Set();
  const status = text => { $('download-status').textContent = text; };
@@ -147,6 +147,7 @@
    if (activity.bytes !== file.bytes) { const error = Error('傳回的檔案長度不完整'); error.integrity = true; throw error; }
    activity.verifying = true;
    const blob = new Blob(parts, { type: response.headers.get('Content-Type') || 'application/octet-stream' });
+   parts.length = 0;
    const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', await blob.arrayBuffer()))].map(n => n.toString(16).padStart(2, '0')).join('');
    if (hash !== file.sha256) { const error = Error('傳回的檔案版本未通過驗證'); error.integrity = true; throw error; }
    // Keep the asset cache version unchanged across loader-only updates.
