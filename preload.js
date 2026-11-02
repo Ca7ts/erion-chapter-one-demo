@@ -17,6 +17,8 @@
  let connectionSpeed = 0, requestOverhead = 0, measuredRequests = 0;
  const active = new Map(), controllers = new Set(), wakes = new Set();
  const status = text => { $('download-status').textContent = text; };
+ const trial = new URLSearchParams(location.search).get('bossTrial');
+ let trialTitle = '', launching = false;
  function wake() { for (const fn of [...wakes]) fn(); }
  function wait(ms) {
   return new Promise(resolve => {
@@ -82,6 +84,17 @@
     status('正在重新連接下載服務…'); await sleep(1000 * (attempt + 1));
    } finally { clearTimeout(timer); }
   }
+  if (trial === 'mother' || trial === 'guardian') {
+   const arena = 'media/d027451fd5b5/' + trial + '.webp';
+   if (manifest.files.some(file => file.path === arena)) {
+    trialTitle = trial === 'mother' ? '岩殼母蟲' : '銅根守像';
+    const essentials = new Set(['app.min.css', 'app.min.js', 'battle.min.js', 'monsters.min.js',
+     'media/weapon-runtime.glb', 'media/models/' + trial + '.glb', arena,
+     trial === 'mother' ? 'media/models/shell.glb' : 'media/models/guardian-motion.json']);
+    manifest.files = manifest.files.filter(file => essentials.has(file.path));
+    host.querySelector('h1').textContent = trialTitle + '試戰';
+   }
+  }
   total = manifest.files.reduce((sum, file) => sum + file.bytes, 0);
   await navigator.serviceWorker.register('preload-sw.js'); await navigator.serviceWorker.ready;
   if (!navigator.serviceWorker.controller) await new Promise((resolve, reject) => {
@@ -105,7 +118,9 @@
    else queue.push({ file, attempt: 0, nextAt: 0 });
   }
   $('download-description').textContent = `第一章包含高清場景與配音，共約 ${Math.ceil(total / 1048576)} MB。首次下載需要時間，之後會使用本機快取。`;
+  if (trialTitle) $('download-description').textContent = '正在準備' + trialTitle + '的戰場與模型。';
   if (!queue.length) { complete(); return; }
+  if (trialTitle) { await download(); return; }
   update(); action.disabled = false; action.textContent = done ? '繼續下載' : '下載第一章';
  }
  function complete() {
@@ -113,6 +128,7 @@
   $('download-detail').textContent = `${manifest.files.length} 個檔案已完整下載 · 冒險與裝備更新 11/02`;
   $('download-eta').textContent = '下載完成，可開始遊玩'; action.disabled = false; action.textContent = '進入第一章';
   navigator.serviceWorker.controller?.postMessage({ type: 'activate-cache', name: 'erion-demo-resources-' + (manifest.cacheVersion || manifest.version) });
+  if (trialTitle) launch().catch(fail);
  }
  function retryAfter(response) {
   const value = response.headers.get('Retry-After'); if (!value) return 0;
@@ -208,10 +224,12 @@
   }
  }
  async function launch() {
+  if (launching) return;
+  launching = true;
   document.querySelector('link[href^="app.min.css"]').href = 'app.min.css?v=' + manifest.version;
   action.disabled = true; action.textContent = '正在開啟遊戲…';
   const script = document.createElement('script'); script.src = 'app.min.js?v=' + manifest.version;
-  script.onload = () => {host.remove();window.dispatchEvent(new Event('erion:ready'));}; script.onerror = () => { status('遊戲程式未能啟動'); action.disabled = false; action.textContent = '重試開啟'; };
+  script.onload = () => {host.remove();window.dispatchEvent(new Event('erion:ready'));}; script.onerror = () => { launching = false; status('遊戲程式未能啟動'); action.disabled = false; action.textContent = '重試開啟'; };
   document.body.append(script);
  }
  action.onclick = async () => {
