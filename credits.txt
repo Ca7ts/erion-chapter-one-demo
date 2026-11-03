@@ -1181,3 +1181,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+利昂工坊｜合成音訊來源
+
+鐵砧：Anvil #1（音檔 3589），Pablo BERGEL / BigSoundBank
+https://bigsoundbank.com/anvil-1-s3589.html
+CC0：https://creativecommons.org/publicdomain/zero/1.0/
+取自作者在鐵匠作業現場收錄的敲擊。失敗音效取約 7.08 秒的一鎚置中，
+保留敲擊起音，收短餘振；工坊背景樂取用同一鎚與約 1.35 秒的一鎚。
+
+落地碎片：68 Workshop Sounds，bart / OpenGameArt
+https://opengameart.org/content/68-workshop-sounds
+CC0：https://creativecommons.org/publicdomain/zero/1.0/
+來源檔：workshop - metal drop.wav、workshop - metal drop 2.wav、
+workshop - metal drop 3.wav。保留原本的落地與回彈，剪輯為左右錯落的碎片。
+這是金屬物件的擬音，並非把武器砸碎的錄音。
+
+工坊樂曲、成功鐘音及大成功號角與合唱音色由本機編曲與合成。
