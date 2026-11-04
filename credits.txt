@@ -1196,6 +1196,12 @@ https://opengameart.org/content/68-workshop-sounds
 CC0：https://creativecommons.org/publicdomain/zero/1.0/
 來源檔：workshop - metal drop.wav、workshop - metal drop 2.wav、
 workshop - metal drop 3.wav。保留原本的落地與回彈，剪輯為左右錯落的碎片。
+
+裝備分解（salvage.wav）：取用上述鐵砧與碎片的分軌，縮短金屬餘振、重排落地時間；片長 0.94 秒。
 這是金屬物件的擬音，並非把武器砸碎的錄音。
 
 工坊樂曲、成功鐘音及大成功號角與合唱音色由本機編曲與合成。
+
+武器升階（ascent-temper.wav）：素材聚攏的泛音由本機合成，定紋敲擊沿用上述 Anvil #1 的鐵砧分軌。
+
+神話升階三擊（rite-strikes.wav）沿用 Anvil #1 的 CC0 錄音，搭配本機合成的低頻與落鎚前泛音。

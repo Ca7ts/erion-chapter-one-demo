@@ -2,13 +2,16 @@
  'use strict';
  const host = document.createElement('section');
  host.id = 'download-gate'; host.setAttribute('aria-label', '準備第一章遊戲');
- host.innerHTML = `<div class="download-card"><small>ERION · CHAPTER I</small><h1>地脈初醒</h1><p>先備妥旅途，再踏入故事。</p><p id="download-description">正在核對遊戲資源…</p><progress id="download-progress" max="1" value="0"></progress><strong id="download-status" role="status" aria-live="polite">連接中</strong><p id="download-detail"></p><p id="download-eta">預估剩餘時間：下載開始後計算</p><button id="download-action" disabled>準備中</button><p class="download-note">已完成的檔案會保留，連線恢復後自動續傳。可暫停或關閉頁面，下次接續下載。清除網站資料會移除下載快取及存檔。</p><details id="download-errors" hidden><summary>查看未完成原因</summary><p id="download-error-detail"></p></details></div>`;
+ host.innerHTML = `<div class="download-card"><h1>地脈初醒</h1><p id="download-description">正在核對遊戲資源…</p><progress id="download-progress" max="1" value="0"></progress><strong id="download-status" role="status" aria-live="polite">連接中</strong><p id="download-detail"></p><p id="download-eta">預估剩餘時間：下載開始後計算</p><button id="download-action" disabled>準備中</button><p class="download-note">可暫停並續傳。清除網站資料會移除存檔。</p><details id="download-errors" hidden><summary><ui-ink>查看未完成原因</ui-ink></summary><p id="download-error-detail"></p></details></div>`;
  document.body.append(host);
  const style = document.createElement('style');
  style.textContent = `#download-gate{position:fixed;inset:0;z-index:2147483646;background:radial-gradient(ellipse at 50% 20%,#203f39,#0b1416 70%);display:grid;place-items:center;color:#eee7d3;padding:24px;box-sizing:border-box;font:17px/1.7 system-ui,"Microsoft JhengHei",sans-serif;overflow:auto}#download-gate .download-card{max-width:620px;width:100%;text-align:center}#download-gate h1{font-size:44px;letter-spacing:.12em;margin:12px 0;color:#f0cc85}#download-gate small{letter-spacing:.2em;color:#c2a771}#download-gate progress{width:100%;height:14px;accent-color:#d8b36d;margin:20px 0}#download-gate strong{display:block;font-size:22px;font-variant-numeric:tabular-nums}#download-gate #download-action{appearance:none;background:#dfbd7c!important;color:#14221f!important;border:1px solid #f1d69f;border-radius:8px;padding:14px 36px;min-width:210px;min-height:56px;font:700 18px/1.5 system-ui,"Microsoft JhengHei",sans-serif;letter-spacing:.04em;text-shadow:none!important;filter:none!important;backdrop-filter:none!important;opacity:1!important;box-shadow:none!important;transform:none!important;animation:none!important;cursor:pointer;transition:background-color .15s}#download-gate #download-action:hover:not(:disabled){background:#f2d49a!important}#download-gate #download-action:focus-visible{outline:3px solid #fff0cd;outline-offset:4px}#download-gate #download-action:disabled{background:#9da99f!important;color:#14221f!important;cursor:wait}#download-gate #download-action::before,#download-gate #download-action::after{content:none!important;display:none!important}#download-gate .download-note,#download-detail{color:#b7c2b9;font-size:14px}#download-eta{color:#f0d59f;font-size:18px;font-variant-numeric:tabular-nums;min-height:31px;margin:10px 0 20px}#download-errors{font-size:13px;text-align:left;overflow-wrap:anywhere;white-space:pre-line}#download-gate[hidden],#download-errors[hidden]{display:none}@media(max-height:650px){#download-gate{padding:16px}#download-gate h1{font-size:32px;margin:4px 0}#download-gate p{margin:8px 0}#download-gate progress{margin:10px 0}}`;
  style.textContent += '@media(orientation:landscape) and (max-height:500px){#download-gate{padding:12px;font-size:14px;line-height:1.4;overflow:hidden}#download-gate .download-card{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px;max-width:900px;align-items:center}#download-gate .download-card>*{grid-column:2;margin:0}#download-gate small{grid-column:1;grid-row:1}#download-gate h1{grid-column:1;grid-row:2;font-size:28px}#download-gate .download-card>p:first-of-type{grid-column:1;grid-row:3}#download-description{grid-column:1!important;grid-row:4}#download-gate .download-note{grid-column:1;grid-row:5;font-size:12px}#download-gate progress{grid-row:1;height:10px}#download-status{grid-row:2;font-size:18px!important}#download-detail{grid-row:3;font-size:12px}#download-eta{grid-row:4;font-size:14px;min-height:0}#download-gate #download-action{grid-row:5;min-height:44px;padding:8px;font-size:16px}#download-errors{grid-column:1/-1!important;grid-row:6;max-height:50px;overflow:auto}}';
  document.head.append(style);
  const $ = id => document.getElementById(id), action = $('download-action');
+ const actionLabel=document.createElement('ui-ink');
+ actionLabel.textContent=action.textContent;
+ action.replaceChildren(actionLabel);
  const fmt = n => (n / 1048576).toFixed(1) + ' MB';
  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
  let manifest, cache, busy = false, ready = false, paused = false, fatal = null;
@@ -117,16 +120,16 @@
    if (valid) { finished += file.bytes; done++; }
    else queue.push({ file, attempt: 0, nextAt: 0 });
   }
-  $('download-description').textContent = `第一章包含高清場景與配音，共約 ${Math.ceil(total / 1048576)} MB。首次下載需要時間，之後會使用本機快取。`;
+  $('download-description').textContent = `首次下載約 ${Math.ceil(total / 1048576)} MB`;
   if (trialTitle) $('download-description').textContent = '正在準備' + trialTitle + '的戰場與模型。';
   if (!queue.length) { complete(); return; }
   if (trialTitle) { await download(); return; }
-  update(); action.disabled = false; action.textContent = done ? '繼續下載' : '下載第一章';
+  update(); action.disabled = false; actionLabel.textContent = done ? '繼續下載' : '下載第一章';
  }
  function complete() {
   ready = true; $('download-progress').value = 1; status('遊戲資源已備妥');
-  $('download-detail').textContent = `${manifest.files.length} 個檔案已完整下載 · 冒險與裝備更新 11/02`;
-  $('download-eta').textContent = '下載完成，可開始遊玩'; action.disabled = false; action.textContent = '進入第一章';
+  $('download-detail').textContent = `${manifest.files.length} 個檔案已就緒`;
+  $('download-eta').textContent = ''; action.disabled = false; action.dataset.uiIntent = 'confirm'; actionLabel.textContent = '進入第一章';
   navigator.serviceWorker.controller?.postMessage({ type: 'activate-cache', name: 'erion-demo-resources-' + (manifest.cacheVersion || manifest.version) });
   if (trialTitle) launch().catch(fail);
  }
@@ -208,13 +211,13 @@
   if (busy) return;
   busy = true; paused = false; fatal = null;
   if (blocked.length) { queue.push(...blocked.map(entry => ({ file: entry.file, attempt: 0, nextAt: 0 }))); blocked = []; }
-  $('download-errors').hidden = true; action.disabled = false; action.textContent = '暫停下載';
+  $('download-errors').hidden = true; action.disabled = false; actionLabel.textContent = '暫停下載';
   transferred = 0; lastData = performance.now(); samples = [{ time: lastData, bytes: 0 }];
   ticker = setInterval(update, 250); update();
   try { await Promise.all(Array.from({ length: connections }, worker)); }
   finally { busy = false; clearInterval(ticker); }
   if (done === manifest.files.length) { complete(); return; }
-  update(); action.disabled = false; action.textContent = '繼續下載';
+  update(); action.disabled = false; actionLabel.textContent = '繼續下載';
   if (fatal) {
    status('瀏覽器儲存空間不足，下載已保留'); $('download-eta').textContent = '騰出儲存空間後可繼續下載';
    $('download-detail').textContent = `已備妥 ${done} / ${manifest.files.length} 個檔案。請使用一般視窗，並確認裝置有足夠空間。`;
@@ -227,20 +230,20 @@
   if (launching) return;
   launching = true;
   document.querySelector('link[href^="app.min.css"]').href = 'app.min.css?v=' + manifest.version;
-  action.disabled = true; action.textContent = '正在開啟遊戲…';
+  action.disabled = true; actionLabel.textContent = '正在開啟遊戲…';
   const script = document.createElement('script'); script.src = 'app.min.js?v=' + manifest.version;
-  script.onload = () => {host.remove();window.dispatchEvent(new Event('erion:ready'));}; script.onerror = () => { launching = false; status('遊戲程式未能啟動'); action.disabled = false; action.textContent = '重試開啟'; };
+  script.onload = () => {host.remove();window.dispatchEvent(new Event('erion:ready'));}; script.onerror = () => { launching = false; status('遊戲程式未能啟動'); action.disabled = false; action.dataset.uiIntent = 'confirm'; actionLabel.textContent = '重試開啟'; };
   document.body.append(script);
  }
  action.onclick = async () => {
   try {
-   if (busy) { paused = true; action.disabled = true; action.textContent = '正在暫停…'; for (const ctl of controllers) ctl.abort(); wake(); update(); return; }
+   if (busy) { paused = true; action.disabled = true; actionLabel.textContent = '正在暫停…'; for (const ctl of controllers) ctl.abort(); wake(); update(); return; }
    action.disabled = true;
    if (ready) await launch(); else { if (!cache) await check(); if (ready) await launch(); else await download(); }
   } catch (error) { fail(error); }
  };
  window.addEventListener('offline', () => { if (busy) { for (const ctl of controllers) ctl.abort(); wake(); update(); } });
  window.addEventListener('online', () => { samples = [{ time: performance.now(), bytes: transferred }]; lastData = performance.now(); wake(); if (busy) update(); });
- function fail(error) { console.error('Resource preparation', error); status(error.message); action.disabled = false; action.textContent = '重試'; }
+ function fail(error) { console.error('Resource preparation', error); status(error.message); action.disabled = false; actionLabel.textContent = '重試'; }
  check().catch(fail);
 })();
