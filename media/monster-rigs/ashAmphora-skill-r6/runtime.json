@@ -1,0 +1,547 @@
+{
+  "id": "ashAmphora-skill-r6",
+  "name": "灰燼祭壺",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Pot_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Pot_Body": {
+      "image": "../ashAmphora-skill-r5/images/Master.png",
+      "emissive": "../ashAmphora-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../ashAmphora-skill-r5/parts/Pot_Body.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Pot_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2358,
+      "triangles": 4297
+    },
+    "Shoulder_Cracks": {
+      "image": "../ashAmphora-skill-r5/images/Master.png",
+      "emissive": "../ashAmphora-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../ashAmphora-skill-r5/parts/Shoulder_Cracks.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Shoulder_Cracks-Emissive.png",
+      "weighted": true,
+      "vertices": 310,
+      "triangles": 545
+    },
+    "Ceremony_Armor": {
+      "image": "../ashAmphora-skill-r5/images/Master.png",
+      "emissive": "../ashAmphora-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../ashAmphora-skill-r5/parts/Ceremony_Armor.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Ceremony_Armor-Emissive.png",
+      "weighted": true,
+      "vertices": 204,
+      "triangles": 347
+    },
+    "Arm_L": {
+      "image": "../ashAmphora-skill-r5/images/Master.png",
+      "emissive": "../ashAmphora-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../ashAmphora-skill-r5/parts/Arm_L.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Arm_L-Emissive.png",
+      "weighted": true,
+      "vertices": 155,
+      "triangles": 258
+    },
+    "Arm_R": {
+      "image": "../ashAmphora-skill-r5/images/Master.png",
+      "emissive": "../ashAmphora-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../ashAmphora-skill-r5/parts/Arm_R.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Arm_R-Emissive.png",
+      "weighted": true,
+      "vertices": 115,
+      "triangles": 185
+    },
+    "Interior": {
+      "image": "../ashAmphora-skill-r5/images/Interior.png",
+      "emissive": "../ashAmphora-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 627,
+        "y": 18,
+        "w": 453,
+        "h": 343
+      },
+      "independent": true,
+      "sourcePart": "../ashAmphora-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Shoulder_Crack_L": {
+      "image": "../ashAmphora-skill-r5/images/Shoulder_Crack_L.png",
+      "emissive": "../ashAmphora-skill-r5/images/Shoulder_Crack_L-Emissive.png",
+      "rect": {
+        "x": 633,
+        "y": 24,
+        "w": 237,
+        "h": 296
+      },
+      "independent": true,
+      "sourcePart": "../ashAmphora-skill-r5/parts/Shoulder_Crack_L.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Shoulder_Crack_L-Emissive.png"
+    },
+    "Shoulder_Crack_R": {
+      "image": "../ashAmphora-skill-r5/images/Shoulder_Crack_R.png",
+      "emissive": "../ashAmphora-skill-r5/images/Shoulder_Crack_R-Emissive.png",
+      "rect": {
+        "x": 936,
+        "y": 38,
+        "w": 138,
+        "h": 317
+      },
+      "independent": true,
+      "sourcePart": "../ashAmphora-skill-r5/parts/Shoulder_Crack_R.png",
+      "sourceEmissive": "../ashAmphora-skill-r5/parts/Shoulder_Crack_R-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.3599999999999999,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.748,
+          0.5
+        ],
+        [
+          1.3599999999999999,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.612,
+          0.65
+        ],
+        [
+          1.1696,
+          5
+        ],
+        [
+          1.3599999999999999,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.45,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3599999999999999,
+          1
+        ],
+        [
+          1.9,
+          1
+        ],
+        [
+          3.1500000000000004,
+          0
+        ],
+        [
+          3.45,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.612,
+          0.65
+        ],
+        [
+          1.1696,
+          5
+        ],
+        [
+          1.3599999999999999,
+          5
+        ],
+        [
+          1.5,
+          5
+        ],
+        [
+          1.55,
+          5
+        ],
+        [
+          1.75,
+          3.6
+        ],
+        [
+          2.15,
+          1.4
+        ],
+        [
+          3.45,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 2.0900000000000003,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.7900000000000005,
+          0
+        ],
+        [
+          2.0900000000000003,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14000000000000012,
+          5
+        ],
+        [
+          0.19000000000000017,
+          5
+        ],
+        [
+          0.3900000000000001,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          2.0900000000000003,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -291,
+      "y": 12
+    },
+    {
+      "x": 267,
+      "y": 42
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../ashAmphora-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1016
+  },
+  "vfx": {
+    "type": "ash-torrent",
+    "origin": [
+      810,
+      221
+    ],
+    "skill": "倒灌灰潮",
+    "action": "厚重陶質壺身大角度傾斜，肩口裂縫向外開裂剝落，噴湧倒灌灰潮！",
+    "matrix": "Ash_Torrent_Layer",
+    "mode": "ash",
+    "color": "gold",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Shoulder_Cracks",
+      "point": [
+        810,
+        221
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Shoulder_Crack_L",
+        "point": [
+          715,
+          190
+        ]
+      },
+      {
+        "bone": "Shoulder_Crack_R",
+        "point": [
+          1025,
+          210
+        ]
+      }
+    ],
+    "fog": "ash",
+    "phase": [
+      "壺身傾斜 · 肩口灰煙",
+      "倒灌灰潮 · 熔爐紅光",
+      "發光灰潮與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "倒灌灰潮",
+  "kind": "ashAmphora",
+  "skillTiming": {
+    "impact": 1.5,
+    "hitStopSeconds": 0.05,
+    "duration": 3.45
+  }
+}

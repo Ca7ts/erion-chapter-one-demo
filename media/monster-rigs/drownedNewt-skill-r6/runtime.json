@@ -1,0 +1,535 @@
+{
+  "id": "drownedNewt-skill-r6",
+  "name": "沉晶盲螈",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Amphibian_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Amphibian_Body": {
+      "image": "../drownedNewt-skill-r5/images/Master.png",
+      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../drownedNewt-skill-r5/parts/Amphibian_Body.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Amphibian_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2539,
+      "triangles": 4693
+    },
+    "Crystal_Fins": {
+      "image": "../drownedNewt-skill-r5/images/Master.png",
+      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../drownedNewt-skill-r5/parts/Crystal_Fins.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Crystal_Fins-Emissive.png",
+      "weighted": true,
+      "vertices": 236,
+      "triangles": 396
+    },
+    "Head": {
+      "image": "../drownedNewt-skill-r5/images/Master.png",
+      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../drownedNewt-skill-r5/parts/Head.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Head-Emissive.png",
+      "weighted": true,
+      "vertices": 108,
+      "triangles": 170
+    },
+    "Tail": {
+      "image": "../drownedNewt-skill-r5/images/Master.png",
+      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../drownedNewt-skill-r5/parts/Tail.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Tail-Emissive.png",
+      "weighted": true,
+      "vertices": 147,
+      "triangles": 243
+    },
+    "Surface_Mouth_Slot": {
+      "image": "../drownedNewt-skill-r5/images/Master.png",
+      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../drownedNewt-skill-r5/parts/Surface_Mouth_Slot.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Surface_Mouth_Slot-Emissive.png",
+      "weighted": true,
+      "vertices": 85,
+      "triangles": 130
+    },
+    "Interior": {
+      "image": "../drownedNewt-skill-r5/images/Interior.png",
+      "emissive": "../drownedNewt-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 72,
+        "y": 384,
+        "w": 427,
+        "h": 220
+      },
+      "independent": true,
+      "sourcePart": "../drownedNewt-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Mouth_Slot": {
+      "image": "../drownedNewt-skill-r5/images/Mouth_Slot.png",
+      "emissive": "../drownedNewt-skill-r5/images/Mouth_Slot-Emissive.png",
+      "rect": {
+        "x": 78,
+        "y": 390,
+        "w": 415,
+        "h": 208
+      },
+      "independent": true,
+      "sourcePart": "../drownedNewt-skill-r5/parts/Mouth_Slot.png",
+      "sourceEmissive": "../drownedNewt-skill-r5/parts/Mouth_Slot-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.3900000000000001,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.7645000000000002,
+          0.5
+        ],
+        [
+          1.3900000000000001,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.6255000000000001,
+          0.65
+        ],
+        [
+          1.1954,
+          2.5
+        ],
+        [
+          1.3900000000000001,
+          2.5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.5,
+          2.3499999999999996
+        ],
+        [
+          1,
+          2.5
+        ],
+        [
+          1.5,
+          2.3499999999999996
+        ],
+        [
+          2,
+          2.5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.45,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3900000000000001,
+          1
+        ],
+        [
+          1.9300000000000002,
+          1
+        ],
+        [
+          3.1500000000000004,
+          0
+        ],
+        [
+          3.45,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.6255000000000001,
+          0.65
+        ],
+        [
+          1.1954,
+          2.5
+        ],
+        [
+          1.3900000000000001,
+          2.5
+        ],
+        [
+          1.53,
+          5
+        ],
+        [
+          1.58,
+          5
+        ],
+        [
+          1.78,
+          3.6
+        ],
+        [
+          2.18,
+          1.4
+        ],
+        [
+          3.45,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 2.06,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.7600000000000002,
+          0
+        ],
+        [
+          2.06,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.1399999999999999,
+          5
+        ],
+        [
+          0.18999999999999995,
+          5
+        ],
+        [
+          0.3899999999999999,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          2.06,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -548,
+      "y": 155
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../drownedNewt-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 970
+  },
+  "vfx": {
+    "type": "cold-breath",
+    "origin": [
+      170,
+      417
+    ],
+    "skill": "沉晶寒息",
+    "action": "背鰭一片接一片結霜蓄勢，張口吸入寒霧施放寒息！",
+    "matrix": "Ice_Refraction_Beams",
+    "mode": "ice",
+    "color": "ice",
+    "core": {
+      "bone": "Head",
+      "point": [
+        170,
+        417
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Crystal_Fins",
+        "point": [
+          575,
+          134
+        ]
+      },
+      {
+        "bone": "Crystal_Fins",
+        "point": [
+          855,
+          238
+        ]
+      },
+      {
+        "bone": "Crystal_Fins",
+        "point": [
+          1100,
+          370
+        ]
+      }
+    ],
+    "phase": [
+      "背鰭逐片結霜 · 冰裂星芒",
+      "沉晶寒息 · 冰火逆流",
+      "冰晶白霧與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "沉晶寒息",
+  "kind": "drownedNewt",
+  "skillTiming": {
+    "impact": 1.53,
+    "hitStopSeconds": 0.05,
+    "duration": 3.45
+  }
+}

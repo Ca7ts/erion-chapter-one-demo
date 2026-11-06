@@ -1,0 +1,567 @@
+{
+  "id": "brokenCenser-skill-r6",
+  "name": "裂盞祭衛",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Guardian_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Guardian_Body": {
+      "image": "../brokenCenser-skill-r5/images/Master.png",
+      "emissive": "../brokenCenser-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../brokenCenser-skill-r5/parts/Guardian_Body.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Guardian_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2525,
+      "triangles": 4628
+    },
+    "Pots_Chains_L": {
+      "image": "../brokenCenser-skill-r5/images/Master.png",
+      "emissive": "../brokenCenser-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../brokenCenser-skill-r5/parts/Pots_Chains_L.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Pots_Chains_L-Emissive.png",
+      "weighted": true,
+      "vertices": 142,
+      "triangles": 233
+    },
+    "Pots_Chains_R": {
+      "image": "../brokenCenser-skill-r5/images/Master.png",
+      "emissive": "../brokenCenser-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../brokenCenser-skill-r5/parts/Pots_Chains_R.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Pots_Chains_R-Emissive.png",
+      "weighted": true,
+      "vertices": 114,
+      "triangles": 184
+    },
+    "Core_Furnace": {
+      "image": "../brokenCenser-skill-r5/images/Master.png",
+      "emissive": "../brokenCenser-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../brokenCenser-skill-r5/parts/Core_Furnace.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Core_Furnace-Emissive.png",
+      "weighted": true,
+      "vertices": 180,
+      "triangles": 304
+    },
+    "Arm_L": {
+      "image": "../brokenCenser-skill-r5/images/Master.png",
+      "emissive": "../brokenCenser-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../brokenCenser-skill-r5/parts/Arm_L.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Arm_L-Emissive.png",
+      "weighted": true,
+      "vertices": 87,
+      "triangles": 136
+    },
+    "Arm_R": {
+      "image": "../brokenCenser-skill-r5/images/Master.png",
+      "emissive": "../brokenCenser-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../brokenCenser-skill-r5/parts/Arm_R.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Arm_R-Emissive.png",
+      "weighted": true,
+      "vertices": 91,
+      "triangles": 147
+    },
+    "Interior": {
+      "image": "../brokenCenser-skill-r5/images/Interior.png",
+      "emissive": "../brokenCenser-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 479,
+        "y": 220,
+        "w": 474,
+        "h": 381
+      },
+      "independent": true,
+      "sourcePart": "../brokenCenser-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Furnace_Plate_L": {
+      "image": "../brokenCenser-skill-r5/images/Furnace_Plate_L.png",
+      "emissive": "../brokenCenser-skill-r5/images/Furnace_Plate_L-Emissive.png",
+      "rect": {
+        "x": 485,
+        "y": 226,
+        "w": 171,
+        "h": 262
+      },
+      "independent": true,
+      "sourcePart": "../brokenCenser-skill-r5/parts/Furnace_Plate_L.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Furnace_Plate_L-Emissive.png"
+    },
+    "Furnace_Plate_R": {
+      "image": "../brokenCenser-skill-r5/images/Furnace_Plate_R.png",
+      "emissive": "../brokenCenser-skill-r5/images/Furnace_Plate_R-Emissive.png",
+      "rect": {
+        "x": 621,
+        "y": 231,
+        "w": 326,
+        "h": 288
+      },
+      "independent": true,
+      "sourcePart": "../brokenCenser-skill-r5/parts/Furnace_Plate_R.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Furnace_Plate_R-Emissive.png"
+    },
+    "Furnace_Plate_Bottom": {
+      "image": "../brokenCenser-skill-r5/images/Furnace_Plate_Bottom.png",
+      "emissive": "../brokenCenser-skill-r5/images/Furnace_Plate_Bottom-Emissive.png",
+      "rect": {
+        "x": 616,
+        "y": 445,
+        "w": 258,
+        "h": 150
+      },
+      "independent": true,
+      "sourcePart": "../brokenCenser-skill-r5/parts/Furnace_Plate_Bottom.png",
+      "sourceEmissive": "../brokenCenser-skill-r5/parts/Furnace_Plate_Bottom-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.2599999999999998,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.693,
+          0.5
+        ],
+        [
+          1.2599999999999998,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.567,
+          0.65
+        ],
+        [
+          1.0836,
+          2.5
+        ],
+        [
+          1.2599999999999998,
+          2.5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.5,
+          2.3499999999999996
+        ],
+        [
+          1,
+          2.5
+        ],
+        [
+          1.5,
+          2.3499999999999996
+        ],
+        [
+          2,
+          2.5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.25,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.2599999999999998,
+          1
+        ],
+        [
+          1.7999999999999998,
+          1
+        ],
+        [
+          2.95,
+          0
+        ],
+        [
+          3.25,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.567,
+          0.65
+        ],
+        [
+          1.0836,
+          2.5
+        ],
+        [
+          1.2599999999999998,
+          2.5
+        ],
+        [
+          1.4,
+          5
+        ],
+        [
+          1.45,
+          5
+        ],
+        [
+          1.65,
+          3.6
+        ],
+        [
+          2.05,
+          1.4
+        ],
+        [
+          3.25,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.9900000000000002,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.6900000000000004,
+          0
+        ],
+        [
+          1.9900000000000002,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.14000000000000012,
+          5
+        ],
+        [
+          0.19000000000000017,
+          5
+        ],
+        [
+          0.3900000000000001,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.9900000000000002,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -377,
+      "y": 18
+    },
+    {
+      "x": 312,
+      "y": 61
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../brokenCenser-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1008
+  },
+  "vfx": {
+    "type": "censer-fire",
+    "origin": [
+      755,
+      443
+    ],
+    "skill": "裂盞祭火",
+    "action": "身軀扭轉扯緊鎖鏈，將兩側巨型吊盆甩向半空，盞腹餘燼燒紅噴發祭火！",
+    "matrix": "Ceremony_Fire_Matrix",
+    "mode": "ceremony",
+    "color": "gold",
+    "core": {
+      "bone": "Core_Furnace",
+      "point": [
+        755,
+        443
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Pots_Chains_L",
+        "point": [
+          200,
+          550
+        ]
+      },
+      {
+        "bone": "Pots_Chains_R",
+        "point": [
+          1340,
+          530
+        ]
+      }
+    ],
+    "phase": [
+      "扭腰甩盆 · 迴旋祭火",
+      "裂盞祭火 · 熔爐暴亮",
+      "火焰光軌與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "裂盞祭火",
+  "kind": "brokenCenser",
+  "skillTiming": {
+    "impact": 1.4,
+    "hitStopSeconds": 0.05,
+    "duration": 3.25
+  }
+}

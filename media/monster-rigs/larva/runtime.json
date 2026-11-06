@@ -1,0 +1,243 @@
+{
+  "id": "larva",
+  "name": "岩殼幼蟲",
+  "bounds": {
+    "w": 1500,
+    "h": 900
+  },
+  "version": 1,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 600,
+    "depth": 90
+  },
+  "coreBone": "abdomen_mid",
+  "coreSlot": "Larva_Body",
+  "emissionBone": "abdomen_mid",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Larva_Body": {
+      "image": "images/Larva_Body.png",
+      "emissive": "images/Larva_Body-Emissive.png",
+      "material": "images/Larva_Body-Material.png",
+      "maps": {
+        "albedo": "images/Larva_Body.png",
+        "roughness": "images/Larva_Body-Roughness.png",
+        "metallic": "images/Larva_Body-Metallic.png",
+        "ao": "images/Larva_Body-AO.png"
+      },
+      "weighted": true,
+      "vertices": 377,
+      "triangles": 672,
+      "rect": {
+        "x": -650,
+        "y": 700,
+        "w": 1220,
+        "h": 700
+      }
+    },
+    "Mouth_Pins": {
+      "image": "images/Mouth_Pins.png",
+      "emissive": "images/Mouth_Pins-Emissive.png",
+      "material": "images/Mouth_Pins-Material.png",
+      "maps": {
+        "albedo": "images/Mouth_Pins.png",
+        "roughness": "images/Mouth_Pins-Roughness.png",
+        "metallic": "images/Mouth_Pins-Metallic.png",
+        "ao": "images/Mouth_Pins-AO.png"
+      },
+      "weighted": false,
+      "vertices": 81,
+      "triangles": 128,
+      "rect": {
+        "x": -520,
+        "y": 270,
+        "w": 145,
+        "h": 158
+      }
+    }
+  },
+  "states": {
+    "idle": {
+      "duration": 1.4,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.4,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.35,
+          0.156
+        ],
+        [
+          0.7,
+          0.128
+        ],
+        [
+          1.05,
+          0.135
+        ],
+        [
+          1.4,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 1.2,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.25,
+          0.7999999999999999
+        ],
+        [
+          0.43,
+          0.955
+        ],
+        [
+          0.6,
+          0.675
+        ],
+        [
+          0.75,
+          0.38
+        ],
+        [
+          0.82,
+          0.16999999999999998
+        ],
+        [
+          1.2,
+          0.1
+        ]
+      ],
+      "actionLabel": "向你凌空躍撲",
+      "impactTime": 0.75
+    },
+    "dodge": {
+      "duration": 0.8,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.8,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.2,
+          0.92
+        ],
+        [
+          0.45,
+          0.16999999999999998
+        ],
+        [
+          0.8,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.55,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.55,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.08,
+          0.31
+        ],
+        [
+          0.2,
+          0.135
+        ],
+        [
+          0.55,
+          0.1
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Native raster-derived 2D material maps, not 8K physical PBR baking",
+  "effectProfile": "larva-pounce",
+  "impactContacts": [
+    {
+      "x": -760,
+      "y": 0
+    }
+  ],
+  "textureMipmaps": true,
+  "pool": {
+    "sharedTextures": true,
+    "slotsPerInstance": 2,
+    "meshVertices": 458,
+    "depthKey": "groundY, then stable instance id",
+    "airborneSort": "Ground pivot is retained through pounce; jump height affects only bones",
+    "worldCollision": "Rig exports footprint only. Scene collision integration is separate."
+  },
+  "officialRuntimeVerified": true,
+  "spineImport": "Official Spine 3.8 runtime JSON / atlas / mesh / deform validation passed. Editor not tested.",
+  "battleIntegrated": false,
+  "status": "independent-parts-runtime-review-ready"
+}

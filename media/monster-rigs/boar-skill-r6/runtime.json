@@ -1,0 +1,507 @@
+{
+  "id": "boar-skill-r6",
+  "name": "荊冠空骸",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Bone_Mask_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Bone_Mask_Body": {
+      "image": "../boar-skill-r5/images/Master.png",
+      "emissive": "../boar-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../boar-skill-r5/parts/Bone_Mask_Body.png",
+      "sourceEmissive": "../boar-skill-r5/parts/Bone_Mask_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2380,
+      "triangles": 4345
+    },
+    "Root_Arm_L": {
+      "image": "../boar-skill-r5/images/Master.png",
+      "emissive": "../boar-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../boar-skill-r5/parts/Root_Arm_L.png",
+      "sourceEmissive": "../boar-skill-r5/parts/Root_Arm_L-Emissive.png",
+      "weighted": true,
+      "vertices": 257,
+      "triangles": 448
+    },
+    "Root_Arm_R": {
+      "image": "../boar-skill-r5/images/Master.png",
+      "emissive": "../boar-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../boar-skill-r5/parts/Root_Arm_R.png",
+      "sourceEmissive": "../boar-skill-r5/parts/Root_Arm_R-Emissive.png",
+      "weighted": true,
+      "vertices": 203,
+      "triangles": 342
+    },
+    "Thorn_Crown": {
+      "image": "../boar-skill-r5/images/Master.png",
+      "emissive": "../boar-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../boar-skill-r5/parts/Thorn_Crown.png",
+      "sourceEmissive": "../boar-skill-r5/parts/Thorn_Crown-Emissive.png",
+      "weighted": true,
+      "vertices": 134,
+      "triangles": 216
+    },
+    "Chest": {
+      "image": "../boar-skill-r5/images/Master.png",
+      "emissive": "../boar-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../boar-skill-r5/parts/Chest.png",
+      "sourceEmissive": "../boar-skill-r5/parts/Chest-Emissive.png",
+      "weighted": true,
+      "vertices": 166,
+      "triangles": 281
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.58,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.8690000000000001,
+          0.5
+        ],
+        [
+          1.58,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.7110000000000001,
+          0.65
+        ],
+        [
+          1.3588,
+          2.5
+        ],
+        [
+          1.58,
+          2.5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.5,
+          2.3499999999999996
+        ],
+        [
+          1,
+          2.5
+        ],
+        [
+          1.5,
+          2.3499999999999996
+        ],
+        [
+          2,
+          2.5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.25,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.58,
+          1
+        ],
+        [
+          2.12,
+          1
+        ],
+        [
+          2.95,
+          0
+        ],
+        [
+          3.25,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.7110000000000001,
+          0.65
+        ],
+        [
+          1.3588,
+          2.5
+        ],
+        [
+          1.58,
+          2.5
+        ],
+        [
+          1.72,
+          5
+        ],
+        [
+          1.77,
+          5
+        ],
+        [
+          1.97,
+          3.6
+        ],
+        [
+          2.37,
+          1.4
+        ],
+        [
+          3.25,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.67,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.37,
+          0
+        ],
+        [
+          1.67,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.1399999999999999,
+          5
+        ],
+        [
+          0.18999999999999995,
+          5
+        ],
+        [
+          0.3899999999999999,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.67,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -633,
+      "y": 108
+    },
+    {
+      "x": 622,
+      "y": 88
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../boar-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1008
+  },
+  "vfx": {
+    "type": "root-anchor",
+    "origin": [
+      215,
+      910
+    ],
+    "skill": "紮根撞擊",
+    "action": "將根臂扎入地面蓄力！下一回合根臂猛然撞來！",
+    "matrix": "Cursed_Root_Runes",
+    "mode": "anchors",
+    "color": "gold",
+    "core": {
+      "bone": "Thorn_Crown",
+      "point": [
+        710,
+        200
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Root_Arm_L",
+        "point": [
+          180,
+          925
+        ]
+      },
+      {
+        "bone": "Root_Arm_R",
+        "point": [
+          1360,
+          925
+        ]
+      }
+    ],
+    "ground": "roots",
+    "phase": [
+      "根臂扎地 · 詛咒符文",
+      "紮根撞擊 · 地脈逆流",
+      "黑電與星沙餘波"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "紮根撞擊",
+  "kind": "boar",
+  "skillTiming": {
+    "impact": 1.72,
+    "hitStopSeconds": 0.05,
+    "duration": 3.25
+  }
+}

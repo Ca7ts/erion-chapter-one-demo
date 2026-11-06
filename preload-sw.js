@@ -12,7 +12,10 @@ self.addEventListener('fetch',event=>{
  if(request.method!=='GET'||url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname)||request.mode==='navigate'||request.headers.has('X-Erion-Download')||url.pathname.endsWith('/download-manifest.json'))return;
  event.respondWith((async()=>{
   url.search='';let hit;
-  for(const cache of await getResourceCaches()){hit=await cache.match(url.href);if(hit)break;}
+  // Safari can evict or temporarily deny CacheStorage under storage pressure.
+  // A cache failure must fall back to the network, not fail a battle resource.
+  try{for(const cache of await getResourceCaches()){hit=await cache.match(url.href);if(hit)break;}}
+  catch{resourceCaches=null;return fetch(request);}
   if(!hit)return fetch(request);
   const range=request.headers.get('range');if(!range)return hit;
   const match=/^bytes=(\d*)-(\d*)$/.exec(range);if(!match)return hit;

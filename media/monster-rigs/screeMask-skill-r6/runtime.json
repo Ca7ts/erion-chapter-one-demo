@@ -1,0 +1,495 @@
+{
+  "id": "screeMask-skill-r6",
+  "name": "封塵石面",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Stone_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Stone_Body": {
+      "image": "../screeMask-skill-r5/images/Master.png",
+      "emissive": "../screeMask-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../screeMask-skill-r5/parts/Stone_Body.png",
+      "sourceEmissive": "../screeMask-skill-r5/parts/Stone_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2513,
+      "triangles": 4649
+    },
+    "Stone_Mask": {
+      "image": "../screeMask-skill-r5/images/Master.png",
+      "emissive": "../screeMask-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../screeMask-skill-r5/parts/Stone_Mask.png",
+      "sourceEmissive": "../screeMask-skill-r5/parts/Stone_Mask-Emissive.png",
+      "weighted": true,
+      "vertices": 132,
+      "triangles": 211
+    },
+    "Shoulder_Cracks": {
+      "image": "../screeMask-skill-r5/images/Master.png",
+      "emissive": "../screeMask-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../screeMask-skill-r5/parts/Shoulder_Cracks.png",
+      "sourceEmissive": "../screeMask-skill-r5/parts/Shoulder_Cracks-Emissive.png",
+      "weighted": true,
+      "vertices": 262,
+      "triangles": 452
+    },
+    "Arm_L": {
+      "image": "../screeMask-skill-r5/images/Master.png",
+      "emissive": "../screeMask-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../screeMask-skill-r5/parts/Arm_L.png",
+      "sourceEmissive": "../screeMask-skill-r5/parts/Arm_L-Emissive.png",
+      "weighted": true,
+      "vertices": 188,
+      "triangles": 320
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 0.9899999999999999,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5445,
+          0.5
+        ],
+        [
+          0.9899999999999999,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.44549999999999995,
+          0.65
+        ],
+        [
+          0.8513999999999999,
+          5
+        ],
+        [
+          0.9899999999999999,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 2.8,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.9899999999999999,
+          1
+        ],
+        [
+          1.5299999999999998,
+          1
+        ],
+        [
+          2.5,
+          0
+        ],
+        [
+          2.8,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.44549999999999995,
+          0.65
+        ],
+        [
+          0.8513999999999999,
+          5
+        ],
+        [
+          0.9899999999999999,
+          5
+        ],
+        [
+          1.13,
+          5
+        ],
+        [
+          1.18,
+          5
+        ],
+        [
+          1.38,
+          3.6
+        ],
+        [
+          1.7799999999999998,
+          1.4
+        ],
+        [
+          2.8,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.81,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.5399999999999999,
+          1
+        ],
+        [
+          1.5100000000000002,
+          0
+        ],
+        [
+          1.81,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14,
+          5
+        ],
+        [
+          0.19000000000000006,
+          5
+        ],
+        [
+          0.39,
+          3.6
+        ],
+        [
+          0.7899999999999999,
+          1.4
+        ],
+        [
+          1.81,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -498,
+      "y": 30
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../screeMask-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1016
+  },
+  "vfx": {
+    "type": "sandfall",
+    "origin": [
+      825,
+      450
+    ],
+    "skill": "碎屑遮目",
+    "action": "壓低石面面壁，肩上赤砂沿裂縫如瀑布般滑落，施放碎屑遮目！",
+    "matrix": "Red_Sandfall_Veil",
+    "mode": "sand",
+    "color": "gold",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Stone_Mask",
+      "point": [
+        825,
+        450
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Shoulder_Cracks",
+        "point": [
+          510,
+          240
+        ]
+      },
+      {
+        "bone": "Shoulder_Cracks",
+        "point": [
+          1150,
+          280
+        ]
+      }
+    ],
+    "fog": "sand",
+    "phase": [
+      "面壁低俯 · 肩縫赤砂瀑布",
+      "碎屑遮目 · 發光砂塵擴散",
+      "暗紅砂幕、黑電與白霧"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "碎屑遮目",
+  "kind": "screeMask",
+  "skillTiming": {
+    "impact": 1.13,
+    "hitStopSeconds": 0.05,
+    "duration": 2.8
+  }
+}

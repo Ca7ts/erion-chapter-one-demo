@@ -1,0 +1,492 @@
+{
+  "id": "whiteThornStag-skill-r6",
+  "name": "白枝荊鹿",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Deer_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Deer_Body": {
+      "image": "../whiteThornStag-skill-r5/images/Master.png",
+      "emissive": "../whiteThornStag-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../whiteThornStag-skill-r5/parts/Deer_Body.png",
+      "sourceEmissive": "../whiteThornStag-skill-r5/parts/Deer_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2580,
+      "triangles": 4811
+    },
+    "White_Stone_Antlers": {
+      "image": "../whiteThornStag-skill-r5/images/Master.png",
+      "emissive": "../whiteThornStag-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../whiteThornStag-skill-r5/parts/White_Stone_Antlers.png",
+      "sourceEmissive": "../whiteThornStag-skill-r5/parts/White_Stone_Antlers-Emissive.png",
+      "weighted": true,
+      "vertices": 341,
+      "triangles": 580
+    },
+    "Bone_Mask": {
+      "image": "../whiteThornStag-skill-r5/images/Master.png",
+      "emissive": "../whiteThornStag-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../whiteThornStag-skill-r5/parts/Bone_Mask.png",
+      "sourceEmissive": "../whiteThornStag-skill-r5/parts/Bone_Mask-Emissive.png",
+      "weighted": true,
+      "vertices": 78,
+      "triangles": 118
+    },
+    "Neck": {
+      "image": "../whiteThornStag-skill-r5/images/Master.png",
+      "emissive": "../whiteThornStag-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../whiteThornStag-skill-r5/parts/Neck.png",
+      "sourceEmissive": "../whiteThornStag-skill-r5/parts/Neck-Emissive.png",
+      "weighted": true,
+      "vertices": 82,
+      "triangles": 123
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.48,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.8140000000000001,
+          0.5
+        ],
+        [
+          1.48,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.666,
+          0.65
+        ],
+        [
+          1.2728,
+          5
+        ],
+        [
+          1.48,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.25,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.48,
+          1
+        ],
+        [
+          2.02,
+          1
+        ],
+        [
+          2.95,
+          0
+        ],
+        [
+          3.25,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.666,
+          0.65
+        ],
+        [
+          1.2728,
+          5
+        ],
+        [
+          1.48,
+          5
+        ],
+        [
+          1.62,
+          5
+        ],
+        [
+          1.6700000000000002,
+          5
+        ],
+        [
+          1.87,
+          3.6
+        ],
+        [
+          2.27,
+          1.4
+        ],
+        [
+          3.25,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.77,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.4700000000000002,
+          0
+        ],
+        [
+          1.77,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14000000000000012,
+          5
+        ],
+        [
+          0.19000000000000017,
+          5
+        ],
+        [
+          0.3900000000000001,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.77,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -265,
+      "y": 31
+    },
+    {
+      "x": -93,
+      "y": 5
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../whiteThornStag-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1008
+  },
+  "vfx": {
+    "type": "thorn-enclosure",
+    "origin": [
+      500,
+      970
+    ],
+    "skill": "白荊封徑",
+    "action": "鹿角壓低，引導地面兩側的荊棘藤蔓向中心狂暴合圍！",
+    "matrix": "Stone_Refraction_Beams",
+    "mode": "stone",
+    "color": "silver",
+    "chargePeak": 5,
+    "core": {
+      "bone": "White_Stone_Antlers",
+      "point": [
+        480,
+        310
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "White_Stone_Antlers",
+        "point": [
+          500,
+          660
+        ]
+      }
+    ],
+    "ground": "enclosure",
+    "phase": [
+      "鹿角壓低 · 白石折射星芒",
+      "白荊封徑 · 兩側荊根合圍",
+      "赤流與黑電散逸"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "白荊封徑",
+  "kind": "whiteThornStag",
+  "skillTiming": {
+    "impact": 1.62,
+    "hitStopSeconds": 0.05,
+    "duration": 3.25
+  }
+}

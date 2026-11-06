@@ -1,0 +1,303 @@
+{
+  "id": "moth",
+  "name": "幽燈繭靈",
+  "version": 1,
+  "renderer": "independent WebGL 2D mesh runtime",
+  "spineImport": "Official Spine 3.8 runtime: JSON/atlas/mesh/deform passed; Spine Editor untested",
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 300,
+    "depth": 65
+  },
+  "bounds": {
+    "x": -800,
+    "y": 0,
+    "w": 1600,
+    "h": 1000
+  },
+  "slots": {
+    "Mineral_Silk_L": {
+      "image": "images/Mineral_Silk_L.png",
+      "emissive": "images/Mineral_Silk_L-emissive.png",
+      "rect": {
+        "x": 535,
+        "y": 390,
+        "w": -490,
+        "h": 175
+      },
+      "vertices": 115,
+      "triangles": 176
+    },
+    "Mineral_Silk_R": {
+      "image": "images/Mineral_Silk_R.png",
+      "emissive": "images/Mineral_Silk_R-emissive.png",
+      "rect": {
+        "x": 865,
+        "y": 395,
+        "w": 490,
+        "h": 175
+      },
+      "vertices": 115,
+      "triangles": 176
+    },
+    "Core_Lantern": {
+      "image": "images/Core_Lantern.png",
+      "emissive": "images/Core_Lantern-emissive.png",
+      "rect": {
+        "x": 605,
+        "y": 220,
+        "w": 190,
+        "h": 495
+      },
+      "vertices": 273,
+      "triangles": 480
+    },
+    "Outer_Cocoon_L": {
+      "image": "images/Outer_Cocoon_L.png",
+      "emissive": null,
+      "rect": {
+        "x": 455,
+        "y": 130,
+        "w": 285,
+        "h": 650
+      },
+      "vertices": 121,
+      "triangles": 200
+    },
+    "Outer_Cocoon_R": {
+      "image": "images/Outer_Cocoon_R.png",
+      "emissive": null,
+      "rect": {
+        "x": 640,
+        "y": 130,
+        "w": 285,
+        "h": 650
+      },
+      "vertices": 121,
+      "triangles": 200
+    }
+  },
+  "states": {
+    "idle": {
+      "duration": 3,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.56,
+          1
+        ],
+        [
+          3,
+          0.3
+        ]
+      ]
+    },
+    "open": {
+      "duration": 3,
+      "loop": true,
+      "end": "open",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.56,
+          1
+        ],
+        [
+          3,
+          0.3
+        ]
+      ]
+    },
+    "awaken": {
+      "duration": 2.5,
+      "loop": false,
+      "end": "open",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          1
+        ],
+        [
+          2.5,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          1
+        ],
+        [
+          2.5,
+          0.3
+        ]
+      ]
+    },
+    "close": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.676,
+          1
+        ],
+        [
+          1.3,
+          0.3
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 2,
+      "loop": true,
+      "end": "charge",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.04,
+          1
+        ],
+        [
+          2,
+          0.3
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.4,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.1,
+          1
+        ],
+        [
+          2.6,
+          1
+        ],
+        [
+          3.4,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.768,
+          2
+        ],
+        [
+          3.4,
+          0.3
+        ]
+      ]
+    }
+  },
+  "coreBone": "core",
+  "coreSlot": "Core_Lantern",
+  "emissionColor": [
+    0.8,
+    0.25,
+    1
+  ],
+  "openingBones": [
+    {
+      "bone": "cocoon_L",
+      "x": -70,
+      "y": 10,
+      "angle": -12,
+      "sx": 0.63,
+      "sy": 1
+    },
+    {
+      "bone": "cocoon_R",
+      "x": 70,
+      "y": 10,
+      "angle": 12,
+      "sx": 0.63,
+      "sy": 1
+    }
+  ],
+  "pending": [
+    "Spine Editor import validation",
+    "player art review",
+    "Full attack/dodge/hit reconstruction and battle integration"
+  ],
+  "playerArtApproved": true,
+  "playerApprovalDate": "2026-11-06",
+  "playerApprovalScope": "existing first-four independent parts, opening occlusion and separate emission",
+  "officialRuntimeVerified": true
+}

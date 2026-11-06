@@ -1,0 +1,513 @@
+{
+  "id": "reefTideBearer-skill-r6",
+  "name": "礁冠負潮者",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Crab_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Crab_Body": {
+      "image": "../reefTideBearer-skill-r5/images/Master.png",
+      "emissive": "../reefTideBearer-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../reefTideBearer-skill-r5/parts/Crab_Body.png",
+      "sourceEmissive": "../reefTideBearer-skill-r5/parts/Crab_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2401,
+      "triangles": 4406
+    },
+    "Giant_Claw": {
+      "image": "../reefTideBearer-skill-r5/images/Master.png",
+      "emissive": "../reefTideBearer-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../reefTideBearer-skill-r5/parts/Giant_Claw.png",
+      "sourceEmissive": "../reefTideBearer-skill-r5/parts/Giant_Claw-Emissive.png",
+      "weighted": true,
+      "vertices": 160,
+      "triangles": 268
+    },
+    "Claw_Far": {
+      "image": "../reefTideBearer-skill-r5/images/Master.png",
+      "emissive": "../reefTideBearer-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../reefTideBearer-skill-r5/parts/Claw_Far.png",
+      "sourceEmissive": "../reefTideBearer-skill-r5/parts/Claw_Far-Emissive.png",
+      "weighted": true,
+      "vertices": 187,
+      "triangles": 313
+    },
+    "Surface_Giant_Shell": {
+      "image": "../reefTideBearer-skill-r5/images/Master.png",
+      "emissive": "../reefTideBearer-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../reefTideBearer-skill-r5/parts/Surface_Giant_Shell.png",
+      "sourceEmissive": "../reefTideBearer-skill-r5/parts/Surface_Giant_Shell-Emissive.png",
+      "weighted": true,
+      "vertices": 361,
+      "triangles": 645
+    },
+    "Interior": {
+      "image": "../reefTideBearer-skill-r5/images/Interior.png",
+      "emissive": "../reefTideBearer-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 588,
+        "y": 0,
+        "w": 948,
+        "h": 608
+      },
+      "independent": true,
+      "sourcePart": "../reefTideBearer-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../reefTideBearer-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Giant_Shell": {
+      "image": "../reefTideBearer-skill-r5/images/Giant_Shell.png",
+      "emissive": "../reefTideBearer-skill-r5/images/Giant_Shell-Emissive.png",
+      "rect": {
+        "x": 594,
+        "y": 1,
+        "w": 942,
+        "h": 601
+      },
+      "independent": true,
+      "sourcePart": "../reefTideBearer-skill-r5/parts/Giant_Shell.png",
+      "sourceEmissive": "../reefTideBearer-skill-r5/parts/Giant_Shell-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.54,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.8470000000000001,
+          0.5
+        ],
+        [
+          1.54,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.6930000000000001,
+          0.65
+        ],
+        [
+          1.3244,
+          2.5
+        ],
+        [
+          1.54,
+          2.5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.5,
+          2.3499999999999996
+        ],
+        [
+          1,
+          2.5
+        ],
+        [
+          1.5,
+          2.3499999999999996
+        ],
+        [
+          2,
+          2.5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.6,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.54,
+          1
+        ],
+        [
+          2.08,
+          1
+        ],
+        [
+          3.3000000000000003,
+          0
+        ],
+        [
+          3.6,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.6930000000000001,
+          0.65
+        ],
+        [
+          1.3244,
+          2.5
+        ],
+        [
+          1.54,
+          2.5
+        ],
+        [
+          1.68,
+          5
+        ],
+        [
+          1.73,
+          5
+        ],
+        [
+          1.93,
+          3.6
+        ],
+        [
+          2.33,
+          1.4
+        ],
+        [
+          3.6,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 2.06,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.7600000000000002,
+          0
+        ],
+        [
+          2.06,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.1399999999999999,
+          5
+        ],
+        [
+          0.18999999999999995,
+          5
+        ],
+        [
+          0.3899999999999999,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          2.06,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -8,
+      "y": 33
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../reefTideBearer-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1008
+  },
+  "vfx": {
+    "type": "tidal-return",
+    "origin": [
+      785,
+      960
+    ],
+    "skill": "負潮回湧",
+    "action": "螺殼向側面極度傾斜，引導海潮灌入鹽礁縫隙，釋放負潮回湧！",
+    "matrix": "Abyssal_Vortex_Matrix",
+    "mode": "tide",
+    "color": "blue",
+    "core": {
+      "bone": "Giant_Shell",
+      "point": [
+        1000,
+        400
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Giant_Claw",
+        "point": [
+          450,
+          900
+        ]
+      }
+    ],
+    "ground": "crystal",
+    "phase": [
+      "螺殼側傾 · 逆時針潮汐",
+      "負潮回湧 · 海潮與晶岩熔流",
+      "冷藍赤紅衝突與蒸汽"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "負潮回湧",
+  "kind": "reefTideBearer",
+  "skillTiming": {
+    "impact": 1.68,
+    "hitStopSeconds": 0.05,
+    "duration": 3.6
+  }
+}

@@ -1,0 +1,604 @@
+{
+  "id": "oathStatue-skill-r6",
+  "name": "三面殘誓像",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Statue_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Statue_Body": {
+      "image": "../oathStatue-skill-r5/images/Master.png",
+      "emissive": "../oathStatue-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../oathStatue-skill-r5/parts/Statue_Body.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Statue_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2847,
+      "triangles": 5405
+    },
+    "Core_Button": {
+      "image": "../oathStatue-skill-r5/images/Master.png",
+      "emissive": "../oathStatue-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../oathStatue-skill-r5/parts/Core_Button.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Core_Button-Emissive.png",
+      "weighted": true,
+      "vertices": 13,
+      "triangles": 13
+    },
+    "Surface_Chest_Armor_L": {
+      "image": "../oathStatue-skill-r5/images/Master.png",
+      "emissive": "../oathStatue-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../oathStatue-skill-r5/parts/Surface_Chest_Armor_L.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Surface_Chest_Armor_L-Emissive.png",
+      "weighted": true,
+      "vertices": 44,
+      "triangles": 60
+    },
+    "Surface_Chest_Armor_R": {
+      "image": "../oathStatue-skill-r5/images/Master.png",
+      "emissive": "../oathStatue-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../oathStatue-skill-r5/parts/Surface_Chest_Armor_R.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Surface_Chest_Armor_R-Emissive.png",
+      "weighted": true,
+      "vertices": 40,
+      "triangles": 53
+    },
+    "Surface_Three_Faces": {
+      "image": "../oathStatue-skill-r5/images/Master.png",
+      "emissive": "../oathStatue-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../oathStatue-skill-r5/parts/Surface_Three_Faces.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Surface_Three_Faces-Emissive.png",
+      "weighted": true,
+      "vertices": 67,
+      "triangles": 101
+    },
+    "Interior": {
+      "image": "../oathStatue-skill-r5/images/Interior.png",
+      "emissive": "../oathStatue-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 602,
+        "y": 0,
+        "w": 346,
+        "h": 481
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Chest_Armor_L": {
+      "image": "../oathStatue-skill-r5/images/Chest_Armor_L.png",
+      "emissive": "../oathStatue-skill-r5/images/Chest_Armor_L-Emissive.png",
+      "rect": {
+        "x": 673,
+        "y": 265,
+        "w": 150,
+        "h": 208
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/Chest_Armor_L.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Chest_Armor_L-Emissive.png"
+    },
+    "Chest_Armor_R": {
+      "image": "../oathStatue-skill-r5/images/Chest_Armor_R.png",
+      "emissive": "../oathStatue-skill-r5/images/Chest_Armor_R-Emissive.png",
+      "rect": {
+        "x": 851,
+        "y": 273,
+        "w": 91,
+        "h": 202
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/Chest_Armor_R.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Chest_Armor_R-Emissive.png"
+    },
+    "Three_Faces": {
+      "image": "../oathStatue-skill-r5/images/Three_Faces.png",
+      "emissive": "../oathStatue-skill-r5/images/Three_Faces-Emissive.png",
+      "rect": {
+        "x": 608,
+        "y": 0,
+        "w": 320,
+        "h": 216
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/Three_Faces.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/Three_Faces-Emissive.png"
+    },
+    "HeadTurn_0": {
+      "image": "../oathStatue-skill-r5/images/HeadTurn_0.png",
+      "emissive": "../oathStatue-skill-r5/images/HeadTurn_0-Emissive.png",
+      "rect": {
+        "x": 634,
+        "y": 0,
+        "w": 285,
+        "h": 210
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/HeadTurn_0.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/HeadTurn_0-Emissive.png"
+    },
+    "HeadTurn_1": {
+      "image": "../oathStatue-skill-r5/images/HeadTurn_1.png",
+      "emissive": "../oathStatue-skill-r5/images/HeadTurn_1-Emissive.png",
+      "rect": {
+        "x": 634,
+        "y": 0,
+        "w": 285,
+        "h": 210
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/HeadTurn_1.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/HeadTurn_1-Emissive.png"
+    },
+    "HeadTurn_2": {
+      "image": "../oathStatue-skill-r5/images/HeadTurn_2.png",
+      "emissive": "../oathStatue-skill-r5/images/HeadTurn_2-Emissive.png",
+      "rect": {
+        "x": 634,
+        "y": 0,
+        "w": 285,
+        "h": 210
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/HeadTurn_2.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/HeadTurn_2-Emissive.png"
+    },
+    "HeadTurn_3": {
+      "image": "../oathStatue-skill-r5/images/HeadTurn_3.png",
+      "emissive": "../oathStatue-skill-r5/images/HeadTurn_3-Emissive.png",
+      "rect": {
+        "x": 634,
+        "y": 0,
+        "w": 285,
+        "h": 210
+      },
+      "independent": true,
+      "sourcePart": "../oathStatue-skill-r5/parts/HeadTurn_3.png",
+      "sourceEmissive": "../oathStatue-skill-r5/parts/HeadTurn_3-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.4100000000000001,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.7755000000000002,
+          0.5
+        ],
+        [
+          1.4100000000000001,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.6345000000000001,
+          0.65
+        ],
+        [
+          1.2126000000000001,
+          5
+        ],
+        [
+          1.4100000000000001,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.35,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.4100000000000001,
+          1
+        ],
+        [
+          1.9500000000000002,
+          1
+        ],
+        [
+          3.0500000000000003,
+          0
+        ],
+        [
+          3.35,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.6345000000000001,
+          0.65
+        ],
+        [
+          1.2126000000000001,
+          5
+        ],
+        [
+          1.4100000000000001,
+          5
+        ],
+        [
+          1.55,
+          5
+        ],
+        [
+          1.6,
+          5
+        ],
+        [
+          1.8,
+          3.6
+        ],
+        [
+          2.2,
+          1.4
+        ],
+        [
+          3.35,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.94,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.6400000000000001,
+          0
+        ],
+        [
+          1.94,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.1399999999999999,
+          5
+        ],
+        [
+          0.18999999999999995,
+          5
+        ],
+        [
+          0.3899999999999999,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.94,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -307,
+      "y": 12
+    },
+    {
+      "x": 341,
+      "y": 16
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../oathStatue-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1016
+  },
+  "vfx": {
+    "type": "oath-rotation",
+    "origin": [
+      842,
+      357
+    ],
+    "skill": "三誓輪守",
+    "action": "三張石面發生機械式高速輪轉，胸前厚重石甲開裂露出古代金屬銅扣！",
+    "matrix": "Three_Oaths_Guard_Matrix",
+    "mode": "oath",
+    "color": "gold",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Core_Button",
+      "point": [
+        842,
+        357
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Three_Faces",
+        "point": [
+          778,
+          170
+        ]
+      }
+    ],
+    "phase": [
+      "三面輪轉 · 銅扣暴亮",
+      "三誓輪守 · 核心能量奔流",
+      "守勢符文與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "三誓輪守",
+  "kind": "oathStatue",
+  "skillTiming": {
+    "impact": 1.55,
+    "hitStopSeconds": 0.05,
+    "duration": 3.35
+  }
+}

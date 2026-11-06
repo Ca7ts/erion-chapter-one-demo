@@ -1,0 +1,559 @@
+{
+  "id": "chainShade-skill-r6",
+  "name": "銅鏈噤靈",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Spirit_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Spirit_Body": {
+      "image": "../chainShade-skill-r5/images/Master.png",
+      "emissive": "../chainShade-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../chainShade-skill-r5/parts/Spirit_Body.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Spirit_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2485,
+      "triangles": 4550
+    },
+    "Hook_Chains_L": {
+      "image": "../chainShade-skill-r5/images/Master.png",
+      "emissive": "../chainShade-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../chainShade-skill-r5/parts/Hook_Chains_L.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Hook_Chains_L-Emissive.png",
+      "weighted": true,
+      "vertices": 203,
+      "triangles": 345
+    },
+    "Hook_Chains_R": {
+      "image": "../chainShade-skill-r5/images/Master.png",
+      "emissive": "../chainShade-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../chainShade-skill-r5/parts/Hook_Chains_R.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Hook_Chains_R-Emissive.png",
+      "weighted": true,
+      "vertices": 159,
+      "triangles": 266
+    },
+    "Robe": {
+      "image": "../chainShade-skill-r5/images/Master.png",
+      "emissive": "../chainShade-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../chainShade-skill-r5/parts/Robe.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Robe-Emissive.png",
+      "weighted": true,
+      "vertices": 190,
+      "triangles": 320
+    },
+    "Surface_Core_Lock": {
+      "image": "../chainShade-skill-r5/images/Master.png",
+      "emissive": "../chainShade-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../chainShade-skill-r5/parts/Surface_Core_Lock.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Surface_Core_Lock-Emissive.png",
+      "weighted": true,
+      "vertices": 98,
+      "triangles": 151
+    },
+    "Interior": {
+      "image": "../chainShade-skill-r5/images/Interior.png",
+      "emissive": "../chainShade-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 731,
+        "y": 259,
+        "w": 246,
+        "h": 313
+      },
+      "independent": true,
+      "sourcePart": "../chainShade-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Lock_Plate_L": {
+      "image": "../chainShade-skill-r5/images/Lock_Plate_L.png",
+      "emissive": "../chainShade-skill-r5/images/Lock_Plate_L-Emissive.png",
+      "rect": {
+        "x": 737,
+        "y": 277,
+        "w": 132,
+        "h": 235
+      },
+      "independent": true,
+      "sourcePart": "../chainShade-skill-r5/parts/Lock_Plate_L.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Lock_Plate_L-Emissive.png"
+    },
+    "Lock_Plate_R": {
+      "image": "../chainShade-skill-r5/images/Lock_Plate_R.png",
+      "emissive": "../chainShade-skill-r5/images/Lock_Plate_R-Emissive.png",
+      "rect": {
+        "x": 885,
+        "y": 265,
+        "w": 86,
+        "h": 254
+      },
+      "independent": true,
+      "sourcePart": "../chainShade-skill-r5/parts/Lock_Plate_R.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Lock_Plate_R-Emissive.png"
+    },
+    "Core_Lock": {
+      "image": "../chainShade-skill-r5/images/Core_Lock.png",
+      "emissive": "../chainShade-skill-r5/images/Core_Lock-Emissive.png",
+      "rect": {
+        "x": 791,
+        "y": 496,
+        "w": 166,
+        "h": 70
+      },
+      "independent": true,
+      "sourcePart": "../chainShade-skill-r5/parts/Core_Lock.png",
+      "sourceEmissive": "../chainShade-skill-r5/parts/Core_Lock-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.3399999999999999,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.737,
+          0.5
+        ],
+        [
+          1.3399999999999999,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.603,
+          0.65
+        ],
+        [
+          1.1523999999999999,
+          5
+        ],
+        [
+          1.3399999999999999,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.1,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3399999999999999,
+          1
+        ],
+        [
+          1.88,
+          1
+        ],
+        [
+          2.8000000000000003,
+          0
+        ],
+        [
+          3.1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.603,
+          0.65
+        ],
+        [
+          1.1523999999999999,
+          5
+        ],
+        [
+          1.3399999999999999,
+          5
+        ],
+        [
+          1.48,
+          5
+        ],
+        [
+          1.53,
+          5
+        ],
+        [
+          1.73,
+          3.6
+        ],
+        [
+          2.13,
+          1.4
+        ],
+        [
+          3.1,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.7600000000000002,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.4600000000000004,
+          0
+        ],
+        [
+          1.7600000000000002,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14000000000000012,
+          5
+        ],
+        [
+          0.19000000000000017,
+          5
+        ],
+        [
+          0.3900000000000001,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.7600000000000002,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -598,
+      "y": 281
+    },
+    {
+      "x": 612,
+      "y": 274
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../chainShade-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1008
+  },
+  "vfx": {
+    "type": "silver-chain",
+    "origin": [
+      851,
+      377
+    ],
+    "skill": "封鏈纏握",
+    "action": "核心靈體向後拉伸，兩束巨大鉤鏈向兩旁強力拉開緊繃，核心露出一線銀光！",
+    "matrix": "Silver_Lock_Rift",
+    "mode": "lock",
+    "color": "silver",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Core_Lock",
+      "point": [
+        851,
+        377
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Hook_Chains_L",
+        "point": [
+          100,
+          420
+        ]
+      },
+      {
+        "bone": "Hook_Chains_R",
+        "point": [
+          1420,
+          465
+        ]
+      }
+    ],
+    "phase": [
+      "鉤鏈拉開 · 鎖環銀光",
+      "封鏈纏握 · 紅光灌鏈",
+      "銀紅衝突與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "封鏈纏握",
+  "kind": "chainShade",
+  "skillTiming": {
+    "impact": 1.48,
+    "hitStopSeconds": 0.05,
+    "duration": 3.1
+  }
+}

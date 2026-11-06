@@ -1,0 +1,545 @@
+{
+  "id": "copperShell-skill-r6",
+  "name": "嵌銅岩殼蟲",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Insect_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Insect_Body": {
+      "image": "../copperShell-skill-r5/images/Master.png",
+      "emissive": "../copperShell-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../copperShell-skill-r5/parts/Insect_Body.png",
+      "sourceEmissive": "../copperShell-skill-r5/parts/Insect_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2363,
+      "triangles": 4309
+    },
+    "Copper_Armor": {
+      "image": "../copperShell-skill-r5/images/Master.png",
+      "emissive": "../copperShell-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../copperShell-skill-r5/parts/Copper_Armor.png",
+      "sourceEmissive": "../copperShell-skill-r5/parts/Copper_Armor-Emissive.png",
+      "weighted": true,
+      "vertices": 354,
+      "triangles": 618
+    },
+    "Rivets_Slots": {
+      "image": "../copperShell-skill-r5/images/Master.png",
+      "emissive": "../copperShell-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../copperShell-skill-r5/parts/Rivets_Slots.png",
+      "sourceEmissive": "../copperShell-skill-r5/parts/Rivets_Slots-Emissive.png",
+      "weighted": true,
+      "vertices": 116,
+      "triangles": 184
+    },
+    "Claw_L": {
+      "image": "../copperShell-skill-r5/images/Master.png",
+      "emissive": "../copperShell-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../copperShell-skill-r5/parts/Claw_L.png",
+      "sourceEmissive": "../copperShell-skill-r5/parts/Claw_L-Emissive.png",
+      "weighted": true,
+      "vertices": 136,
+      "triangles": 218
+    },
+    "Claw_R": {
+      "image": "../copperShell-skill-r5/images/Master.png",
+      "emissive": "../copperShell-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../copperShell-skill-r5/parts/Claw_R.png",
+      "sourceEmissive": "../copperShell-skill-r5/parts/Claw_R-Emissive.png",
+      "weighted": true,
+      "vertices": 178,
+      "triangles": 303
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 0.9,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.49500000000000005,
+          0.5
+        ],
+        [
+          0.9,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.405,
+          0.65
+        ],
+        [
+          0.774,
+          2.5
+        ],
+        [
+          0.9,
+          2.5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.5,
+          2.3499999999999996
+        ],
+        [
+          1,
+          2.5
+        ],
+        [
+          1.5,
+          2.3499999999999996
+        ],
+        [
+          2,
+          2.5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 2.5,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.9,
+          1
+        ],
+        [
+          1.44,
+          1
+        ],
+        [
+          2.2,
+          0
+        ],
+        [
+          2.5,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.405,
+          0.65
+        ],
+        [
+          0.774,
+          2.5
+        ],
+        [
+          0.9,
+          2.5
+        ],
+        [
+          1.04,
+          5
+        ],
+        [
+          1.09,
+          5
+        ],
+        [
+          1.29,
+          3.6
+        ],
+        [
+          1.69,
+          1.4
+        ],
+        [
+          2.5,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.6,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.5399999999999999,
+          1
+        ],
+        [
+          1.3000000000000003,
+          0
+        ],
+        [
+          1.6,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0.14,
+          5
+        ],
+        [
+          0.19000000000000006,
+          5
+        ],
+        [
+          0.39,
+          3.6
+        ],
+        [
+          0.7899999999999999,
+          1.4
+        ],
+        [
+          1.6,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "summon": {
+      "duration": 2.4,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          2.4,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          0.25,
+          3
+        ],
+        [
+          0.45,
+          0.3
+        ],
+        [
+          0.65,
+          3
+        ],
+        [
+          1.05,
+          5
+        ],
+        [
+          1.3,
+          1
+        ],
+        [
+          2.4,
+          0.1
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -578,
+      "y": 45
+    },
+    {
+      "x": -72,
+      "y": 11
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../copperShell-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 988
+  },
+  "vfx": {
+    "type": "copper-ram",
+    "origin": [
+      360,
+      940
+    ],
+    "skill": "銅環蓄震",
+    "action": "壓低身軀蓄力，釋放銅環蓄震猛然撞擊！敲響銅甲呼叫夥伴！",
+    "matrix": "Resonance_Wave_Matrix",
+    "mode": "resonance",
+    "color": "gold",
+    "core": {
+      "bone": "Copper_Armor",
+      "point": [
+        820,
+        435
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Claw_L",
+        "point": [
+          360,
+          940
+        ]
+      }
+    ],
+    "ground": "slabs",
+    "phase": [
+      "低伏蓄力 · 銅環共鳴",
+      "銅環蓄震 · 銅甲逼出赤流",
+      "震波白霧與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "銅環蓄震",
+  "kind": "copperShell",
+  "skillTiming": {
+    "impact": 1.04,
+    "hitStopSeconds": 0.05,
+    "duration": 2.5
+  }
+}

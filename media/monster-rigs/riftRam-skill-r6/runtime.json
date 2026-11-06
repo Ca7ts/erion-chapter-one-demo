@@ -1,0 +1,501 @@
+{
+  "id": "riftRam-skill-r6",
+  "name": "裂角山魈",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Beast_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Beast_Body": {
+      "image": "../riftRam-skill-r5/images/Master.png",
+      "emissive": "../riftRam-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../riftRam-skill-r5/parts/Beast_Body.png",
+      "sourceEmissive": "../riftRam-skill-r5/parts/Beast_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2476,
+      "triangles": 4541
+    },
+    "Split_Horn": {
+      "image": "../riftRam-skill-r5/images/Master.png",
+      "emissive": "../riftRam-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../riftRam-skill-r5/parts/Split_Horn.png",
+      "sourceEmissive": "../riftRam-skill-r5/parts/Split_Horn-Emissive.png",
+      "weighted": true,
+      "vertices": 348,
+      "triangles": 616
+    },
+    "Hooves_Slot": {
+      "image": "../riftRam-skill-r5/images/Master.png",
+      "emissive": "../riftRam-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../riftRam-skill-r5/parts/Hooves_Slot.png",
+      "sourceEmissive": "../riftRam-skill-r5/parts/Hooves_Slot-Emissive.png",
+      "weighted": true,
+      "vertices": 126,
+      "triangles": 204
+    },
+    "Front_Far": {
+      "image": "../riftRam-skill-r5/images/Master.png",
+      "emissive": "../riftRam-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../riftRam-skill-r5/parts/Front_Far.png",
+      "sourceEmissive": "../riftRam-skill-r5/parts/Front_Far-Emissive.png",
+      "weighted": true,
+      "vertices": 88,
+      "triangles": 137
+    },
+    "Tail": {
+      "image": "../riftRam-skill-r5/images/Master.png",
+      "emissive": "../riftRam-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../riftRam-skill-r5/parts/Tail.png",
+      "sourceEmissive": "../riftRam-skill-r5/parts/Tail-Emissive.png",
+      "weighted": true,
+      "vertices": 88,
+      "triangles": 134
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 0.92,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5060000000000001,
+          0.5
+        ],
+        [
+          0.92,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.41400000000000003,
+          0.65
+        ],
+        [
+          0.7912,
+          5
+        ],
+        [
+          0.92,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 2.5,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.92,
+          1
+        ],
+        [
+          1.46,
+          1
+        ],
+        [
+          2.2,
+          0
+        ],
+        [
+          2.5,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.41400000000000003,
+          0.65
+        ],
+        [
+          0.7912,
+          5
+        ],
+        [
+          0.92,
+          5
+        ],
+        [
+          1.06,
+          5
+        ],
+        [
+          1.11,
+          5
+        ],
+        [
+          1.31,
+          3.6
+        ],
+        [
+          1.71,
+          1.4
+        ],
+        [
+          2.5,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.58,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.5399999999999999,
+          1
+        ],
+        [
+          1.2800000000000002,
+          0
+        ],
+        [
+          1.58,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14,
+          5
+        ],
+        [
+          0.19000000000000006,
+          5
+        ],
+        [
+          0.39,
+          3.6
+        ],
+        [
+          0.7899999999999999,
+          1.4
+        ],
+        [
+          1.58,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": 12,
+      "y": 28
+    },
+    {
+      "x": -548,
+      "y": 37
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../riftRam-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1008
+  },
+  "vfx": {
+    "type": "horn-charge",
+    "origin": [
+      420,
+      966
+    ],
+    "skill": "裂角突撞",
+    "action": "低下裂角指向前方，前蹄刨開崖面碎石，拉滿衝鋒張力突撞！",
+    "matrix": "Split_Horn_Charge_Path",
+    "mode": "horn",
+    "color": "gold",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Split_Horn",
+      "point": [
+        310,
+        370
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Hooves_Slot",
+        "point": [
+          790,
+          974
+        ]
+      }
+    ],
+    "ground": "slabs",
+    "phase": [
+      "低頭刨地 · 裂角充能",
+      "裂角突撞 · 岩皮赤流",
+      "碎石、黑電與火星"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "裂角突撞",
+  "kind": "riftRam",
+  "skillTiming": {
+    "impact": 1.06,
+    "hitStopSeconds": 0.05,
+    "duration": 2.5
+  }
+}

@@ -1,0 +1,599 @@
+{
+  "id": "laurelMaw-skill-r6",
+  "name": "赭蕊噬根",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Root_Base",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Root_Base": {
+      "image": "../laurelMaw-skill-r5/images/Master.png",
+      "emissive": "../laurelMaw-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../laurelMaw-skill-r5/parts/Root_Base.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Root_Base-Emissive.png",
+      "weighted": true,
+      "vertices": 2460,
+      "triangles": 4561
+    },
+    "Petals_Layer": {
+      "image": "../laurelMaw-skill-r5/images/Master.png",
+      "emissive": "../laurelMaw-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petals_Layer.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petals_Layer-Emissive.png",
+      "weighted": true,
+      "vertices": 408,
+      "triangles": 723
+    },
+    "Core_Calyx": {
+      "image": "../laurelMaw-skill-r5/images/Master.png",
+      "emissive": "../laurelMaw-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../laurelMaw-skill-r5/parts/Core_Calyx.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Core_Calyx-Emissive.png",
+      "weighted": true,
+      "vertices": 10,
+      "triangles": 8
+    },
+    "Root_Arm": {
+      "image": "../laurelMaw-skill-r5/images/Master.png",
+      "emissive": "../laurelMaw-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../laurelMaw-skill-r5/parts/Root_Arm.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Root_Arm-Emissive.png",
+      "weighted": true,
+      "vertices": 202,
+      "triangles": 340
+    },
+    "Interior": {
+      "image": "../laurelMaw-skill-r5/images/Interior.png",
+      "emissive": "../laurelMaw-skill-r5/images/Interior-Emissive.png",
+      "rect": {
+        "x": 486,
+        "y": 80,
+        "w": 959,
+        "h": 678
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Interior.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Interior-Emissive.png"
+    },
+    "Petal_Top": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Top.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Top-Emissive.png",
+      "rect": {
+        "x": 690,
+        "y": 97,
+        "w": 235,
+        "h": 226
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Top.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Top-Emissive.png"
+    },
+    "Petal_Left": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Left.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Left-Emissive.png",
+      "rect": {
+        "x": 492,
+        "y": 244,
+        "w": 347,
+        "h": 258
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Left.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Left-Emissive.png"
+    },
+    "Petal_Lower_L": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Lower_L.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Lower_L-Emissive.png",
+      "rect": {
+        "x": 683,
+        "y": 478,
+        "w": 295,
+        "h": 267
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Lower_L.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Lower_L-Emissive.png"
+    },
+    "Petal_Lower_R": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Lower_R.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Lower_R-Emissive.png",
+      "rect": {
+        "x": 942,
+        "y": 499,
+        "w": 270,
+        "h": 253
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Lower_R.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Lower_R-Emissive.png"
+    },
+    "Petal_Right": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Right.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Right-Emissive.png",
+      "rect": {
+        "x": 1145,
+        "y": 321,
+        "w": 294,
+        "h": 201
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Right.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Right-Emissive.png"
+    },
+    "Petal_Upper_R": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Upper_R.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Upper_R-Emissive.png",
+      "rect": {
+        "x": 1079,
+        "y": 166,
+        "w": 305,
+        "h": 191
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Upper_R.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Upper_R-Emissive.png"
+    },
+    "Petal_Back": {
+      "image": "../laurelMaw-skill-r5/images/Petal_Back.png",
+      "emissive": "../laurelMaw-skill-r5/images/Petal_Back-Emissive.png",
+      "rect": {
+        "x": 906,
+        "y": 86,
+        "w": 269,
+        "h": 157
+      },
+      "independent": true,
+      "sourcePart": "../laurelMaw-skill-r5/parts/Petal_Back.png",
+      "sourceEmissive": "../laurelMaw-skill-r5/parts/Petal_Back-Emissive.png"
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.21,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.6655,
+          0.5
+        ],
+        [
+          1.21,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.5445,
+          0.65
+        ],
+        [
+          1.0406,
+          5
+        ],
+        [
+          1.21,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.05,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.21,
+          1
+        ],
+        [
+          1.75,
+          1
+        ],
+        [
+          2.75,
+          0
+        ],
+        [
+          3.05,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.5445,
+          0.65
+        ],
+        [
+          1.0406,
+          5
+        ],
+        [
+          1.21,
+          5
+        ],
+        [
+          1.35,
+          5
+        ],
+        [
+          1.4000000000000001,
+          5
+        ],
+        [
+          1.6,
+          3.6
+        ],
+        [
+          2,
+          1.4
+        ],
+        [
+          3.05,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.8399999999999999,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.54,
+          0
+        ],
+        [
+          1.8399999999999999,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14000000000000012,
+          5
+        ],
+        [
+          0.19000000000000017,
+          5
+        ],
+        [
+          0.3900000000000001,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.8399999999999999,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -163,
+      "y": 12
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../laurelMaw-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1016
+  },
+  "vfx": {
+    "type": "pollen-bite",
+    "origin": [
+      995,
+      425
+    ],
+    "skill": "閉蕊噬咬",
+    "action": "根足如多股鋼索死死扎入泥土，巨大赭色苞片大張，核心花萼浮起花粉！",
+    "matrix": "Calyx_Spore_Nebula",
+    "mode": "pollen",
+    "color": "gold",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Core_Calyx",
+      "point": [
+        995,
+        425
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Petal_Left",
+        "point": [
+          760,
+          400
+        ]
+      },
+      {
+        "bone": "Petal_Right",
+        "point": [
+          1210,
+          420
+        ]
+      }
+    ],
+    "fog": "pollen",
+    "phase": [
+      "苞片大張 · 孢子花粉懸浮",
+      "閉蕊噬咬 · 花萼暴亮",
+      "紅光花粉幕與黑電"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "閉蕊噬咬",
+  "kind": "laurelMaw",
+  "skillTiming": {
+    "impact": 1.35,
+    "hitStopSeconds": 0.05,
+    "duration": 3.05
+  }
+}

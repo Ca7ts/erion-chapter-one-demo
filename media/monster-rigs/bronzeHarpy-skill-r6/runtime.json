@@ -1,0 +1,503 @@
+{
+  "id": "bronzeHarpy-skill-r6",
+  "name": "銅羽哀鳥",
+  "bounds": {
+    "w": 1536,
+    "h": 1024
+  },
+  "version": 6,
+  "footprint": {
+    "x": 0,
+    "y": 0,
+    "width": 650,
+    "depth": 95
+  },
+  "coreBone": "torso",
+  "coreSlot": "Bird_Body",
+  "emissionBone": "torso",
+  "bounceWhileClosed": true,
+  "emissionColor": [
+    1,
+    0.13,
+    0.035
+  ],
+  "slots": {
+    "Bird_Body": {
+      "image": "../bronzeHarpy-skill-r5/images/Master.png",
+      "emissive": "../bronzeHarpy-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../bronzeHarpy-skill-r5/parts/Bird_Body.png",
+      "sourceEmissive": "../bronzeHarpy-skill-r5/parts/Bird_Body-Emissive.png",
+      "weighted": true,
+      "vertices": 2423,
+      "triangles": 4431
+    },
+    "Folded_Wings_L": {
+      "image": "../bronzeHarpy-skill-r5/images/Master.png",
+      "emissive": "../bronzeHarpy-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../bronzeHarpy-skill-r5/parts/Folded_Wings_L.png",
+      "sourceEmissive": "../bronzeHarpy-skill-r5/parts/Folded_Wings_L-Emissive.png",
+      "weighted": true,
+      "vertices": 148,
+      "triangles": 244
+    },
+    "Folded_Wings_R": {
+      "image": "../bronzeHarpy-skill-r5/images/Master.png",
+      "emissive": "../bronzeHarpy-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../bronzeHarpy-skill-r5/parts/Folded_Wings_R.png",
+      "sourceEmissive": "../bronzeHarpy-skill-r5/parts/Folded_Wings_R-Emissive.png",
+      "weighted": true,
+      "vertices": 321,
+      "triangles": 560
+    },
+    "Vibrating_Feathers": {
+      "image": "../bronzeHarpy-skill-r5/images/Master.png",
+      "emissive": "../bronzeHarpy-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../bronzeHarpy-skill-r5/parts/Vibrating_Feathers.png",
+      "sourceEmissive": "../bronzeHarpy-skill-r5/parts/Vibrating_Feathers-Emissive.png",
+      "weighted": true,
+      "vertices": 129,
+      "triangles": 209
+    },
+    "Head": {
+      "image": "../bronzeHarpy-skill-r5/images/Master.png",
+      "emissive": "../bronzeHarpy-skill-r5/images/Master-Emissive.png",
+      "sourcePart": "../bronzeHarpy-skill-r5/parts/Head.png",
+      "sourceEmissive": "../bronzeHarpy-skill-r5/parts/Head-Emissive.png",
+      "weighted": true,
+      "vertices": 117,
+      "triangles": 188
+    }
+  },
+  "states": {
+    "setup": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "idle": {
+      "duration": 3.2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          3.2,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          3.2,
+          0.1
+        ]
+      ]
+    },
+    "charge": {
+      "duration": 1.2999999999999998,
+      "loop": false,
+      "end": "chargeHold",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.715,
+          0.5
+        ],
+        [
+          1.2999999999999998,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.585,
+          0.65
+        ],
+        [
+          1.1179999999999999,
+          5
+        ],
+        [
+          1.2999999999999998,
+          5
+        ]
+      ]
+    },
+    "chargeHold": {
+      "duration": 2,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.5,
+          4.699999999999999
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1.5,
+          4.699999999999999
+        ],
+        [
+          2,
+          5
+        ]
+      ]
+    },
+    "skill": {
+      "duration": 3.05,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.2999999999999998,
+          1
+        ],
+        [
+          1.8399999999999999,
+          1
+        ],
+        [
+          2.75,
+          0
+        ],
+        [
+          3.05,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.585,
+          0.65
+        ],
+        [
+          1.1179999999999999,
+          5
+        ],
+        [
+          1.2999999999999998,
+          5
+        ],
+        [
+          1.44,
+          5
+        ],
+        [
+          1.49,
+          5
+        ],
+        [
+          1.69,
+          3.6
+        ],
+        [
+          2.09,
+          1.4
+        ],
+        [
+          3.05,
+          0.1
+        ]
+      ]
+    },
+    "release": {
+      "duration": 1.75,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          1
+        ],
+        [
+          0.01,
+          1
+        ],
+        [
+          0.54,
+          1
+        ],
+        [
+          1.4500000000000002,
+          0
+        ],
+        [
+          1.75,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          5
+        ],
+        [
+          0.14000000000000012,
+          5
+        ],
+        [
+          0.19000000000000017,
+          5
+        ],
+        [
+          0.3900000000000001,
+          3.6
+        ],
+        [
+          0.79,
+          1.4
+        ],
+        [
+          1.75,
+          0.1
+        ]
+      ]
+    },
+    "attack": {
+      "duration": 0.86,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.86,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.28,
+          2
+        ],
+        [
+          0.33,
+          2
+        ],
+        [
+          0.86,
+          0.1
+        ]
+      ]
+    },
+    "hit": {
+      "duration": 0.48,
+      "loop": false,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          0.48,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.1
+        ],
+        [
+          0.48,
+          0.1
+        ]
+      ]
+    },
+    "defeat": {
+      "duration": 1.3,
+      "loop": false,
+      "end": "defeated",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1.3,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0.15
+        ],
+        [
+          1.3,
+          0
+        ]
+      ]
+    },
+    "defeated": {
+      "duration": 1,
+      "loop": true,
+      "end": "idle",
+      "opening": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "emission": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "openingBones": [],
+  "contactPoints": [
+    {
+      "x": -2,
+      "y": 48
+    }
+  ],
+  "playerArtApproved": false,
+  "spineEditorValidation": "not performed",
+  "materialProvenance": "Immutable r4 master with imagegen hidden-surface underpainting; independently controlled derived emissive masks.",
+  "reference": {
+    "image": "../bronzeHarpy-skill-r5/originals/master.png",
+    "width": 1536,
+    "height": 1024,
+    "foot": 1016
+  },
+  "vfx": {
+    "type": "folded-feathers",
+    "origin": [
+      620,
+      450
+    ],
+    "skill": "逆風削羽",
+    "action": "雙翼向內緊緊攏起包覆身軀，銅羽邊緣迎風高頻顫鳴，施放逆風削羽！",
+    "matrix": "Vibrating_Feather_Halo",
+    "mode": "folded",
+    "color": "gold",
+    "chargePeak": 5,
+    "core": {
+      "bone": "Vibrating_Feathers",
+      "point": [
+        620,
+        450
+      ]
+    },
+    "contacts": [
+      {
+        "bone": "Folded_Wings_L",
+        "point": [
+          430,
+          400
+        ]
+      },
+      {
+        "bone": "Folded_Wings_R",
+        "point": [
+          880,
+          420
+        ]
+      }
+    ],
+    "phase": [
+      "雙翼攏起 · 銅羽顫鳴",
+      "逆風削羽 · 利刃釋放",
+      "火星與飛鳥尾跡"
+    ],
+    "revision": 6,
+    "renderOrder": [
+      "ground + atmosphere + rune matrix",
+      "weighted monster mesh + emissive mask",
+      "conflict lightning + mist + ecology"
+    ]
+  },
+  "status": "matrix-effects-review",
+  "userApproval": false,
+  "gameIntegrated": false,
+  "method": "Native master-weighted mesh plus anatomically traced opening attachments and newly painted hidden surfaces",
+  "limitations": [
+    "Native 1536 x 1024 artwork and derived 2D emission; no 8K physical PBR baking claim.",
+    "Local skill review; not deployed to game/navigation.",
+    "Ground depression, color bounce and flowing energy are authored 2D visual approximations, not a physical 3D/PBR/fluid simulation.",
+    "Official Spine-compatible rig geometry retained from r5; matrix effects and custom emission require the included runtime adapter."
+  ],
+  "skill": "逆風削羽",
+  "kind": "bronzeHarpy",
+  "skillTiming": {
+    "impact": 1.44,
+    "hitStopSeconds": 0.05,
+    "duration": 3.05
+  }
+}
