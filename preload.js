@@ -98,6 +98,14 @@
     host.querySelector('h1').textContent = trialTitle + '試戰';
    }
   }
+  if(navigator.maxTouchPoints>0||matchMedia('(pointer:coarse)').matches){
+   const paths=new Set(manifest.files.map(f=>f.path));
+   manifest.files=manifest.files.filter(f=>{
+    if(f.path==='media/weapon-runtime.glb'&&paths.has('media/weapon-mobile.glb'))return false;
+    if(f.path.startsWith('media/monster-rigs/')&&!f.path.includes('/mobile/')&&/\.(png|webp)$/.test(f.path))return !paths.has(f.path.replace('media/monster-rigs/','media/monster-rigs/mobile/').replace(/\.(png|webp)$/,'.webp'));
+    return true;
+   });
+  }
   total = manifest.files.reduce((sum, file) => sum + file.bytes, 0);
   await navigator.serviceWorker.register('preload-sw.js'); await navigator.serviceWorker.ready;
   if (!navigator.serviceWorker.controller) await new Promise((resolve, reject) => {
@@ -229,9 +237,10 @@
  async function launch() {
   if (launching) return;
   launching = true;
-  document.querySelector('link[href^="app.min.css"]').href = 'app.min.css?v=' + manifest.version;
+  const versioned=path=>path+'?sha256='+manifest.files.find(f=>f.path===path).sha256;
+  document.querySelector('link[href^="app.min.css"]').href = versioned('app.min.css');
   action.disabled = true; actionLabel.textContent = '正在開啟遊戲…';
-  const script = document.createElement('script'); script.src = 'app.min.js?v=' + manifest.version;
+  const script = document.createElement('script'); script.src = versioned('app.min.js');
   script.onload = () => {host.remove();window.dispatchEvent(new Event('erion:ready'));}; script.onerror = () => { launching = false; status('遊戲程式未能啟動'); action.disabled = false; action.dataset.uiIntent = 'confirm'; actionLabel.textContent = '重試開啟'; };
   document.body.append(script);
  }

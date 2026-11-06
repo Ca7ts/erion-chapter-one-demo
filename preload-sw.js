@@ -11,12 +11,12 @@ self.addEventListener('fetch',event=>{
  const request=event.request,url=new URL(request.url),scope=new URL(self.registration.scope);
  if(request.method!=='GET'||url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname)||request.mode==='navigate'||request.headers.has('X-Erion-Download')||url.pathname.endsWith('/download-manifest.json'))return;
  event.respondWith((async()=>{
-  url.search='';let hit;
+  const expected=url.searchParams.get('sha256');url.search='';let hit;
   // Safari can evict or temporarily deny CacheStorage under storage pressure.
   // A cache failure must fall back to the network, not fail a battle resource.
-  try{for(const cache of await getResourceCaches()){hit=await cache.match(url.href);if(hit)break;}}
+  try{for(const cache of await getResourceCaches()){hit=await cache.match(url.href);if(hit&&(!expected||hit.headers.get('X-Erion-SHA256')===expected))break;hit=null;}}
   catch{resourceCaches=null;return fetch(request);}
-  if(!hit)return fetch(request);
+  if(!hit){const response=await fetch(request,{cache:expected?'no-store':'default'});if(!expected||!response.ok)return response;const data=await response.arrayBuffer(),hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',data))].map(n=>n.toString(16).padStart(2,'0')).join('');if(hash!==expected)return new Response('遊戲版本已更新，請重新開啟。',{status:409});return new Response(data,{status:response.status,headers:response.headers});}
   const range=request.headers.get('range');if(!range)return hit;
   const match=/^bytes=(\d*)-(\d*)$/.exec(range);if(!match)return hit;
   // Blob slicing avoids making another full-sized JS buffer for every seek.
