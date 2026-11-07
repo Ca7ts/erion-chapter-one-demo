@@ -1,0 +1,405 @@
+/* Shared player UI. An unclassified dialog inherits the panel skin automatically.
+   Full-screen performances keep their artwork; apply the skin to their controls. */
+:root {
+  --mythic-slab: url('../forge/system-obsidian.webp');
+  --mythic-crystal: url('../forge/system-crystal.webp');
+  --mythic-sapphire:url('../forge/system-sapphire.webp');
+  --mythic-frame:url('../forge/slab-frame.webp');
+  --mythic-crest:url('../forge/slab-crest.webp');
+  --mythic-stone:url('../forge/slab-stone.webp');
+  --dialogue-stone:url('../forge/dialogue-slab.webp');
+  --chain-left:url('../forge/chain-left.webp');
+  --chain-right:url('../forge/chain-right.webp');
+  --mythic-panel-art:linear-gradient(125deg,#20182632,#10131e56 64%,#42281e40),var(--mythic-stone);
+  --mythic-edge:48px;
+  --mythic-rail:24px;
+  --mythic-gilt: #efcf8a;
+}
+@media(max-width:650px),(max-height:500px){:root{--mythic-edge:34px;--mythic-rail:15px}}
+
+/* The center and socket in the pause artwork are outside these edge slices.
+   The frame paints inside the available box without changing its geometry. */
+:root body :is(dialog:not(#game-resume-overlay,#cinematic,#story,#fusion-performance,#smith-performance,#battle-rewards,[data-mythic-scene]),.mythic-panel,.victory-panel,#workbench,#download-gate .download-card) {
+  border:var(--mythic-rail) solid transparent;
+  border-image:var(--mythic-frame) 214 246 / var(--mythic-edge) / 0 round stretch!important;
+  border-radius:0;
+}
+:root body :is(dialog:not(#game-resume-overlay,#cinematic,#story,#fusion-performance,#smith-performance,#battle-rewards,#ascent-salvage,#leon-ascent,[data-mythic-scene]),.mythic-panel,.victory-panel,#workbench,#download-gate .download-card) {
+  background-color:#12121a;
+  background-image:var(--mythic-panel-art)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  box-shadow:inset 0 0 18px #02030879,0 12px 42px #0302079c;
+}
+/* Each main heading carries a readable, undistorted bronze crest. */
+:root body :is(dialog>h2:first-of-type,dialog>header h2,.forge-header h2,#workbench h1,.victory-panel h2)::before {
+  content:"";display:inline-block;width:1.74em;height:.95em;vertical-align:-.08em;margin-inline-end:.3em;
+  background:var(--mythic-crest) center/100% 100% no-repeat;
+  mask-image:radial-gradient(ellipse at center,#000 53%,transparent 75%);
+}
+:root body #download-gate .download-card{box-sizing:border-box;padding:clamp(13px,2.6vw,32px)}
+/* These strips sit on top of a live scene; never skin the scene canvas itself. */
+:root body :is(.rpg-hero-hud,.command-deck,.battle-bottom,.battle-head,#battle .battle-top,.mythic-hud,#scene-action,#battle-message:not(:empty),#toast:not(:empty),#object-tooltip) {
+  border-image:var(--mythic-slab) 200 150 150 / 5px / 0 stretch;
+  background-image:linear-gradient(110deg,#1a1622de,#0c1017dd);
+}
+:root body :is(dialog,.mythic-panel,#workbench,#download-gate) :is(h1,h2):not([style]):not(#quest-title):not([class*="rarity"]) {
+  font-family:Georgia,"Songti TC","PMingLiU",serif;
+  text-shadow:0 1px 0 #382312,0 2px 3px #040409;
+}
+/* Speech uses its own flexible nine-slice. The text determines the height. */
+:root body :is(.spoken-line,#talk #talk-body,.mythic-speech):not(:empty) {
+  border:1px solid transparent;border-image:var(--mythic-frame) 214 246 / 11px 17px / 0 round stretch;
+  background:var(--mythic-panel-art) center/cover;
+  padding:.7em max(22px,1.1em);box-sizing:border-box;line-height:1.65;
+  min-width:0;overflow-wrap:anywhere;text-align:center;color:#f6ead3;
+}
+:root body .film-caption::before {
+  inset:-12px -3%;filter:none;background:var(--mythic-panel-art) center/cover;
+  border-image:var(--mythic-frame) 214 246 / 18px 23px / 0 round stretch;
+  opacity:.96;
+}
+:root body :is(#cinematic:not(.film-dialog) .dialogue,#story:not(.film-dialog) .subtitle){
+  background:var(--mythic-panel-art) center/cover;border-image:var(--mythic-frame) 214 246 / 14px 20px / 0 round stretch;
+}
+/* The close hit area extends below the title on short landscape displays. */
+:root body #character-sheet > header > span{margin-inline-end:18px}
+@media(max-height:500px){:root body #character-sheet .character-xp > small{padding-inline-end:58px}}
+/* Dialogue roots include NPC menus, reply lists, quest decisions and the
+   second chapter's shared actor modal. Mobile may reparent the same choices. */
+body:has(#info[open],#talk[open],#cinematic[open],#story[open]) .quest-scroll{visibility:hidden}
+:root body.mobile-game #info[data-dialogue-ui][open]{
+  height:fit-content!important;max-height:calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;
+}
+:root body.mobile-game #info[data-dialogue-ui] #info-body,
+:root body.mobile-game #info[data-dialogue-ui] .mobile-talk-list{flex:0 1 auto}
+@media(max-height:500px) and (orientation:landscape){
+  :root body.mobile-game #info[data-mobile-talk][data-dialogue-ui] #info-body{grid-template-rows:auto minmax(0,auto)}
+  :root body.mobile-game #info[data-mobile-talk][data-dialogue-ui] .mobile-talk-art .dialogue-illustration{flex:0 1 auto;height:clamp(62px,21dvh,108px)}
+}
+:root body :is(#info[data-dialogue-ui],#info:has(.talk-tabs,.spoken-line),#info[data-required-decision=true],#talk,#private-dialog:has(>.spoken-line)) :is(#info-title,#talk-title,h2:first-of-type){
+  background:transparent;border:0;box-shadow:none;font-family:Georgia,"Songti TC","PMingLiU",serif;
+  color:#ffe1a1;text-shadow:0 2px 2px #21100a;text-align:center;
+}
+:root body #weapon-fusion {
+  padding:4px clamp(4px,1.1vw,13px) 2px;
+}
+:root body #weapon-fusion>header {
+  flex:none;text-align:center;padding:.24rem 42px .3rem;
+  background:transparent;border:0;
+}
+:root body #weapon-fusion h2 {color:#ffe0a1;font-size:clamp(20px,3vw,34px);line-height:1.2;letter-spacing:.1em}
+:root body #weapon-fusion>header small {font-size:11px;color:#dac495;letter-spacing:.12em}
+:root body #weapon-fusion .fusion-pair>label {
+  background:var(--mythic-panel-art) center/cover;
+  border:1px solid #ab8c5b;border-image:var(--mythic-frame) 214 246 / 14px / 0 round stretch;
+  border-radius:0;padding:9px 13px;box-shadow:inset 0 0 16px #0009;
+}
+:root body #weapon-fusion select {color-scheme:dark;background:#181723 var(--mythic-stone) center/cover;color:#fff0d5;border:1px solid #a4814d;border-radius:2px}
+:root body #weapon-fusion footer {background:transparent;gap:8px;padding:5px 4px;border-top:1px solid #9c774d7a}
+/* All dialogue surfaces use the irregular silhouette, including its center.
+   A transparent box behind the border image lets the map show between chips. */
+:root body :is(#info,#talk,#private-dialog:has(.spoken-line)){
+  --slab-band:clamp(53px,8vmin,86px);
+}
+:root body :is(#info,#talk,#private-dialog:has(.spoken-line)){
+  background:transparent!important;box-shadow:none!important;
+  border-image:var(--dialogue-stone) 21% 18% 22% fill / var(--slab-band) var(--slab-band) / 2px stretch!important;
+}
+:root body :is(#info,#talk,#private-dialog:has(.spoken-line)) h2::before{content:none}
+:root body :is(#info[data-dialogue-ui] #info-title,#talk #talk-title){
+  box-sizing:border-box;margin-inline:0!important;padding-inline:42px!important;text-align:center;
+}
+:root body #info[data-dialogue-ui] #info-category,:root body #talk[data-conversation] #talk-kind,
+:root body #talk #talk-body:empty{display:none}
+:root body :is(#info[data-dialogue-ui],#talk) button[data-quest-kind=main]{color:#ffd05a}
+:root body :is(#info[data-dialogue-ui],#talk) button[data-quest-kind=side]{color:#76e5ff}
+:root body #talk button[data-quest-kind=chat]{color:#a7e7b8}
+:root body #info[data-dialogue-ui] .talk-choice:not(:has(small)){
+  min-height:40px!important;height:auto;line-height:1.25;padding:5px 13px!important;gap:0;margin-block:3px;
+}
+/* The portrait and its panel can be wide. Size the choices to their words. */
+:root body #info:is([data-dialogue-ui],[data-mobile-talk],[data-required-decision=true],:has(.talk-tabs,.spoken-line)) .talk-choice,
+:root body #talk #talk-options > button{
+  display:flex;flex:0 0 auto;flex-direction:column;align-items:center;justify-content:center;
+  box-sizing:border-box;inline-size:fit-content!important;min-inline-size:min(6em,100%);max-inline-size:min(100%,30em);
+  justify-self:center;align-self:center;margin-inline:auto!important;padding-inline:1.15em!important;
+  text-align:center;white-space:normal;overflow-wrap:anywhere;min-height:44px;
+}
+:root body #info #info-actions:has(>.talk-choice){justify-content:center}
+:root body #info #info-actions > .talk-choice{flex:0 1 auto!important;width:fit-content!important;max-width:100%;margin-inline:0!important}
+:root body #info .talk-tabs,:root body #talk #talk-options{justify-content:center;justify-items:center}
+:root body #info .talk-tabs button{flex:0 1 auto;width:fit-content;min-width:min(4.5em,30%);max-width:100%;min-height:44px}
+/* The stone plate remains visible across secondary panel headers and inset lists. */
+:root body :is(#journey-tools,#journey-panel,#quest-guide-panel,#dolly-supplies,#atlas,#task-reset-dialog,#panel-close-confirm,#journal,#runes,#sea-tips,#sea-confirm) > h2,
+:root body :is(#character-sheet > header,#monster-forge .leon-banner,#private-dialog .leon-banner){
+  background:var(--mythic-panel-art) center/cover!important;color:var(--mythic-gilt);
+  border-bottom:1px solid #a08152;text-align:center;
+}
+:root body :is(#journey-tools,#journey-panel,#quest-guide-panel,#dolly-supplies,#atlas,#task-reset-dialog,#panel-close-confirm,#journal,#runes,#sea-tips,#sea-confirm) > h2{
+  padding-inline:42px!important;
+}
+:root body :is(#monster-forge,#private-dialog) .leon-banner{align-items:center;padding-inline:48px!important;min-height:44px}
+:root body :is(#monster-forge,#private-dialog) .leon-banner::before{content:none}
+:root body #character-sheet > header{justify-content:center;padding-inline:42px}
+:root body :is(.journal-detail,.shop-grid > section,#quest-guide-panel #quest-ledger,.altar-panel,.ascent-controls,.forge-materials,.forge-preview,.forge-result,.forge-specimen){
+  background:linear-gradient(#101018b8,#131019cc),var(--mythic-stone) center/cover!important;border-color:#93784d80;
+}
+:root body #private-dialog .leon-stations button:not(:has(.station-cost)){grid-template-rows:auto;min-height:46px}
+:root body #private-dialog .leon-stations button:not(:has(.station-cost)) .item-icon{grid-row:auto}
+:root body .journal-workspace:has(>.journal-detail:empty){grid-template-columns:1fr;grid-template-rows:auto}
+:root body .journal-detail:empty,:root body #command-hint:empty,.altar-gain[hidden]{display:none!important}
+:root body :is(dialog:not(#game-resume-overlay,#cinematic,#story,#fusion-performance,#smith-performance,#battle-rewards,#ascent-salvage,#leon-ascent,[data-mythic-scene]),.mythic-panel,#workbench,#download-gate .download-card){
+  background:transparent!important;box-shadow:none;
+  border-image:var(--dialogue-stone) 21% 18% 22% fill / clamp(38px,7vmin,72px) / 1px stretch!important;
+}
+:root body #game-resume-overlay .pause-copy h2{
+  background:none;-webkit-text-fill-color:currentColor;color:#f3d187;
+  text-shadow:0 1px 1px #211209,0 2px 2px #080603;
+}
+:root body #dolly-supplies footer{justify-content:flex-end}
+@media(pointer:coarse){:root body #info[data-dialogue-ui] .talk-choice:not(:has(small)){min-height:44px!important}}
+:root body :is(#info,#talk) :is(#info-body,.mobile-talk-list,.mobile-talk-art,#talk-options){
+  background-color:transparent!important;background-image:none!important;
+}
+:root body :is(.spoken-line,#talk #talk-body,.mythic-speech):not(:empty),
+:root body .film-caption::before,
+:root body :is(#cinematic:not(.film-dialog) .dialogue,#story:not(.film-dialog) .subtitle){
+  background:transparent!important;box-shadow:none!important;
+  border-image:var(--dialogue-stone) 21% 18% 22% fill / 15px 28px / 2px stretch!important;
+}
+:root body .film-caption::before{opacity:1}
+@media(max-height:500px){:root body :is(#info,#talk,#private-dialog:has(.spoken-line)){--slab-band:42px}}
+/* Only affirmative/negative choices use sockets. Each original control keeps
+   its component's own skin otherwise. Close icons keep their existing anchors. */
+:root body :is([data-ui-close],button.panel-close-x,button.close){
+  box-sizing:border-box;border-radius:0!important;border:1px solid #ad8e59!important;border-image:none!important;
+  background:#241e18!important;color:#f8e8c8!important;box-shadow:inset 0 0 0 1px #392c1e!important;
+  width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;max-width:34px!important;
+  padding:0!important;text-align:center;font:24px/1 Georgia,serif!important;
+}
+:root body :is([data-ui-close],button.panel-close-x,button.close):hover{background:#443525!important}
+:root body :is([data-ui-close],button.panel-close-x,button.close):focus-visible{outline:2px solid #f3dca6;outline-offset:2px}
+@media(pointer:coarse){:root body :is([data-ui-close],button.panel-close-x,button.close)::after{content:"";position:absolute;inset:-5px}}
+:root body [data-ui-close]::before,:root body [data-ui-close]::after{animation:none!important;background:none!important}
+:root body [data-ui-gem]{--current-lane:25%}
+:root body [data-ui-gem=back]{--button-gem:var(--mythic-sapphire);--current-lane:75%}
+@keyframes gem-current{from{background-position:0% var(--current-lane);opacity:.48}to{background-position:100% var(--current-lane);opacity:.88}}
+@keyframes gem-fissure{0%,44%,54%,100%{opacity:.14}47%,51%{opacity:.79}}
+:root body [data-ui-gem]:not([data-ui-close],#game-resume-overlay button)::before,
+:root body [data-ui-gem]:not([data-ui-close],#game-resume-overlay button)::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+  mask-image:var(--button-gem,var(--mythic-crystal)),linear-gradient(90deg,transparent 8%,#000 20%,transparent 39%,transparent 61%,#000 80%,transparent 92%);
+  mask-size:100% 100%;mask-repeat:no-repeat;mask-composite:intersect;
+}
+:root body [data-ui-gem]:not([data-ui-close],#game-resume-overlay button)::before{
+  background: url('../forge/rite-inflow-silk.webp') 0% var(--current-lane)/205% 500% no-repeat;
+  mix-blend-mode:screen;animation:gem-current 2.1s ease-in-out infinite alternate;
+}
+:root body [data-ui-gem]:not([data-ui-close],#game-resume-overlay button)::after{
+  background: url('../forge/rite-inflow-rifts.webp') center 50%/105% 300% no-repeat;
+  animation:gem-fissure 2.4s linear infinite;
+}
+:root body [data-ui-gem]:not(#game-resume-overlay button),:root body #download-gate #download-action[data-ui-intent=confirm]{
+  position:relative;isolation:isolate;
+  background:var(--chain-left) left center/min(17%,36px) auto no-repeat,var(--chain-right) right center/min(17%,36px) auto no-repeat,var(--button-gem,var(--mythic-crystal)) center/100% 100% no-repeat transparent!important;
+  border-color:transparent!important;border-image:none!important;border-radius:0;box-shadow:none;
+  font-family:Georgia,"Songti TC","PMingLiU",serif;font-weight:700;color:#fff0d4!important;text-shadow:0 1px 3px #100813!important;
+}
+:root body #weapon-fusion footer button[data-ui-gem]{
+  min-height:44px;min-width:min(150px,42%);padding:5px clamp(18px,2.5vw,30px);
+}
+:root body button[data-ui-gem]:disabled{filter:saturate(.68);opacity:.58}
+:root body button[data-ui-gem]:focus-visible{outline:2px solid #ffe2a6;outline-offset:2px}
+/* The plate is a skin on the native command. No extra padding or hit targets. */
+:root body button[data-ui-stone]:not([data-ui-close],[data-ui-gem]){
+  isolation:isolate;position:relative;border-image:none!important;border-color:transparent!important;border-radius:0;
+  background:transparent!important;
+  box-shadow:none!important;text-shadow:0 1px 2px #140e0b;
+}
+:root body button[data-ui-stone] > [data-stone-face],:root body button[data-ui-stone]::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border:0;box-shadow:none;
+}
+:root body button[data-ui-stone] > [data-stone-face]{display:flex!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;overflow:hidden}
+:root body [data-stone-face] > i{position:relative;display:block;height:100%;aspect-ratio:255/340;max-width:25%;flex:0 0 auto;background:var(--stone-piece) center/100% 100% no-repeat}
+:root body [data-stone-face] > i:first-child{--stone-piece:url('../forge/menu-left-plate.webp');--vein-piece:url('../forge/menu-left-veins.webp')}
+:root body [data-stone-face] > i:last-child{--stone-piece:url('../forge/menu-right-plate.webp');--vein-piece:url('../forge/menu-right-veins.webp')}
+:root body [data-stone-face] > i:nth-child(2){--vein-piece:url('../forge/menu-rail-veins.webp');flex:1 1 0;max-width:none;min-width:0;aspect-ratio:auto;background:url('../forge/menu-rail-plate.webp') center/auto 100% repeat-x}
+:root body [data-stone-face] > i:nth-child(2)::before{content:"";position:absolute;inset:0;background:url('../forge/menu-crest-plate.webp') center/auto 100% no-repeat}
+:root body [data-stone-face] > i::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,#d2220e 10%,#ff6418 27%,#ffe2a2 40%,#fa3411 51%,#ae1c10 66%,#ff962e 83%) 0% 50%/220% 100%;
+  mask:var(--vein-piece) center/100% 100% no-repeat;
+  animation:menu-molten 2.3s ease-in-out infinite alternate;
+}
+:root body [data-stone-face] > i:nth-child(2)::after{mask:url('../forge/menu-crest-veins.webp') center/auto 100% no-repeat,var(--vein-piece) center/auto 100% repeat-x}
+:root body button[data-ui-stone]::after{
+  opacity:0;mask:linear-gradient(to right,#000 3%,#000 24%,transparent 43%,transparent 57%,#000 76%,#000);
+  background:url('../forge/rite-inflow-rifts.webp') left center/53% 235% no-repeat,url('../forge/rite-inflow-rifts.webp') right 5%/47% 212% no-repeat;
+}
+:root body button[data-ui-stone][data-stone-strike]::after{animation:menu-rift .5s linear}
+:root body button[data-ui-stone]:is([aria-pressed=true],[aria-selected=true],.active,:focus-visible){outline:1px solid #e3c487;outline-offset:-2px}
+:root body button[data-ui-stone]:disabled [data-stone-face] > i::after{animation:none;opacity:.15}
+@keyframes menu-molten{from{background-position:0% 50%;opacity:.29}to{background-position:100% 50%;opacity:.86}}
+@keyframes menu-rift{0%,21%,42%,100%{opacity:0}13%,32%{opacity:.92}59%{opacity:.43}}
+
+/* The socket and footprint stay put while the face and lettering travel
+   together. Reserve the wall inside the original button's hit rectangle. */
+@media screen and (forced-colors:none){
+  :root body button[data-ui-stone]{
+    --stone-depth:3mm;
+    --stone-drop:0px;
+    --stone-slide:0px;
+    --chipped-corners:polygon(0 7px,7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px));
+  }
+  :root body button[data-ui-stone] > [data-stone-base]{
+    display:block;position:absolute;inset:2px 2px 1px 1px;z-index:-2;pointer-events:none;
+    width:auto;height:auto;min-width:0;margin:0;padding:0;border:0;border-radius:6px;
+    background:linear-gradient(#17050bcc,#30070ddc),url('../forge/portrait-velvet.webp') center / 185px;
+    box-shadow:-1px 2px 2px 1px #090507eb,-3px 4px 5px #090306bf,-5px 7px 9px -2px #0803089c;
+  }
+  :root body [data-stone-base]::before{
+    content:"";position:absolute;inset:0 0 1px;clip-path:var(--chipped-corners);
+    background:
+      linear-gradient(90deg,#07070bbf,transparent 12%,#0b090c40 48%,#66594e24 86%,#15121887),
+      linear-gradient(0deg,#08070ae8 0,#221c21ad 2px,#67574751 3px,#14101791 5px,transparent 10px),
+      url('../forge/slab-stone.webp') 59% 72% / 164px 76px;
+  }
+  :root body button[data-ui-stone] > [data-stone-face],:root body button[data-ui-stone]::after{
+    inset:calc(1px + var(--stone-drop)) calc(1px + var(--stone-slide)) calc(var(--stone-depth) - var(--stone-drop)) calc(4px - var(--stone-slide));
+    clip-path:var(--chipped-corners);
+  }
+  :root body button[data-ui-stone] > [data-stone-face]{
+    box-sizing:border-box;padding:2px 3px!important;
+    background:#231e20 url('../forge/slab-stone.webp') center / 220px auto;
+  }
+  :root body button[data-ui-stone] > [data-stone-face]::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    border:0 solid transparent;border-image:url('../forge/menu-chisel.png') 48 / 12px / 0 round;
+  }
+  :root body button[data-ui-stone] > :is(ui-ink,span,strong,b,small,img){
+    position:relative;top:calc(1px - var(--stone-depth) / 2 + var(--stone-drop));left:calc(1.5px - var(--stone-slide));
+  }
+  :root body button[data-ui-stone]:is(.active,[aria-pressed=true],[aria-selected=true]):not(:focus-visible){
+    outline:none;
+  }
+  :root body button[data-ui-stone]:is(.active,[aria-pressed=true],[aria-selected=true],:focus-visible) > [data-stone-face]::after{
+    filter:brightness(1.42) sepia(.24);
+  }
+  :root body button[data-ui-stone]:enabled:is(:active,[data-stone-held]){
+    --stone-drop:1.65mm;--stone-slide:2px;
+  }
+  :root body button[data-ui-stone]:enabled:is(:active,[data-stone-held]) > [data-stone-base]{
+    box-shadow:-1px 1px 2px #090407e8,-2px 3px 4px #070307ad;
+  }
+}
+@media (forced-colors:active){:root body button [data-stone-base]{display:none!important}}
+@media(prefers-reduced-motion:reduce){:root body button[data-ui-stone] [data-stone-face] > i::after{animation:none;opacity:.36}:root body button[data-ui-stone][data-stone-strike]::after{animation:none}}
+@media(prefers-reduced-motion:reduce){
+  :root body [data-ui-gem]:not(#game-resume-overlay button)::before,:root body [data-ui-gem]:not(#game-resume-overlay button)::after{animation:none;opacity:.25}
+}
+@media(max-height:500px){
+  :root body #weapon-fusion>header{padding-top:0;padding-bottom:0}
+  :root body #weapon-fusion>header small{display:none}
+  :root body #weapon-fusion .rite-fusion-cover{min-height:64px}
+}
+@media(forced-colors:active){
+  :root body button[data-ui-stone]:not([data-ui-close],[data-ui-gem]){background:ButtonFace!important;border:1px solid ButtonText!important}
+  :root body button[data-ui-stone] > [data-stone-face]{display:none!important}:root body button[data-ui-stone]::after{content:none}
+  :root body :is(dialog,.mythic-panel,#info,#talk,#talk #talk-body,.spoken-line,.mythic-speech),:root body .film-caption::before{border-image:none!important;background:Canvas!important;color:CanvasText}
+  :root body button[data-ui-gem],:root body button:not([data-ui-gem]){background:ButtonFace!important;color:ButtonText!important;border:1px solid ButtonText!important;border-image:none!important}
+}
+
+/* Lettering is painted separately from its socket or illustration. The
+   existing foreground colour supplies the metal of each individual text run. */
+:root body ui-ink{pointer-events:none}
+/* Enlarge the interactive surface, including its art and hit targets. Full
+   scene backdrops stay in viewport coordinates. Clamp before the zoom. */
+:root body :is(dialog[open]:not(#cinematic,#story,#battle),[role="dialog"]:not(dialog,#battle-rewards),#battle-rewards > .victory-panel,#download-gate > .download-card){
+  --popup-zoom:1.2;
+  zoom:var(--popup-zoom);
+  max-inline-size:calc((100dvw - 12px - env(safe-area-inset-left) - env(safe-area-inset-right)) / var(--popup-zoom))!important;
+  max-block-size:calc((100dvh - 12px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) / var(--popup-zoom))!important;
+}
+/* The carved pause plate is a single 4:3 image; fit the entire frame. */
+:root body dialog#game-resume-overlay[open]{
+  width:min(720px,94vw,calc((100dvh - 12px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) / var(--popup-zoom) * 4 / 3));
+}
+@media (max-height:500px) and (orientation:landscape){
+  /* Short screens have room beside the silhouette for the belt and cloak.
+     Keep the labels inside their sockets so neighbouring slots stay tappable. */
+  :root body #character-sheet .paperdoll-slots{
+    inset:2px 9%;display:grid;grid-template-areas:"cloak head neck" "weapon body hands" "belt feet ring";
+    grid-template-rows:repeat(3,minmax(0,1fr));grid-template-columns:repeat(3,minmax(0,1fr));place-items:center;
+  }
+  :root body #character-sheet .character-slot[data-slot]{
+    position:relative;inset:auto;transform:none;width:44px;height:min(44px,100%);min-height:0;
+    padding:12px 3px 1px;box-sizing:border-box;
+  }
+  #character-sheet [data-slot=cloak]{grid-area:cloak} #character-sheet [data-slot=head]{grid-area:head}
+  #character-sheet [data-slot=neck]{grid-area:neck} #character-sheet [data-slot=weapon]{grid-area:weapon}
+  #character-sheet [data-slot=body]{grid-area:body} #character-sheet [data-slot=hands]{grid-area:hands}
+  #character-sheet [data-slot=belt]{grid-area:belt} #character-sheet [data-slot=feet]{grid-area:feet}
+  #character-sheet [data-slot=ring]{grid-area:ring}
+  :root body #character-sheet .paperdoll-slots .character-slot>small{top:0;bottom:auto;margin:0;font-size:10px}
+}
+@media (max-height:500px), (max-width:520px){
+  /* Each compact inventory page contains at most two rows. Fit both inside
+     the workspace while the footer and the selected item's details stay put. */
+  :root body #journey-panel .journal-grid{grid-template-rows:repeat(2,minmax(0,1fr))}
+  :root body #journey-panel .journal-grid .journal-slot{height:100%;max-height:92px;min-height:0}
+  :root body #journey-panel .journal-slot-art{flex:1 1 0;min-height:0;max-height:60px}
+  :root body #journey-panel .journal-slot-art img{min-height:0}
+}
+@media screen and (forced-colors:none){
+  :root body :is(button,[role="button"],[role="tab"],summary,a[href],input[type="button"],input[type="submit"],input[type="reset"]){
+    text-shadow:-.35px -.4px 0 #ffebae80,.6px .85px 0 #4f3224,0 1.4px 1.3px #100b0c;
+  }
+  @supports ((background-clip:text) or (-webkit-background-clip:text)) and (color:color-mix(in srgb,gold,white)){
+    :root body ui-ink,:root body .journey-icon-button::after{
+      --chisel-light:color-mix(in srgb,currentColor 72%,#fff2cd);
+      --chisel-face:color-mix(in srgb,currentColor 78%,#efb65c);
+      --chisel-edge:color-mix(in srgb,currentColor 65%,#855022);
+      --ember-opacity:0.49;
+      background-image:
+        radial-gradient(ellipse at center,rgba(255,160,61,var(--ember-opacity)) 0%,rgba(230,74,28,.31) 13%,transparent 48%),
+        linear-gradient(160deg,var(--chisel-light) 5%,var(--chisel-face) 36%,var(--chisel-light) 45%,var(--chisel-edge) 51%,var(--chisel-face) 65%,var(--chisel-light) 89%,var(--chisel-edge) 99%);
+      background-size:55% .11em,100% 1.1em;
+      background-position:-85% 65%,0 50%;
+      background-repeat:no-repeat,repeat-y;
+      background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      -webkit-box-decoration-break:clone;box-decoration-break:clone;
+      text-shadow:none;
+      filter:drop-shadow(-.35px -.45px 0 #ffdd955c) drop-shadow(.55px .85px 0 #593823) drop-shadow(0 1px .65px #0b0809);
+    }
+    :root body :is([data-ui-stone],[data-ui-gem],#game-resume-overlay button) ui-ink{
+      font-family:Georgia,"Noto Serif TC","Songti TC","PMingLiU","新細明體",serif;
+      font-weight:700;
+    }
+    :root body :is([data-game-name],[data-quest-kind],[data-item-rarity],[data-monster-tier],[data-quest-category],[style*="color"],.journal-slot,.enemy-button,.character-slot,.sea-target) ui-ink{
+      --chisel-face:currentColor;
+      --chisel-light:color-mix(in srgb,currentColor 89%,white);
+      --chisel-edge:color-mix(in srgb,currentColor 84%,#36282a);
+      --ember-opacity:.22;
+    }
+    :root body :is(small,.station-cost) ui-ink,:root body .journey-icon-button::after{
+      filter:drop-shadow(0 .65px 0 #593823) drop-shadow(0 .65px .5px #100b0c);
+    }
+    @media(prefers-reduced-motion:no-preference){
+      /* Animate only controls on the active surface, with a travelling glint
+         confined to the strokes. Buttons underneath a modal do no paint work. */
+      :root body:not(:has(dialog[open])) ui-ink,
+      :root body dialog[open] ui-ink,
+      :root body:not(:has(dialog[open])) .journey-icon-button::after,
+      :root body dialog[open] .journey-icon-button::after{
+        animation:inscription-ember 4.8s steps(32,end) infinite;
+      }
+      :root body :is(:disabled,[aria-disabled=true],[data-ui-close]) ui-ink,
+      :root body .journey-icon-button:disabled::after{animation:none!important}
+    }
+    @keyframes inscription-ember{
+      0%,12%{background-position:-85% 68%,0 50%}
+      84%,100%{background-position:185% 61%,0 50%}
+    }
+  }
+}
