@@ -23,8 +23,8 @@
   ],
   "slots": {
     "Amphibian_Body": {
-      "image": "../drownedNewt-skill-r5/images/Master.png",
-      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "image": "../drownedNewt-jaw-r13/images/Master.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Master-Emissive.png",
       "sourcePart": "../drownedNewt-skill-r5/parts/Amphibian_Body.png",
       "sourceEmissive": "../drownedNewt-skill-r5/parts/Amphibian_Body-Emissive.png",
       "weighted": true,
@@ -32,8 +32,8 @@
       "triangles": 4693
     },
     "Crystal_Fins": {
-      "image": "../drownedNewt-skill-r5/images/Master.png",
-      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "image": "../drownedNewt-jaw-r13/images/Master.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Master-Emissive.png",
       "sourcePart": "../drownedNewt-skill-r5/parts/Crystal_Fins.png",
       "sourceEmissive": "../drownedNewt-skill-r5/parts/Crystal_Fins-Emissive.png",
       "weighted": true,
@@ -41,8 +41,8 @@
       "triangles": 396
     },
     "Head": {
-      "image": "../drownedNewt-skill-r5/images/Master.png",
-      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "image": "../drownedNewt-jaw-r13/images/Master.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Master-Emissive.png",
       "sourcePart": "../drownedNewt-skill-r5/parts/Head.png",
       "sourceEmissive": "../drownedNewt-skill-r5/parts/Head-Emissive.png",
       "weighted": true,
@@ -50,8 +50,8 @@
       "triangles": 170
     },
     "Tail": {
-      "image": "../drownedNewt-skill-r5/images/Master.png",
-      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "image": "../drownedNewt-jaw-r13/images/Master.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Master-Emissive.png",
       "sourcePart": "../drownedNewt-skill-r5/parts/Tail.png",
       "sourceEmissive": "../drownedNewt-skill-r5/parts/Tail-Emissive.png",
       "weighted": true,
@@ -59,39 +59,27 @@
       "triangles": 243
     },
     "Surface_Mouth_Slot": {
-      "image": "../drownedNewt-skill-r5/images/Master.png",
-      "emissive": "../drownedNewt-skill-r5/images/Master-Emissive.png",
+      "image": "../drownedNewt-jaw-r13/images/Master.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Master-Emissive.png",
       "sourcePart": "../drownedNewt-skill-r5/parts/Surface_Mouth_Slot.png",
       "sourceEmissive": "../drownedNewt-skill-r5/parts/Surface_Mouth_Slot-Emissive.png",
       "weighted": true,
       "vertices": 85,
       "triangles": 130
     },
-    "Interior": {
-      "image": "../drownedNewt-skill-r5/images/Interior.png",
-      "emissive": "../drownedNewt-skill-r5/images/Interior-Emissive.png",
-      "rect": {
-        "x": 72,
-        "y": 384,
-        "w": 427,
-        "h": 220
-      },
-      "independent": true,
-      "sourcePart": "../drownedNewt-skill-r5/parts/Interior.png",
-      "sourceEmissive": "../drownedNewt-skill-r5/parts/Interior-Emissive.png"
-    },
     "Mouth_Slot": {
-      "image": "../drownedNewt-skill-r5/images/Mouth_Slot.png",
-      "emissive": "../drownedNewt-skill-r5/images/Mouth_Slot-Emissive.png",
-      "rect": {
-        "x": 78,
-        "y": 390,
-        "w": 415,
-        "h": 208
-      },
+      "image": "../drownedNewt-jaw-r13/images/Mouth_Slot.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Mouth_Slot-Emissive.png",
       "independent": true,
-      "sourcePart": "../drownedNewt-skill-r5/parts/Mouth_Slot.png",
-      "sourceEmissive": "../drownedNewt-skill-r5/parts/Mouth_Slot-Emissive.png"
+      "weighted": true,
+      "revision": 13
+    },
+    "Interior": {
+      "image": "../drownedNewt-jaw-r13/images/Cavity.png",
+      "emissive": "../drownedNewt-jaw-r13/images/Cavity-Emissive.png",
+      "independent": true,
+      "weighted": true,
+      "revision": 13
     }
   },
   "states": {
@@ -531,5 +519,12 @@
     "impact": 1.53,
     "hitStopSeconds": 0.05,
     "duration": 3.45
+  },
+  "anatomyRevision": "jaw-teeth-r13",
+  "anatomy": {
+    "lowerTeeth": "Mouth_Slot",
+    "hingeParent": "Head",
+    "cavity": "toothless painted membrane weighted between Head and Mouth_Slot",
+    "originalAppearance": "unchanged in setup; lower teeth transferred from master to jaw"
   }
 }
