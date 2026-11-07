@@ -1,0 +1,349 @@
+{
+  "revision": "howler-foley-r15",
+  "status": "recording-derived audition; not user-approved AAA final",
+  "sourceFormats": "mixed native 16/24-bit 44.1/48 kHz; no native 96 kHz claim",
+  "master": {
+    "bits": 24,
+    "hz": 48000,
+    "channels": 1
+  },
+  "runtime": {
+    "format": "MP3 160 kbps",
+    "hz": 48000,
+    "channels": 1,
+    "duration": 18.75,
+    "decodedBytes": 3600000
+  },
+  "sources": {
+    "stone": {
+      "url": "https://bigsoundbank.com/fall-of-stone-s1022.html",
+      "author": "Joseph SARDIN",
+      "bits": 16,
+      "hz": 48000,
+      "license": "CC0",
+      "sha256": "f27b9cc4d8bfd2417eb474a508ae8623ddc6cb0e43f03badecf738d7bfeb3203",
+      "trimStartSeconds": 13.238
+    },
+    "chain": {
+      "url": "https://bigsoundbank.com/heavy-chain-s0359.html",
+      "author": "DenisChardonnet",
+      "bits": 16,
+      "hz": 44100,
+      "license": "CC0",
+      "sha256": "48efcc0364bf98a47a622b7642254b3e885378f8a241b99885ba5781f3a6c41d",
+      "trimStartSeconds": 2.1741041666666665
+    },
+    "scrape": {
+      "url": "https://bigsoundbank.com/tombstone-opening-s0580.html",
+      "author": "Joseph SARDIN",
+      "bits": 16,
+      "hz": 48000,
+      "license": "CC0",
+      "sha256": "2c79684618226838ea09ef55719dd4cd41aecb165536a2bf9be03972e1f81745",
+      "trimStartSeconds": 0.17570833333333333
+    },
+    "gravel": {
+      "url": "https://bigsoundbank.com/footsteps-on-gravels-4-s3216.html",
+      "author": "Joseph SARDIN & Axeline T.",
+      "bits": 24,
+      "hz": 48000,
+      "license": "CC0",
+      "sha256": "8e7f5bdecf9729c32e040a08027dcb9735d3eab34b49535bcd2852d8bd6daf18",
+      "trimStartSeconds": 4.343083333333333
+    },
+    "anvil": {
+      "url": "https://bigsoundbank.com/anvil-s3589.html",
+      "author": "Pablo BERGEL",
+      "bits": 24,
+      "hz": 48000,
+      "license": "CC0",
+      "sha256": "ebc51af2da517a3b3a2e21a7f7be1ce0c5942f3583a0a8702506af87d4ca10c0",
+      "trimStartSeconds": 9.094
+    }
+  },
+  "records": [
+    {
+      "id": "shell_scrape",
+      "usage": "01 岩殼蟲／銅甲蓄勢：甲殼磨擦",
+      "startMs": 0,
+      "durationMs": 1400,
+      "layers": [
+        [
+          "scrape",
+          0.82,
+          0.7,
+          0
+        ],
+        [
+          "gravel",
+          0.9,
+          0.35,
+          0
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "shell_bite",
+      "usage": "01 岩殼蟲：撲咬命中",
+      "startMs": 1650,
+      "durationMs": 1100,
+      "layers": [
+        [
+          "stone",
+          1.05,
+          0.55,
+          0
+        ],
+        [
+          "gravel",
+          0.86,
+          0.6,
+          0.012
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "larva_pounce",
+      "usage": "02 岩殼幼蟲：躍撲與落地",
+      "startMs": 3000,
+      "durationMs": 750,
+      "layers": [
+        [
+          "gravel",
+          1.3,
+          0.85,
+          0
+        ],
+        [
+          "scrape",
+          1.4,
+          0.22,
+          0
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "mother_slam",
+      "usage": "04 岩殼母蟲：赤晶崩裂／巨螯落地",
+      "startMs": 4000,
+      "durationMs": 2100,
+      "layers": [
+        [
+          "stone",
+          0.58,
+          0.85,
+          0
+        ],
+        [
+          "gravel",
+          0.72,
+          0.45,
+          0.015
+        ],
+        [
+          "anvil",
+          0.55,
+          0.18,
+          0
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "mother_hatch",
+      "usage": "04 岩殼母蟲：卵殼張開、幼蟲爬出",
+      "startMs": 6350,
+      "durationMs": 1700,
+      "layers": [
+        [
+          "scrape",
+          0.65,
+          0.8,
+          0
+        ],
+        [
+          "gravel",
+          1.08,
+          0.45,
+          0.12
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "guardian_swing",
+      "usage": "05 銅根守像：鎚柄銅根與重鏈揮動",
+      "startMs": 8300,
+      "durationMs": 900,
+      "layers": [
+        [
+          "chain",
+          0.8,
+          0.9,
+          0
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "stone_shattering_boom",
+      "usage": "05 銅根守像：銅根裂庭命中",
+      "startMs": 9450,
+      "durationMs": 2400,
+      "layers": [
+        [
+          "stone",
+          0.5,
+          0.82,
+          0
+        ],
+        [
+          "stone",
+          0.95,
+          0.5,
+          0.008
+        ],
+        [
+          "anvil",
+          0.65,
+          0.28,
+          0
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "armor_crack",
+      "usage": "06 礦脈蜥：裂岩重擊首次破甲",
+      "startMs": 12100,
+      "durationMs": 1150,
+      "layers": [
+        [
+          "stone",
+          1.35,
+          0.8,
+          0
+        ],
+        [
+          "chain",
+          1.15,
+          0.27,
+          0.005
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "hammer_hit",
+      "usage": "厄里昂：普通重鎚／裂岩重擊命中",
+      "startMs": 13500,
+      "durationMs": 1500,
+      "layers": [
+        [
+          "stone",
+          0.72,
+          0.8,
+          0
+        ],
+        [
+          "anvil",
+          0.78,
+          0.32,
+          0
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "guard_metal",
+      "usage": "成功格擋：金屬撞擊",
+      "startMs": 15250,
+      "durationMs": 1200,
+      "layers": [
+        [
+          "anvil",
+          1,
+          0.9,
+          0
+        ],
+        [
+          "chain",
+          0.9,
+          0.18,
+          0.015
+        ]
+      ],
+      "peak": 0.64
+    },
+    {
+      "id": "charge_rumble",
+      "usage": "四隻核心怪物：實錄岩殼／鎖鏈蓄力底聲",
+      "startMs": 16700,
+      "durationMs": 1800,
+      "layers": [
+        [
+          "scrape",
+          0.6,
+          0.55,
+          0
+        ],
+        [
+          "chain",
+          0.55,
+          0.3,
+          0
+        ]
+      ],
+      "peak": 0.64
+    }
+  ],
+  "sprite": {
+    "shell_scrape": [
+      0,
+      1400
+    ],
+    "shell_bite": [
+      1650,
+      1100
+    ],
+    "larva_pounce": [
+      3000,
+      750
+    ],
+    "mother_slam": [
+      4000,
+      2100
+    ],
+    "mother_hatch": [
+      6350,
+      1700
+    ],
+    "guardian_swing": [
+      8300,
+      900
+    ],
+    "stone_shattering_boom": [
+      9450,
+      2400
+    ],
+    "armor_crack": [
+      12100,
+      1150
+    ],
+    "hammer_hit": [
+      13500,
+      1500
+    ],
+    "guard_metal": [
+      15250,
+      1200
+    ],
+    "charge_rumble": [
+      16700,
+      1800
+    ]
+  }
+}
