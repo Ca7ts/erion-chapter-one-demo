@@ -1,0 +1,19 @@
+body #kraken-rock{width:min(1200px,96vw);max-width:none;max-height:96vh;margin:auto;padding:0;border:10px solid transparent;border-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/ui_frame.webp') 150 / 10px / 0 stretch;background:#111a1f;overflow:auto;border-radius:0}
+#kraken-rock::backdrop{background:#030c13dd;backdrop-filter:blur(4px)}
+#kraken-rock .rock-top{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 22px;background:linear-gradient(#080c1460,#080c1490),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_basalt.webp') center/cover}
+#kraken-rock .rock-top h2{margin:3px 0;color:#ffe0a0;font-size:21px;letter-spacing:2px}
+#kraken-rock button{background:#191b1d url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/button_texture.webp') center/100% 100%;color:#f5dfb0;min-height:44px;border:1px solid #ac8b50}
+#kraken-rock .rock-view{position:relative;display:grid;place-items:center;overflow:hidden;background:#091318}
+#rock-canvas{display:block;width:auto;max-width:100%;height:min(61vh,720px);aspect-ratio:3/2;touch-action:none;outline-offset:-4px}
+#rock-canvas:focus-visible{outline:2px solid #d9bd73}
+#rock-load{position:absolute;inset:0;display:grid;place-items:center;margin:0;padding:30px;background:#101a1fe8;color:#eedbb3;text-align:center}
+#rock-state{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:max-content;max-width:85%;padding:10px 24px;background:linear-gradient(#071419db,#121d23d9),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_slate.webp') center/cover;border-bottom:2px solid #d1ba87;text-align:center;pointer-events:none;color:#fce4c3;font-weight:bold;text-shadow:0 2px 3px #000}
+#rock-state[data-phase=slack],#rock-state[data-phase=done]{color:#d9ffe0;border-color:#98d5b0}
+#kraken-rock .rock-instructions{padding:12px 24px 15px;background:linear-gradient(#111820e8,#111820e8),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_slate.webp') center/cover;text-align:center}
+#rock-instruction{margin:2px 0 10px;line-height:1.6;font-size:16px;color:#f8e8c9}
+#kraken-rock .rock-progress{display:flex;gap:14px;align-items:center;max-width:620px;margin:6px auto 9px;font-size:13px;color:#e9d3a1}
+#kraken-rock [role=progressbar]{flex:1;height:7px;background:#29343a;overflow:hidden}
+#kraken-rock [role=progressbar] i{display:block;height:100%;background:linear-gradient(90deg,#aa7c35,#efda91);box-shadow:0 0 9px #e2bb65}
+#rock-percent{min-width:40px}
+#kraken-rock small{font-size:12px;line-height:1.7;color:#c3cac3}
+@media(max-width:650px){#kraken-rock .rock-top{padding:10px;flex-wrap:wrap}#kraken-rock .rock-top h2{font-size:17px}#rock-canvas{height:auto;width:100%}#rock-state{font-size:13px;top:5px;padding:7px 12px}#kraken-rock .rock-instructions{padding:10px}#rock-instruction{font-size:14px}}

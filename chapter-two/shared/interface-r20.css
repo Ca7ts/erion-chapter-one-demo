@@ -1,0 +1,65 @@
+/* Painted obsidian and bronze, shared by battle, inventory, and result UI. */
+:root{--r20-panel:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/status-panel-r20.webp');--r20-inventory:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/inventory-r20.webp');--r20-victory:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/victory-r20.webp');--r20-cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M3 2L27 17L17 20L13 29Z' fill='%2310171b' stroke='%23e0bd72' stroke-width='2'/%3E%3Cpath d='M7 7L18 16L13 21Z' fill='%23a87b3e'/%3E%3Cpath d='M9 7L23 16L16 17Z' fill='%23f7e2a2'/%3E%3C/svg%3E") 3 2,pointer}
+:root body #battle-field,:root body #battle .enemy-button,:root body #map[style*="pointer"],:root body #world-canvas[style*="pointer"]{cursor:var(--r20-cursor)!important}
+:root body.rpg-clean-layout header.top .rpg-vitals{left:28%;right:5%;top:13%;bottom:16%;grid-template-rows:23px minmax(0,1fr) minmax(0,1fr);gap:3px;min-width:0}
+:root body.rpg-clean-layout header.top .rpg-vitals>strong{display:flex!important;align-items:center;justify-content:space-between;gap:6px;line-height:22px;font-size:14px;min-width:0;padding:0 2px;overflow:visible}
+:root body.rpg-clean-layout header.top .rpg-vitals>strong>small{position:static!important;display:inline-block!important;flex:none;font-size:13px!important;font-weight:800;line-height:18px;color:#ffe6a2!important;background:#131a20;border:1px solid #a78955;border-radius:3px;padding:0 6px;text-shadow:0 1px 2px #000;white-space:nowrap;z-index:2;transform:none}
+:root body #battle .enemy-button{background:var(--r20-panel) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;border-radius:0!important;box-shadow:0 3px 8px #0008!important;padding:10px 14px!important;min-height:66px;display:flex;flex-direction:column;gap:4px;justify-content:center;box-sizing:border-box;color:#f2e7ce;line-height:1.3}
+:root body #battle .enemy-button>span:first-child{font-size:13px!important;line-height:1.25;font-weight:700;white-space:normal;overflow-wrap:anywhere;display:block}
+:root body #battle .enemy-button>small{font-size:11px!important;line-height:1.35;display:block;color:#dbc9a7!important}
+:root body #battle .enemy-button .bar{display:block;width:100%;height:5px;margin:0;background:#020508c9;border:1px solid #84734c66;border-radius:2px;overflow:hidden}
+:root body #battle .enemy-button:disabled{opacity:1;filter:none}
+:root body #battle .enemy-button.targeting{filter:drop-shadow(0 0 5px #f3c86c)}
+:root body #battle .command-deck{background:#0b1018 var(--r20-panel) center/100% 100% no-repeat!important;border:0!important;border-image:none!important;box-shadow:0 -4px 22px #0009!important;padding:12px 20px 16px!important;box-sizing:border-box}
+:root body #battle .battle-stats{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;min-height:27px;padding:0 6px 8px;border-bottom:1px solid #b6955445;margin-bottom:8px;font-size:14px;color:#e9d9b7}
+:root body #battle .battle-stats>strong{font-size:16px;color:#ffe5a0;margin-right:6px}
+:root body #battle .battle-stats #battle-hp,:root body #battle .battle-stats #battle-mp{font-weight:700;padding:3px 8px;border-radius:3px;background:#060b1288}
+:root body #battle .battle-stats small{margin-left:auto;max-width:55%;font-size:11px;line-height:1.4;color:#d3c7af}
+:root body #journey-panel[data-mode="bag"],:root body #journey-panel[data-mode="equipment"]{background:#0c1119 var(--r20-inventory) center/100% 100% no-repeat!important;border-image:none!important;border:1px solid #b99b5d!important;border-radius:5px!important;box-shadow:0 14px 60px #000d,inset 0 0 0 4px #121315!important;padding:24px!important}
+:root body #journey-panel[data-mode="bag"] .journal-workspace,:root body #journey-panel[data-mode="equipment"] .journal-workspace{background:transparent;border:0;gap:14px}
+:root body #journey-panel .journal-slot{background:linear-gradient(145deg,#28303aab,#10131aeb)!important;border:1px solid #aa8b554d!important;border-bottom:3px solid var(--item-color)!important;box-shadow:inset 0 0 0 2px #090c12b0,0 3px 7px #0006!important;border-radius:3px!important;padding:8px 6px!important}
+:root body #journey-panel .journal-slot[aria-pressed="true"]{border-color:#e9cb88!important;box-shadow:inset 0 0 0 2px #332b18,0 0 9px #debb6955!important;background:linear-gradient(145deg,#4e4430a3,#111720ed)!important}
+:root body #journey-panel .journal-slot-name{font-size:12px;line-height:1.35;text-align:center}
+:root body #journey-panel .journal-detail{background:#080d16d9!important;border:1px solid #bc9b5955!important;box-shadow:inset 0 0 24px #0005!important;border-radius:3px;padding:18px}
+:root body #journey-panel .journal-footer{background:#080c12c9!important;border-top:1px solid #b6955466;min-height:46px;gap:8px;flex-wrap:wrap;padding:8px 0 0!important}
+:root body #journey-panel .journal-character-stats{font-size:11px;color:#d8c495}
+:root body #journey-panel.mode-equipment{grid-template-rows:auto auto minmax(0,1fr) auto}
+:root body #journey-panel .journal-footer{flex-shrink:0}
+:root body #battle-rewards{background:#080b12e8!important}
+:root body #battle-rewards .victory-panel{min-width:0;max-width:100%;width:min(850px,100%)}
+:root body #battle-rewards .victory-panel{background:linear-gradient(#04060a25,#06080a45),var(--r20-victory) center/cover no-repeat!important;border:1px solid #b5965b!important;border-image:none!important;border-radius:5px!important;box-shadow:0 12px 60px #000d,inset 0 0 0 4px #1a1713!important;padding:30px 36px 20px}
+:root body #battle-rewards .victory-heading{background:transparent!important;border:0;min-height:85px;padding-top:24px}
+:root body #battle-rewards .victory-mascot{display:none}
+:root body #battle-rewards .victory-xp,:root body #battle-rewards .victory-economy{background:#080c1499;border:1px solid #b8984c44;border-radius:3px;text-align:center;padding:7px;line-height:1.5}
+:root body #battle-rewards .victory-item{background:#0c121de8!important;border-color:#b9a16b66;box-shadow:inset 0 1px 0 #edca6533;border-radius:3px}
+@media(max-width:680px){
+ :root body #battle .enemy-button{padding:9px 9px!important;min-height:60px;gap:3px}
+ :root body #battle .enemy-button>span:first-child{font-size:12px!important}
+ :root body #battle .enemy-button>small{font-size:10px!important}
+ :root body #battle .command-deck{padding:10px 10px 14px!important}
+ :root body #battle .battle-stats{gap:5px 8px;font-size:12px;padding:0 0 5px;margin-bottom:4px}
+ :root body #battle .battle-stats>strong{font-size:14px}
+ :root body #battle .battle-stats small{flex-basis:100%;max-width:100%;margin:0;font-size:10px}
+ :root body #journey-panel[data-mode="bag"],:root body #journey-panel[data-mode="equipment"]{padding:15px!important}
+ :root body #journey-panel .journal-detail{padding:10px}
+ :root body #battle-rewards .victory-panel{padding:18px 15px 12px}
+ :root body #battle-rewards .victory-heading{min-height:55px;padding-top:18px}
+ :root body #journey-panel .journal-footer button{min-height:37px;min-width:37px}
+ :root body #battle-rewards{padding:8px!important}
+ :root body #battle-rewards .victory-panel{width:calc((100dvw - 16px)/1.2);max-inline-size:calc((100dvw - 16px)/1.2)!important;overflow:hidden}
+ :root body #battle-rewards .victory-heading{min-width:0}
+ :root body #battle-rewards .victory-heading>div{min-width:0}
+ :root body #battle-rewards .victory-actions{min-width:0}
+}
+@media(max-height:540px){
+ :root body #battle .command-deck{padding:8px 14px 10px!important}
+ :root body #battle .battle-stats{font-size:12px;min-height:22px;padding-bottom:3px;margin-bottom:3px;gap:5px 10px}
+ :root body #battle .battle-stats>strong{font-size:13px}
+ :root body #battle .enemy-button{min-height:53px;padding:8px 10px!important;gap:2px}
+ :root body #battle .enemy-button>span:first-child{font-size:11px!important}
+ :root body #battle .enemy-button>small{font-size:10px!important}
+ :root body #battle-rewards .victory-panel{padding:10px 22px;gap:5px}
+ :root body #battle-rewards .victory-heading{min-height:35px;padding:0}
+ :root body #battle-rewards .victory-xp,:root body #battle-rewards .victory-economy{padding:2px}
+ :root body #journey-panel[data-mode="bag"],:root body #journey-panel[data-mode="equipment"]{padding:12px!important}
+}

@@ -1,0 +1,5 @@
+.chapter-preview-note{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:#10171ddd;color:#dfc78f;border:1px solid #8e794d;padding:5px 12px;font-size:12px;pointer-events:none;white-space:nowrap}
+.map-audit{position:fixed;left:8px;top:140px;z-index:5000;max-width:320px;max-height:65vh;height:max-content;overflow:auto;background:#0d151df2;border:1px solid #ad955b;color:#eed4a1;padding:8px}.map-audit button{min-height:44px;display:block;width:100%}
+#talk-options button{min-height:44px}#talk-options{max-height:50vh;overflow:auto}#world .zoom{z-index:20}
+.hold-operation{padding:12px;border:1px solid #8e794d;background:#10171d;border-radius:5px}.hold-operation progress{width:100%;height:16px;accent-color:#dab877}.hold-operation button{width:100%;margin-top:12px;user-select:none}.hold-operation p{margin:0 0 10px}
+@media(max-width:760px){.chapter-preview-note{bottom:4px;font-size:10px;padding:3px 5px;max-width:70vw;white-space:normal;text-align:center}#talk{max-height:90dvh;overflow:auto}.top .chapter{display:none}}

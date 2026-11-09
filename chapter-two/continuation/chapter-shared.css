@@ -1,0 +1,14 @@
+/* Structure adaptations only; panel art, slot layout, rarity colours and
+   typography come directly from the first chapter's shared stylesheets. */
+body.rpg-clean-layout .top .chapter,body.rpg-clean-layout .top .brand{display:none}
+body.rpg-clean-layout .layout{display:block;height:calc(100dvh - var(--journey-header-height,64px))}
+body.rpg-clean-layout .layout>aside{display:none}
+body.rpg-clean-layout .layout>main{height:100%;min-width:0}
+body.rpg-clean-layout #world{height:100%;min-height:0}
+body.rpg-clean-layout main>footer{display:none}
+body.rpg-clean-layout .rpg-minimap-dock{position:absolute;right:12px;top:12px;z-index:10}
+body.rpg-clean-layout .rpg-minimap-dock #minimap{position:static;max-width:150px;height:auto}
+body.rpg-clean-layout .rpg-minimap-dock.collapsed #minimap{display:none}
+body.rpg-clean-layout #quest-guide-panel #party{display:none}
+#sea-victory{background:#121a20 url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/victory-r20.webp') center/cover;border:1px solid #bba274;color:#ede3cd}
+@media(max-width:760px){body.rpg-clean-layout .top{min-width:0;max-width:100vw}body.rpg-clean-layout .layout{height:calc(100dvh - 60px)}.top nav{min-width:0;overflow-x:auto;flex-wrap:nowrap}.rpg-hero-hud{flex-shrink:0}.rpg-vitals strong{display:flex;gap:12px;align-items:center;justify-content:space-between}.rpg-vitals strong small{position:static;display:block;white-space:nowrap}#battle .battle-bottom{max-height:43dvh;overflow:auto}#battle #commands{display:flex;gap:5px;overflow-x:auto}#battle #commands button{flex:1 0 62px;min-width:62px}#sea-victory{max-width:94vw;max-height:90dvh;overflow:auto}}

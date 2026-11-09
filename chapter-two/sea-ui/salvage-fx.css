@@ -1,0 +1,62 @@
+.salvage-flare{position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);box-sizing:border-box;width:min(226px,84vw);pointer-events:none;user-select:none;isolation:isolate;display:grid;justify-items:center;border:1px solid #a78759;border-radius:7px;padding:5px 10px 11px;color:#f2e6c8;text-align:center;background:radial-gradient(ellipse at 50% 25%,#50433080,transparent 70%),linear-gradient(#111c21e8,#11191df5),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_slate.webp') center/cover;box-shadow:inset 0 0 0 2px #272723,inset 0 0 0 3px #79603c88,0 7px 24px #050b10b0;animation:salvage-card 1.2s both}
+.salvage-glyph{position:relative;width:145px;height:96px;isolation:isolate}
+.salvage-orbit,.salvage-engraving,.salvage-pieces,.salvage-seam,.salvage-return{position:absolute;inset:0;margin:auto;pointer-events:none}
+.salvage-orbit{width:100px;height:94px;background:radial-gradient(ellipse,#ffe1a382,#aa824133 48%,transparent 70%);animation:salvage-glow .85s both}
+.salvage-engraving{width:96px;height:96px;color:#d5aa69;animation:salvage-ring .95s both}.salvage-engraving svg{display:block;width:100%;height:100%}
+.salvage-pieces{width:70px;height:70px}.salvage-shard{position:absolute;inset:0;animation:salvage-split .68s both}
+.salvage-flare .salvage-shard img,.salvage-flare img.salvage-return{display:block;object-fit:contain;border:0;background:none;border-radius:0;padding:0;box-shadow:none}
+.salvage-flare .salvage-shard img{width:100%;height:100%}
+.salvage-seam{width:2px;height:63px;transform:rotate(31deg);background:linear-gradient(transparent,#fffbde 45%,#fff3ce 60%,transparent);box-shadow:0 0 8px #ffd183;animation:salvage-notch .4s both}
+.salvage-flare img.salvage-return{width:61px;height:61px;filter:drop-shadow(0 0 5px #b3eecc8c);animation:salvage-recover .78s both}
+.salvage-filing{position:absolute;top:50%;left:50%;width:7px;height:2px;border-radius:70%;background:linear-gradient(to right,transparent,#ffdf9c);box-shadow:0 0 3px #ffc36e;animation:salvage-filing .59s calc(.16s + var(--lag)) both}
+.salvage-legend{display:grid;gap:1px;font:600 15px/1.3 system-ui,sans-serif}.salvage-legend small{color:#d3b887;font:11px/1.4 system-ui,sans-serif;letter-spacing:.17em}.salvage-legend strong{color:#e4f4df;animation:salvage-caption .6s both}
+@keyframes salvage-card{0%{opacity:0}7%,88%{opacity:1}100%{opacity:0}}
+@keyframes salvage-split{0%,26%{transform:none;opacity:1}58%{transform:translate(var(--sx),var(--sy)) rotate(var(--rot));opacity:.92}100%{transform:scale(.15);opacity:0}}
+@keyframes salvage-filing{0%{transform:rotate(var(--rot)) scaleX(.3);opacity:0}23%{opacity:1}100%{transform:translate(var(--sx),var(--sy)) rotate(var(--rot)) scaleX(.15);opacity:0}}
+@keyframes salvage-glow{0%{opacity:.15}30%{opacity:.95}72%{opacity:.48}100%{opacity:.24}}
+@keyframes salvage-ring{0%{opacity:.2;transform:scale(.87) rotate(-12deg)}35%{opacity:.94}100%{opacity:.4;transform:none}}
+@keyframes salvage-notch{0%,20%{opacity:0}45%{opacity:.95}100%{opacity:0}}
+@keyframes salvage-recover{0%,52%{opacity:0;transform:scale(.67)}83%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes salvage-caption{0%,56%{opacity:0}100%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.salvage-flare,.salvage-flare *{animation:none!important}.salvage-pieces,.salvage-filing,.salvage-seam{display:none}.salvage-engraving{opacity:.4}.salvage-orbit{opacity:.25}}
+
+body dialog:is(#private-dialog,#sea-salvage,#ascent-salvage):has(>.salvage-altar){width:min(882px,95vw)!important;max-width:95vw;max-height:94dvh;overflow:auto!important;padding:0!important;border:1px solid #97774c!important;border-radius:8px;background:#10161a!important;color:#eee0c8}
+.salvage-altar{box-sizing:border-box;display:block;color:#f2e2c7;background:linear-gradient(140deg,#302922,#141c20 57%,#211b1a);font:14px/1.42 system-ui,"Microsoft JhengHei",sans-serif}
+.salvage-altar *{box-sizing:border-box}.salvage-altar [hidden]{display:none!important}
+.altar-title{padding:15px 48px 10px 18px;border-bottom:1px solid #94744772;background:linear-gradient(100deg,#423026,#1c2225 69%)}
+.altar-title small{color:#ddbd8b;letter-spacing:.12em;font-size:11px}
+.salvage-altar .altar-title h2{margin:1px 0 0;font:600 clamp(19px,3vw,29px)/1.2 Georgia,"Microsoft JhengHei",serif;color:#fff0d3}
+.altar-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(224px,.95fr)}
+.salvage-view{isolation:isolate;overflow:hidden;position:relative;min-height:246px;background:#14141a}
+.altar-environment{position:absolute;inset:-3%;background:linear-gradient(0deg,#0c1219aa,transparent 25%),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/media/forge/salvage-altar.webp') center 64%/cover}
+.altar-offering{position:absolute;left:50%;top:45%;width:clamp(68px,11vw,108px);aspect-ratio:1;transform:translate(-50%,-50%);display:grid;place-items:center;filter:drop-shadow(0 4px 10px #030508) drop-shadow(0 0 7px var(--gear-color,#e6bc7d))}
+.salvage-view .altar-offering img{display:block;width:100%;height:100%;object-fit:contain;background:none;border:none;box-shadow:none;padding:0}
+.altar-caption{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:#fff0d8;font-weight:650;text-shadow:0 1px 5px black}
+.altar-panel{min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:14px 17px;background:linear-gradient(145deg,#332920,#1e2223 58%,#191c1f);border-left:1px solid #a47d4a6e}
+.altar-field{display:grid;gap:5px;color:#e7c99a}.salvage-altar .altar-field select{max-width:100%;width:100%;height:35px;min-width:0;background:#151a1e;color:#fff1d5;border:1px solid #8f7651;border-radius:4px;font:inherit;padding:3px 6px}
+.altar-terms{color:#dac5a1}.altar-terms p{margin:3px 0}.altar-gain{position:relative;min-height:47px;border:1px solid #8e775260;padding:16px 7px 4px 53px;display:grid;align-content:center;background:#141b1c;font-weight:650;color:#e4efd8}
+.altar-gain img{position:absolute;left:7px;top:4px;width:37px;height:37px;object-fit:contain}.altar-gain small{position:absolute;top:2px;left:53px;font-size:10px;color:#c7ad85}
+.altar-gain:has(>span){padding:5px 8px}.altar-gain:has(>span) small{position:static;font-weight:400}
+.salvage-altar .altar-warning,.salvage-altar .altar-receipt{margin:0;padding:0;border:0;background:none;font:12px/1.45 system-ui,sans-serif;color:#d8c4b1}
+.salvage-altar .altar-receipt{color:#bde8c3}.altar-receipt:empty,.altar-warning:empty{display:none}
+.salvage-altar .altar-confirm,#workbench .salvage-altar .altar-confirm{border:1px solid #e9b77b;color:#fff0d3;background:linear-gradient(#875432,#583223);font-weight:700;padding:6px 10px;border-radius:4px;cursor:pointer}
+.salvage-altar .altar-confirm:disabled{filter:saturate(.45);opacity:.5;cursor:default}
+.altar-foot{display:flex;align-items:flex-start;gap:10px;padding:8px 14px;border-top:1px solid #8c704c65}.altar-foot details{min-width:0;flex:1;color:#d8c7ab;max-height:21dvh;overflow:auto}
+.altar-foot button,.altar-foot a{flex:none;white-space:nowrap}.altar-foot a{color:#e1c48b}.altar-foot .altar-back{font:inherit;background:#252728;color:#e8d6bb;border:1px solid #857252;padding:3px 9px;border-radius:3px}
+.salvage-view>.salvage-flare{position:absolute;inset:0;z-index:2;width:100%;height:100%;transform:none;display:block;padding:0;border:0;background:none;box-shadow:none;animation:none}
+.salvage-view .salvage-glyph{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:160px;height:126px}
+.salvage-view .salvage-pieces{width:clamp(68px,11vw,108px);height:clamp(68px,11vw,108px)}
+.salvage-melt{position:absolute;inset:0;margin:auto;width:70px;height:70px;-webkit-mask:var(--form) center/contain no-repeat;mask:var(--form) center/contain no-repeat;animation:altar-melt .4s both;pointer-events:none}
+.salvage-view .salvage-melt{width:clamp(68px,11vw,108px);height:clamp(68px,11vw,108px)}
+.salvage-melt svg{display:block;width:100%;height:100%;filter:drop-shadow(0 0 2px #ff552b)}.salvage-melt path{stroke-dasharray:135;animation:altar-vein .28s both}
+@keyframes altar-melt{0%{opacity:0}38%,69%{opacity:1}100%{opacity:0}}
+@keyframes altar-vein{from{stroke-dashoffset:135}to{stroke-dashoffset:0}}
+.salvage-view .salvage-orbit{background:radial-gradient(ellipse,#fff4b48c,#ec523a60 38%,transparent 70%);width:138px;height:113px}
+.salvage-view .salvage-legend{position:absolute;bottom:7px;left:0;right:0;text-shadow:0 1px 4px black,0 0 8px black}.salvage-view .salvage-engraving{color:#efb16c}
+.salvage-view[data-bursting] :is(.altar-offering,.altar-caption){visibility:hidden}
+.salvage-view[data-bursting] .altar-environment{animation:altar-quake .55s both}
+.altar-rift{position:absolute;inset:0;z-index:3;display:block;width:100%;height:100%;pointer-events:none}
+@keyframes altar-quake{0%,40%,100%{transform:none}49%{transform:translate(-3px,2px) scale(1.022)}57%{transform:translate(3px,-1px) scale(1.015)}71%{transform:translate(-1px,1px) scale(1.006)}}
+@media(max-width:550px) and (orientation:portrait){.altar-body{grid-template-columns:1fr}.salvage-view{min-height:clamp(130px,25dvh,205px)}.altar-panel{padding:9px 13px;gap:6px;border-left:0}.altar-title{padding:8px 44px 6px 14px}.altar-foot{padding:7px 10px;flex-wrap:wrap}.altar-foot details{max-height:15dvh}}
+@media(orientation:landscape) and (max-height:500px){.altar-title{padding:5px 43px 4px 12px}.altar-title small{font-size:10px}.salvage-altar .altar-title h2{font-size:18px}.salvage-view{min-height:146px}.altar-panel{padding:6px 11px;gap:4px}.altar-foot{padding:4px 10px}.altar-gain{min-height:38px}.altar-gain img{width:30px;height:30px}.salvage-altar{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.salvage-view[data-bursting] .altar-environment{animation:none}.salvage-melt{display:none}}

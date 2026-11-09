@@ -1,0 +1,10 @@
+/* Same approved HUD and panels; keep the map's upper interactions clear. */
+#map{touch-action:none}
+@media(pointer:coarse),(max-width:610px){
+ body .journey-main-items{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;touch-action:pan-x;max-width:100%;padding-bottom:4px}
+ body .journey-main-items::-webkit-scrollbar{display:none}
+ body .top .journey-icon-button{flex:0 0 46px;width:46px;min-height:44px}
+ body .top.journey-icon-header nav{min-width:0}
+ /* Override the shared 34 px ornamental X without applying crystal art. */
+ :root body dialog button.panel-close-x,:root body dialog button.close{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;border-radius:0!important}
+}

@@ -1,0 +1,29 @@
+/* Film subtitles reuse the existing audio clock; these rules only change presentation. */
+body :is(#cinematic,#story).film-dialog[open]{display:block!important;background:#05090d}
+body :is(#cinematic,#story).film-dialog #scene-screen,body :is(#cinematic,#story).film-dialog #cinema{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;z-index:1}
+body :is(#cinematic,#story).film-dialog .cinematic-top,body :is(#cinematic,#story).film-dialog .story-top,body :is(#cinematic,#story).film-dialog .collection-toolbar{position:absolute;top:0;left:0;right:0;z-index:6;min-height:44px;padding-right:150px;background:linear-gradient(#05090de8,#05090d60);border:0;opacity:0;pointer-events:none}
+body :is(#cinematic,#story).film-dialog .collection-toolbar{top:48px}
+body :is(#cinematic,#story).film-dialog .dialogue,body :is(#cinematic,#story).film-dialog .subtitle{position:absolute;inset:auto 0 0;z-index:6;max-height:45%;padding:12px 22px max(12px,env(safe-area-inset-bottom));background:linear-gradient(transparent,#05090de8 28%);border:0;overflow:auto;opacity:0;pointer-events:none}
+body :is(#cinematic,#story).film-dialog.film-controls-open .cinematic-top,body :is(#cinematic,#story).film-dialog.film-controls-open .story-top,body :is(#cinematic,#story).film-dialog.film-controls-open .collection-toolbar,body :is(#cinematic,#story).film-dialog.film-controls-open .dialogue,body :is(#cinematic,#story).film-dialog.film-controls-open .subtitle{opacity:1;pointer-events:auto}
+body :is(#cinematic,#story).film-dialog .dialogue-actions,body :is(#cinematic,#story).film-dialog .chapter-voice-controls,body :is(#cinematic,#story).film-dialog .stage-performance-controls,body :is(#cinematic,#story).film-dialog .story-controls{justify-content:center;gap:8px 16px;margin:4px 0;min-height:0}
+body :is(#cinematic,#story).film-dialog #line-progress{display:none}
+body :is(#cinematic,#story).film-dialog #line,body :is(#cinematic,#story).film-dialog #story-text,body .film-original-caption,body .film-original-meta,body .film-original-notice{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;padding:0!important;margin:-1px!important;border:0!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;overflow:hidden!important;white-space:nowrap!important}
+body .film-controls-toggle{position:absolute;top:max(12px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));z-index:8;padding:7px 14px!important;border:1px solid #ffffff45!important;border-image:none!important;border-radius:20px!important;background:#07121b9e!important;box-shadow:none!important;color:#e9e6dd!important;font:13px/1.5 "Microsoft JhengHei",sans-serif!important;opacity:.85;cursor:pointer}
+body .film-controls-toggle:hover,body .film-controls-toggle:focus-visible{opacity:1;background:#122531ee!important}
+body .film-caption{position:absolute;z-index:4;left:var(--film-left,8%);top:var(--film-bottom,88%);width:var(--film-width,84%);transform:translateY(-100%);box-sizing:border-box;text-align:center;pointer-events:none;color:#fffaf0;isolation:isolate;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;font-weight:600;line-height:1.48;letter-spacing:0}
+body .film-caption[hidden]{display:none}
+body .film-caption::before{content:"";position:absolute;inset:-20px -8% -18px;z-index:-1;background:radial-gradient(ellipse at center,#02070eaa 0%,#02070e65 50%,transparent 76%);filter:blur(9px);pointer-events:none}
+body .film-caption-speaker{display:block;font-size:clamp(12px,.95vw,16px);font-weight:500;line-height:1.6;letter-spacing:.12em;margin:0 0 7px;color:#eadbbd;text-shadow:0 1px 3px #000,0 2px 8px #000}
+body .film-caption-lines{font-size:var(--film-font,26px);line-height:1.48;filter:drop-shadow(0 2px 2px #000) drop-shadow(0 0 4px #0009)}
+body .film-caption-line{display:block;white-space:pre;min-height:1.48em}
+body .film-glyph{position:relative;display:inline-block;white-space:pre;color:#fffaf0;--gold-fill:0%}
+body .film-glyph::after{content:attr(data-glyph);position:absolute;inset:0;color:#f6cd71;background:linear-gradient(#fff4c6 5%,#e6b450 48%,#ffebaa 62%,#cb963e);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;clip-path:inset(0 calc(100% - var(--gold-fill)) 0 0);pointer-events:none}
+body .film-caption.is-silent .film-glyph{color:#e3e8e5}
+body .film-caption.is-silent .film-glyph::after{display:none}
+body .film-transcript{font:13px/1.7 "Microsoft JhengHei",sans-serif;max-width:1000px;margin:6px auto;color:#ddd8ca;text-align:left}
+body .film-transcript summary{cursor:pointer;width:max-content;margin:auto;color:#d6ccb9}
+body .film-transcript p{font-size:16px;line-height:1.8;margin:8px 0;max-height:22vh;overflow:auto;white-space:pre-wrap;padding:12px;background:#07121bf2;border-radius:6px}
+body .film-preview{position:relative;isolation:isolate}
+body .film-preview .film-caption-speaker{font-size:12px;margin-bottom:4px}
+@media(max-width:700px){body :is(#cinematic,#story).film-dialog .dialogue,body :is(#cinematic,#story).film-dialog .subtitle{padding:8px 10px;max-height:50%}body .film-controls-toggle{font-size:11px!important;right:8px;top:8px;padding:5px 10px!important}body :is(#cinematic,#story).film-dialog .story-top,body :is(#cinematic,#story).film-dialog .cinematic-top{padding-right:112px}body .film-caption-speaker{margin-bottom:3px;font-size:12px}}
+@media(forced-colors:active){body .film-caption::before{background:Canvas;filter:none}body .film-glyph::after{-webkit-text-fill-color:Highlight;background:none;color:Highlight}}

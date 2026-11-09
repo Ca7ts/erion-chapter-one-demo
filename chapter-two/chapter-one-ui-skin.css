@@ -1,0 +1,81 @@
+/* Approved existing artwork; presentation only, Chapter I map entry point. */
+body button:not(.enemy-button){
+ background-color:#191b1d;
+ background-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/button_texture.webp');
+ background-size:100% 100%;background-repeat:no-repeat;
+ border:1px solid #806941;border-radius:2px;
+ color:#f0dfba;text-shadow:0 1px 3px #000,0 0 6px #000;
+ box-shadow:0 2px 5px #0006;
+ transition:filter .15s,box-shadow .15s;
+}
+body button:not(.enemy-button):hover:not(:disabled){filter:brightness(1.22);box-shadow:0 0 9px #d9b66544}
+body button:not(.enemy-button):focus-visible{outline:2px solid #ffe2a0;outline-offset:3px}
+body button:not(.enemy-button):active:not(:disabled){filter:brightness(.88)}
+body button:disabled{filter:grayscale(.6);opacity:.45}
+body button[aria-pressed=true],body button.active,body button.gold,body button.primary{color:#ffebad;box-shadow:inset 0 0 13px #dbb25342,0 0 5px #e7bd5833;border-color:#dfbd71}
+body .top button{padding:11px 20px;min-height:40px}
+body .region-card{padding:10px 12px;gap:10px}
+body .region-card small{color:#c6c6bd}
+body dialog,body #info,body #cinematic{
+ border:16px solid transparent;
+ border-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/ui_frame.webp') 150 / 16px / 0 stretch;
+ border-radius:0;
+ background:linear-gradient(#101318ef,#101318f5),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/formation_marble.webp') center/cover;
+ color:#eee6d6;box-shadow:0 16px 60px #000b;
+}
+body #info{padding:17px 19px;max-height:72%}
+body #info .talk-choice{padding:14px 20px;line-height:1.65}
+body #info .talk-choice small{color:#c9c8c0}
+body #info .talk-tabs button{padding:10px 13px}
+body dialog .close{top:4px;right:4px;min-width:34px;min-height:34px;padding:2px 9px;z-index:2}
+body #cinematic{padding:0;max-height:94vh}
+body #cinematic .cinematic-top{padding:9px 16px;background:#101318}
+body #cinematic .dialogue{padding:19px 27px 22px;background:linear-gradient(#11151aeb,#101317f5),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_slate.webp') center/cover;border-top:1px solid #aa8953}
+body #story-text{color:#eee8dc;text-shadow:0 1px 2px #000;line-height:1.95}
+body .speaker-line strong{color:#edd092}
+body #next-line{padding:11px 25px;min-width:110px}
+body .chapter-voice-controls button{padding:8px 13px!important}
+body #info-actions a{background:#1c2025;color:#ecd5a4;border-color:#af8d54}
+body #atlas .legend{background:#101318;color:#ccc7ba}
+body #commands button{padding:14px 20px}
+@media(max-width:720px){body .top button{padding:9px 12px;min-height:36px}body dialog,body #info,body #cinematic{border-width:11px;border-image-width:11px}body #cinematic .dialogue{padding:12px 16px}body #info{padding:14px;max-height:55%}body #info .talk-tabs button{padding:9px}body .chapter-voice-controls{flex-wrap:wrap}}
+body dialog{scrollbar-color:#9f8350 #14171b;scrollbar-width:thin}
+/* Physical press, restrained gold selection, and an ephemeral noninteractive rim. */
+body button:not(.enemy-button){transition:filter .15s,box-shadow .15s,translate .1s}
+body button:not(.enemy-button):active:not(:disabled){translate:0 1px;filter:brightness(.95);box-shadow:inset 0 3px 9px #000b}
+body .region-card.active,body #info .talk-tabs button.active,body #info .choice-grid .chosen{
+ border-color:#ffe2a0;color:#fff0c7;
+ box-shadow:inset 0 0 14px #f1c35f44,0 0 8px #e9bf6340;
+}
+body .region-card.active span{color:#fff0c7}
+.ui-gold-click:popover-open,.ui-gold-click{
+ position:fixed;inset:auto;margin:0;padding:0;box-sizing:border-box;
+ border:2px solid #ffe3a2;border-radius:2px;background:transparent;
+ pointer-events:none!important;z-index:2147483647;overflow:visible;
+}
+@media(prefers-reduced-motion:reduce){body button:not(.enemy-button){transition:none}body button:not(.enemy-button):active:not(:disabled){translate:none}}
+/* Approved lava/basalt title plate, retaining its warm rocky edges. */
+body #info h2,body #object-tooltip{
+ background:linear-gradient(#07090b22,#07090b44),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_basalt.webp') center/100% 100% no-repeat;
+ color:#ffdfaa;text-shadow:0 2px 4px #000;
+ border:1px solid #a8773c88;
+ box-shadow:inset 0 0 12px #0008,0 3px 10px #0005;
+}
+body #info h2{padding:17px 24px;margin:12px 0 18px;font-size:22px;line-height:1.4}
+body #object-tooltip{padding:16px 22px;border-left:2px solid var(--object-light,#d7ad67)}
+body #object-tooltip strong{color:#ffe3ae}
+body #object-tooltip span{color:#e0d5be}
+/* ID-scoped legacy active tabs used background shorthand and cleared the texture. */
+body #info .talk-tabs button,
+body #info .talk-tabs button.active,
+body #info .talk-tabs button:hover,
+body #info .talk-choice,
+body #info .talk-choice:hover,
+body #info .choice-grid button.chosen{
+ background-color:#191b1d;
+ background-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/button_texture.webp');
+ background-size:100% 100%;background-position:center;background-repeat:no-repeat;
+ color:#f5dfb0;text-shadow:0 1px 3px #000;
+}
+body #info .talk-tabs button{min-height:42px;padding:11px 20px}
+body #info .talk-tabs button.active{border-color:#ffe2a0;box-shadow:inset 0 0 14px #f1c35f44,0 0 8px #e9bf6340}

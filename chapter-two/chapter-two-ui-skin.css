@@ -1,0 +1,60 @@
+/* Chapter II adapters for the approved Chapter I artwork and click feedback. */
+body #talk-options button,body #talk-options button:hover,
+body #talk-options button.active,body #talk-options button.selected,
+body #rune-options button.selected,body #destinations button.active,
+body #guide,body #guide:hover{
+ background:#191b1d url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/button_texture.webp') center/100% 100% no-repeat;
+ color:#f5dfb0;text-shadow:0 1px 3px #000;
+}
+body #talk-options button{padding:13px 23px;min-height:44px;line-height:1.65}
+body #talk-options button small{color:#c9c8c0}
+body #destinations button.active,body #rune-options button.selected,
+body #talk-options button.active,body #talk-options button.selected{
+ border-color:#ffe2a0;box-shadow:inset 0 0 14px #f1c35f44,0 0 8px #e9bf6340;
+}
+body #talk-title,body #journal>h2,body #runes>h2,body #hover-tip,body #scene-action-title,body #task-reset-title{
+ background:linear-gradient(#07090b22,#07090b44),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_basalt.webp') center/100% 100% no-repeat;
+ color:#ffdfaa;text-shadow:0 2px 4px #000;border:1px solid #a8773c88;
+ box-shadow:inset 0 0 12px #0008,0 3px 10px #0005;
+ padding:17px 24px;line-height:1.4;
+}
+body #hover-tip{padding:16px 22px;pointer-events:none}
+body #talk-title,body #journal>h2,body #runes>h2{margin:15px 0 20px}
+body #talk-body{color:#eee6d6;line-height:1.95}
+body #story{padding:0;max-height:94vh}
+body #story .story-top{background:#101318;padding:9px 16px}
+body #story .subtitle{background:linear-gradient(#11151aeb,#101317f5),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_slate.webp') center/cover;border-top:1px solid #aa8953}
+body #line{color:#eee8dc;text-shadow:0 1px 2px #000}
+body #line.stage{color:#cdd9d3}
+body #speaker{color:#edd092}
+body header nav button{padding:10px 17px;min-height:40px}
+body #scene-action{background:#101318ef;border-color:#ac8b50}
+@media(max-width:700px){body header nav button{padding:8px 10px;min-height:36px}body #talk-options button{padding:12px 17px}body #talk-title{padding:14px 20px}}
+
+body #world #scene-action{border:12px solid transparent;border-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/ui_frame.webp') 150 / 12px / 0 stretch;border-radius:0;background:linear-gradient(#101318bf,#101318df),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_slate.webp') center/cover;box-shadow:0 10px 28px #0008}
+body #world #scene-action-title{background:linear-gradient(#07090b22,#07090b44),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_basalt.webp') center/100% 100%;padding:12px 18px}
+body #world #scene-action-cancel{background:#191b1d url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/button_texture.webp') center/100% 100% no-repeat;border:1px solid #ac8b50;color:#f5dfb0;padding:9px 24px;min-height:38px}
+
+/* Task reset uses the same approved frame, lava title and button artwork. */
+body .task-controls{display:grid;gap:8px;margin:14px 0;padding-top:12px;border-top:1px solid #aa895344}
+body .task-controls button{width:100%;min-height:40px;padding:9px 14px}
+body #task-reset-restore{font-size:12px;color:#d4ceb9}
+body #task-reset-dialog{width:min(580px,calc(100vw - 28px));padding:22px;box-sizing:border-box}
+body #task-reset-title{margin:12px 0 18px;font-size:22px}
+body #task-reset-description{color:#eee6d6;line-height:1.85}
+body #task-reset-note{line-height:1.75;color:#d1c19d}
+body .task-reset-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;justify-content:flex-end}
+body .task-reset-actions button{padding:11px 17px;min-height:44px}
+body #task-reset-error{color:#ffc4b4;line-height:1.7}
+
+/* Keep the actual channel visible while choosing, then clear it for sailing. */
+body #talk.sailing-choice{margin:0;left:20px;top:auto;bottom:24px;width:min(360px,calc(100vw - 40px));max-height:80vh;padding:18px}
+body #talk.sailing-choice::backdrop{background:transparent;backdrop-filter:none}
+body #talk.sailing-choice #talk-title{font-size:19px;padding:12px;margin:8px 0 12px}
+body #talk.sailing-choice #talk-body{font-size:14px;line-height:1.8}
+body #talk.sailing-choice #talk-options button{padding:9px 16px}
+body #sail-feedback{color:#ffd296;font-size:13px;line-height:1.6}
+body #sail-feedback:empty{display:none}
+body #sailing-status{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:6;margin:0;padding:12px 22px;color:#ffe5b3;pointer-events:none;text-align:center;border:7px solid transparent;border-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/ui_frame.webp') 150 / 7px / 0 stretch;background:linear-gradient(#101318ab,#101318dc),url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/war_basalt.webp') center/cover;text-shadow:0 2px 4px #000}
+body #sailing-status[hidden]{display:none}
+body #minimap[hidden]{display:none}

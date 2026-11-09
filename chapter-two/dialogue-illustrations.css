@@ -1,0 +1,60 @@
+/* The fabric is the mat. The bronze and its cast shadow follow the picture
+   itself, including portrait and atlas crops with different aspect ratios. */
+.dialogue-illustration{
+  position:relative;display:block;box-sizing:border-box;
+  width:100%;height:auto;aspect-ratio:720 / 440;max-height:210px;margin:8px 0 12px;
+  background-color:#3d020a;
+  background-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/media/forge/portrait-velvet.webp'),radial-gradient(ellipse at 47% 43%,#5c0612 12%,#500510 57%,#3d020a 100%);
+  background-size:185px 185px,100% 100%;background-repeat:repeat,no-repeat;background-blend-mode:soft-light,normal;
+  border:1px solid #382b26;
+  box-shadow:inset 0 2px 5px #050203c9,inset 0 0 14px 2px #05010399,0 1px 0 #a386582f;
+}
+#info .dialogue-illustration{max-height:180px}
+#talk .dialogue-illustration{max-height:230px}
+#talk .spirit-portrait{max-height:280px}
+.portrait-aperture{
+  position:absolute;inset:clamp(4px,1vmin,9px) clamp(8px,2vw,23px);
+  container-type:size;display:grid;place-items:center;
+}
+.portrait-recess{
+  --cut:2mm;
+  visibility:hidden;position:relative;box-sizing:border-box;
+  width:min(100cqw,calc((100cqh - 2 * var(--cut)) * var(--art-ratio) + 2 * var(--cut)));
+  border:var(--cut) solid #594832;
+  border-image:url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/media/forge/portrait-bronze.webp') 36 / 1 / 0 round;
+  box-shadow:0 0 0 1px #160b09,inset 0 0 1px #180f0a;
+}
+.portrait-ready .portrait-recess{visibility:visible}
+.portrait-recess canvas{display:block;width:100%;height:auto}
+.portrait-recess::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 0 1px #150e09bd,inset 2px 3px 6px #100b08bc,inset 0 0 9px #08050386;
+}
+@media (orientation:landscape) and (max-height:500px){
+  .portrait-aperture{inset:3px 7px}
+  .portrait-recess::after{box-shadow:inset 1px 2px 4px #100b08b3,inset 0 0 5px #08050386}
+}
+
+/* NPC conversations and quest replies share a panel with other map tools. */
+body #info:is(:has(.talk-tabs,.spoken-line),[data-required-decision=true]),
+body #talk[data-conversation],
+#private-dialog:has(>.spoken-line),
+#cinematic #story-text,#story #line,.film-transcript p{text-align:center}
+body:not(.mobile-game) #stage #info[open]:is(:has(.talk-tabs,.spoken-line),[data-required-decision=true]){
+  position:absolute;inset:0;margin:auto;box-sizing:border-box;
+  width:min(470px,calc(100% - 24px));height:fit-content;max-height:calc(100% - 24px);overflow:auto
+}
+body #info[open]:is(:has(.talk-tabs,.spoken-line),[data-required-decision=true]) #info-title{
+  margin-inline:0;padding-inline:44px
+}
+body #info:is(:has(.talk-tabs,.spoken-line),[data-required-decision=true]) .talk-choice{
+  align-items:center;text-align:center
+}
+body #info .spoken-by{display:block;text-align:center}
+body #info .spoken-line,body #talk[data-conversation] #talk-body,#private-dialog>.spoken-line{
+  overflow-wrap:anywhere;text-align:center
+}
+body #talk[data-conversation] #talk-options button{text-align:center}
+body #talk[data-conversation] #talk-title,#private-dialog:has(>.spoken-line)>h2{padding-inline:44px!important}
+body #info .talk-tabs button[data-topic=chat],body #talk .chat-label{color:#a7e7b8}
+body #info .talk-tabs button[data-topic=chat]:disabled{color:#a1c9aa;opacity:1;filter:none;cursor:default}
