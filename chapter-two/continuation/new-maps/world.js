@@ -33,6 +33,45 @@ window.SeaNewWorld=(()=>{
  ];masonry.temple.push(...templeFaces.map(m=>({foot:m.foot/822,p:m.p.map(([x,y])=>[x/1914,y/822])})));
  function staticLayers(S,im){if(!im)return [];return (masonry[S.area]||[]).map(m=>({foot:m.foot*H,draw:g=>{g.save();g.beginPath();m.p.forEach(([x,y],i)=>i?g.lineTo(x*W,y*H):g.moveTo(x*W,y*H));g.closePath();g.clip();g.drawImage(im,0,0,W,H);g.restore();}}));}
  function paint(g,a,f){const im=background(a,f);if(im)g.drawImage(im,0,0,W,H);else{g.fillStyle='#15292d';g.fillRect(0,0,W,H);}}
+ // Traced from the final 768 × 330 review plates. Water never owns a bank,
+ // stair, quay, bridge or boat pixel. The suspended tidal wall is NOT a waterfall.
+ const patch=(id,p,kind='water')=>{p=p.map(([x,y])=>[x*2,y*2]);const xs=p.map(q=>q[0]),ys=p.map(q=>q[1]);return {id,p,kind,x:Math.min(...xs),y:Math.min(...ys),w:Math.max(...xs)-Math.min(...xs),h:Math.max(...ys)-Math.min(...ys)};};
+ const ellipse=(x,y,rx,ry)=>Array.from({length:40},(_,i)=>[x+rx*Math.cos(i*Math.PI/20),y+ry*Math.sin(i*Math.PI/20)]);
+ const environmentMasks={
+  cliff:[patch('prepared-salt-pool',[[245,139],[268,132],[303,129],[331,132],[341,137],[330,143],[303,147],[269,147],[248,143]]),patch('olive-leaves',[[31,27],[44,19],[64,23],[72,38],[63,51],[41,46]],'leaves'),patch('low-shrub',[[88,208],[108,190],[130,190],[143,207],[129,220],[105,221]],'leaves')],
+  harbor:[patch('retained-tidal-channel',[[739,147],[766,139],[766,163],[728,177],[715,196],[724,221],[748,255],[766,278],[766,311],[749,288],[725,255],[711,229],[699,205],[702,182],[719,164]]),patch('climbing-leaves',[[4,142],[18,132],[22,143],[16,159],[5,161]],'leaves')],
+  'harbor-restored':[patch('returned-sea',[[540,117],[577,108],[614,113],[644,128],[667,144],[696,149],[721,147],[749,131],[766,139],[766,267],[733,263],[727,280],[698,275],[680,287],[680,328],[243,328],[242,267],[253,244],[280,218],[310,214],[358,203],[383,183],[421,190],[464,187],[492,171],[512,159],[531,143]]),patch('climbing-leaves',[[4,142],[18,132],[22,143],[16,159],[5,161]],'leaves')],
+  reef:[patch('nursery-pool',[[147,79],[175,72],[215,67],[256,64],[300,68],[315,75],[297,87],[260,97],[243,94],[232,87],[208,86],[184,94],[158,92]]),patch('ancient-trench',[[684,22],[708,27],[717,41],[705,54],[683,65],[676,78],[689,91],[680,99],[650,108],[614,116],[572,123],[534,131],[500,146],[485,158],[494,165],[533,173],[571,181],[603,197],[631,207],[626,222],[606,236],[569,249],[542,262],[529,277],[532,295],[547,317],[582,328],[505,328],[491,312],[480,294],[476,279],[490,264],[518,251],[551,240],[584,229],[596,217],[588,205],[562,198],[533,188],[497,182],[478,173],[465,163],[466,150],[480,136],[509,121],[551,112],[587,101],[633,87],[659,72],[660,60],[671,48],[685,40],[679,34]]),patch('leaf-tip',[[255,9],[276,5],[293,10],[286,22],[268,26],[252,19]],'leaves')],
+  seabed:[],
+  gate:[patch('deep-still-inlet',[[358,104],[392,97],[432,104],[449,124],[448,148],[458,169],[465,177],[440,179],[413,177],[382,174],[351,171],[328,164],[333,140],[348,120]])],
+  temple:[patch('suspended-tide',[[6,5],[192,5],[193,34],[179,49],[152,55],[132,75],[114,71],[98,88],[66,89],[64,69],[48,64],[48,86],[27,94],[9,79]],'suspended-water')],
+  core:[patch('tidal-core-basin',ellipse(312,153,111,38))]
+ };
+ const envState={key:'',near:new Set(),dust:[],birds:[],last:0};
+ environmentMasks['harbor-restored'][0]=patch('returned-sea',[[248,265],[268,244],[309,234],[373,218],[427,220],[466,239],[530,244],[567,221],[592,197],[622,188],[667,190],[697,211],[704,231],[700,244],[681,252],[669,271],[610,270],[605,288],[609,326],[248,326]]);
+ environmentMasks['harbor-restored'][0].holes=[[[453,151],[461,140],[487,139],[493,146],[520,140],[521,133],[529,134],[533,139],[563,131],[575,137],[571,168],[553,184],[528,191],[490,197],[469,193],[463,175]],[[577,88],[619,89],[620,79],[635,72],[639,84],[663,80],[685,96],[701,115],[698,138],[666,144],[615,136],[590,124]]].map(p=>p.map(([x,y])=>[x*2,y*2]));
+ function environmentPolicy(S,hidden=false){const key=mapKey(S.area,S.flags);return {key,enabled:!!S.motion&&!hidden,patches:(environmentMasks[key]||[]).filter(p=>p.id!=='prepared-salt-pool'||S.step>=4||S.checkpoint?.done?.includes('pool')),outdoors:['cliff','harbor','reef'].includes(S.area),drySeabed:S.area==='seabed'};}
+ function trace(g,p){g.beginPath();p.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.closePath();}
+ function environment(g,S,time,player){
+  const policy=environmentPolicy(S,document.hidden),im=background(S.area,S.flags);
+  if(envState.key!==policy.key||time<envState.last){envState.key=policy.key;envState.near.clear();envState.dust.length=envState.birds.length=0;}
+  envState.last=time;if(!policy.enabled||!im){envState.dust.length=envState.birds.length=0;return;}
+  const sx=im.width/W,sy=im.height/H,wind=Math.sin(time*.63)+.35*Math.sin(time*1.31);
+  for(const p of policy.patches){g.save();trace(g,p.p);g.clip();if(p.holes?.length){g.beginPath();g.rect(0,0,W,H);for(const hole of p.holes){hole.forEach(([x,y],i)=>i?g.lineTo(x,y):g.moveTo(x,y));g.closePath();}g.clip('evenodd');}
+   if(p.kind==='leaves'){g.globalAlpha=.46;g.drawImage(im,p.x*sx,p.y*sy,p.w*sx,p.h*sy,p.x+wind*.65,p.y+Math.sin(time*.73)*.2,p.w,p.h);}
+   else {const rows=p.kind==='suspended-water'?6:10,h=p.h/rows;g.globalAlpha=p.kind==='suspended-water'?.12:.30;for(let j=0;j<rows;j++){const y=p.y+j*h,dx=Math.sin(time*1.45+j*.85)*1.25,dy=p.kind==='suspended-water'?Math.sin(time*.61)*.22:Math.sin(time*.9+j)*.35;g.drawImage(im,p.x*sx,y*sy,p.w*sx,h*sy,p.x+dx,y+dy,p.w,h+.4);}}
+   g.restore();
+  }
+  // Proximity puffs re-arm only after leaving. Never continuously emit beside a jar.
+  const sources=(SeaNewMaps.config(S.area,S).props||[]).filter(p=>['jars','timber','cart','rock'].includes(p[0]));
+  for(const [id,,x,y]of sources){if(id==='timber'&&S.side.timber!==1||id==='rock'&&S.flags['cp:R2-11A:8'])continue;const key=policy.key+id,px=x*W,py=y*H,d=Math.hypot(player.x-px,player.y-py);if(d>110)envState.near.delete(key);if(d<70&&!envState.near.has(key)){envState.near.add(key);if(envState.dust.length<3)envState.dust.push({x:px,y:py,t:time});}}
+  envState.dust=envState.dust.filter(d=>time-d.t<1.1);for(const d of envState.dust){const age=time-d.t;g.save();g.fillStyle='#c5b89b';g.globalAlpha=.13*(1-age/1.1);for(let n=0;n<6;n++){g.beginPath();g.ellipse(d.x+Math.sin(n*2.4)*(3+age*13),d.y-2-age*(9+n),2+age*3,1+age*2,0,0,7);g.fill();}g.restore();}
+  // Sparse, habitat-specific fauna. No looping battle VFX in exploration.
+  if(policy.outdoors){const perch=S.area==='cliff'?[129,423]:S.area==='harbor'?[73,233]:[516,53],key=policy.key+'perch',d=Math.hypot(player.x-perch[0],player.y-perch[1]);if(d>135)envState.near.delete(key);if(d<90&&!envState.near.has(key)){envState.near.add(key);envState.birds=Array.from({length:3},(_,i)=>({x:perch[0]+i*7,y:perch[1],t:time+i*.13}));}
+   g.save();g.fillStyle='#e0cda5';for(let i=0;i<3;i++){const x=perch[0]+Math.sin(time*.47+i*2)*25,y=perch[1]-15+Math.sin(time*.82+i)*7,flap=.5+Math.abs(Math.sin(time*8+i))*1.4;g.globalAlpha=.32;g.beginPath();g.ellipse(x-flap,y,flap,1.4,-.5,0,7);g.ellipse(x+flap,y,flap,1.4,.5,0,7);g.fill();}g.restore();
+  }
+  envState.birds=envState.birds.filter(b=>time-b.t<2.6);g.save();g.strokeStyle='#45535a';g.lineWidth=1.1;for(const b of envState.birds){const age=time-b.t;if(age<0)continue;const x=b.x+age*65,y=b.y-age*62,flap=Math.sin(age*19)*3;g.globalAlpha=Math.max(0,.65-age*.23);g.beginPath();g.moveTo(x-4,y+flap);g.quadraticCurveTo(x-2,y-1,x,y);g.quadraticCurveTo(x+2,y-1,x+4,y+flap);g.stroke();}g.restore();
+ }
  function drawProp(g,r){g.drawImage(r.im,r.x,r.y,r.w,r.h);}
  function hit(r,x,y){const px=Math.floor((x-r.x)/r.w*r.im.width),py=Math.floor((y-r.y)/r.h*r.im.height);return px>=0&&py>=0&&px<r.im.width&&py<r.im.height&&r.alpha[(py*r.im.width+px)*4+3]>45;}
  function footprints(g,start,path){let distance=0,side=1;let a=[start.x,start.y];g.save();g.fillStyle='#f6cf57bb';for(const b of path){const dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy),angle=Math.atan2(dy,dx);for(let d=20-distance;d<len;d+=20){g.save();g.translate(a[0]+dx*d/len-Math.sin(angle)*side*3,a[1]+dy*d/len+Math.cos(angle)*side*3);g.rotate(angle);g.beginPath();g.ellipse(0,0,3.5,1.7,0,0,7);g.fill();g.fillRect(-5,-1.25,1.5,2.5);g.restore();side=-side;}distance=(distance+len)%20;a=b;}g.restore();}
@@ -41,6 +80,6 @@ window.SeaNewWorld=(()=>{
   function draw(g,list,hover,targets,pending,guide){labels.clear();window.MythicWayfinding?.begin(g);for(const s of list){if(s.exit){const b=MythicWayfinding.draw(g,{text:s.name,x:s.x,y:s.y-22,direction:Math.atan2(s.y-H/2,s.x-W/2)});labels.set(s.id,b);continue;}const marks=A.questMarkers(s);if(marks.length){const y=s.y-(s.actor?75:38);g.save();g.translate(s.x,y);QuestSigils.draw(g,marks[0],A.time(),A.motion(),false,32);g.restore();if(guide||hover?.id===s.id){g.font='bold 14px sans-serif';g.textAlign='center';g.fillStyle='#ffe2a0';g.fillText(s.name,s.x,y-15);}}if(hover?.id===s.id){g.save();g.strokeStyle='#d6bd78';g.lineWidth=1.5;g.beginPath();g.ellipse(s.x,s.y+2,s.actor?17:25,6,0,0,7);g.stroke();g.restore();}}}
   return {pick,draw,handle:()=>false,begin:(s,label,key,done)=>done(),setupCore:noop,cancel:noop,pulse:noop,rings:noop,active:false,busy:false,allowsMovement:true,treatmentOpen:false};
  }
- return {pin,prepare,load,background,paint,records,drawProp,staticLayers,hit,footprints,createInteraction,paths,get loading(){return loading>0;},get residentMaps(){return [...pictures.keys()];}};
+ return {pin,prepare,load,background,paint,environment,environmentPolicy,environmentMasks,records,drawProp,staticLayers,hit,footprints,createInteraction,paths,get loading(){return loading>0;},get residentMaps(){return [...pictures.keys()];}};
 })();
 

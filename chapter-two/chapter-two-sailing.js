@@ -3,9 +3,9 @@ window.ReefBoat=(()=>{
  'use strict';
  const asset='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/interactive-props-v2/small-boat.webp';
  const newLegs=[
- {direction:'右上',hint:'沿右上水道繞過礁岸，勿把船划上沙灘。',points:[[.666,.617],[.74,.60],[.79,.55],[.80,.48]],seconds:5},
- {direction:'左上',hint:'礁角擋在前方；沿左上方深色潮溝繞過礁角。',points:[[.80,.48],[.76,.45],[.685,.422],[.675,.373]],seconds:5},
- {direction:'右上',hint:'繞過最後的彎，循右上方潮溝抵達外沙洲。',points:[[.675,.373],[.73,.323],[.798,.275],[.844,.185],[.812,.117],[.943,.094]],seconds:6}
+ {direction:'右上',hint:'沿右上水道繞過礁岸，勿把船划上沙灘。',points:[[1183/1536,429/660],[1235/1536,421/660],[1240/1536,401/660],[1190/1536,377/660],[1180/1536,367/660]],seconds:5},
+ {direction:'左上',hint:'礁角擋在前方；沿左上方深色潮溝繞過礁角。',points:[[1180/1536,367/660],[1110/1536,347/660],[1045/1536,335/660],[1001/1536,315/660],[995/1536,296/660],[1010/1536,278/660]],seconds:5},
+ {direction:'右上',hint:'繞過最後的彎，循右上方潮溝抵達外沙洲。',points:[[1010/1536,278/660],[1070/1536,259/660],[1170/1536,235/660],[1270/1536,214/660],[1332/1536,191/660],[1347/1536,170/660]],seconds:6}
  ];for(const l of newLegs)l.points=l.points.map(([x,y])=>[x*1536,y*660]);
  const legs=SeaNewMaps.enabled?newLegs:[
   {direction:'左上',hint:'水道先向左上彎。沿著右側礁島的左緣，繞過突出的石角。',points:[[1440,846],[1410,792],[1387,744],[1380,700],[1345,655],[1313,614],[1309,584]],seconds:5.4},
