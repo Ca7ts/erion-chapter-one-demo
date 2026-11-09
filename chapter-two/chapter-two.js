@@ -424,7 +424,7 @@ const newShotCache=[];
 async function prepareNewShot(st){const p=st.plan,src=p.cinema?.src||(p.art?'https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/chapter-two-v2/'+p.art[0]:null);if(src&&!(p.cinema&&await window.CinemaHD?.prepare(p.cinema))&&!images[src]){await img(src);newShotCache.push(src);while(newShotCache.length>4){const key=newShotCache.shift();delete images[key];}}await SeaNewWorld.load(p.map||S.area,{...S.flags,...(p.restored===undefined?{}:{repaired:p.restored})});if((p.map||S.area)==='gate')await rig.load();}
 function newReward(id){const state=window.SeaRPG?.state;if(state)SeaNewProgression.award(S,state,Growth,id,book.events[id].title);}
 function newTimber(s){if(S.side.timber!==1){toast(S.side.timber===2?'重建木料已經交付。':'先與克雷翁談談重建所需的木料。');return;}const i=s.instance?Number(s.instance.split('-')[1]):[0,1,2].find(n=>!(S.side.woodPicked||[]).includes(n));if(!SeaNewProgression.collectTimber(S,SeaRPG.state,Growth,i))return;toast(S.side.timber===2?'已交付三捆木料。獲得兩份止血藥草與 60 經驗。':'已拾回 '+S.side.wood+' / 3 捆木料。');save();hud();}
-async function newPrepare(area,flags){await Promise.all([SeaNewWorld.prepare(area,flags),area==='gate'?rig.load():Promise.resolve()]);}
+async function newPrepare(area,flags){SeaNewWorld.pin(area,flags);await Promise.all([SeaNewWorld.prepare(area,flags),area==='gate'?rig.load():Promise.resolve()]);}
 function newHoldAction(cp,s,done){
  const rock=cp.game==='rock-release',key='action:'+cp.key;S.flags[key]??=0;
  modal(rock?'順著裂口鬆開卡石':'趁觸腕放鬆塗油',rock?'推力退去時按住操作，推力增強時放手。已鬆動的部分會保留。':'多莉在岸上等候。觸腕放鬆時按住塗油，繃緊時放手。已塗好的部分會保留。',[button('暫停操作',closeTalk)],'現場互動');
