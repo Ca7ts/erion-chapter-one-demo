@@ -520,11 +520,11 @@
     "hitStopSeconds": 0.05,
     "duration": 3.45
   },
-  "anatomyRevision": "jaw-teeth-r19",
+  "anatomyRevision": "rear-cheek-open-gape-r20",
   "anatomy": {
     "lowerTeeth": "Mouth_Slot",
     "hingeParent": "Head",
-    "cavity": "Independent toothless RGBA membrane; transparent edges, no rectangular backing.",
+    "cavity": "Rear cheek only; front gape is transparent, upper and lower teeth retain separate attachment ownership.",
     "originalAppearance": "unchanged in setup; lower teeth transferred from master to jaw",
     "underpainting": "New imagegen upper-jaw skin, extracted through the existing master ownership mask. Lower teeth owned only by Mouth_Slot."
   }
