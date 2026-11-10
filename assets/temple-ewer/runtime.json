@@ -1,0 +1,187 @@
+{
+  "number": 50,
+  "id": "temple-ewer",
+  "skill": "傾盂迴澆",
+  "body": "Priest_Body",
+  "fx": "pour",
+  "parts": [
+    {
+      "name": "Arm_L",
+      "pivot": [
+        0.319,
+        0.312
+      ],
+      "parent": "torso",
+      "region": [
+        0,
+        0,
+        0.01,
+        0.01
+      ],
+      "charge": [
+        0,
+        0,
+        0
+      ],
+      "strike": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Forearm_L",
+      "pivot": [
+        0.262,
+        0.37
+      ],
+      "parent": "Arm_L",
+      "region": [
+        0,
+        0,
+        0.01,
+        0.01
+      ],
+      "charge": [
+        0,
+        0,
+        0
+      ],
+      "strike": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Arm_R",
+      "pivot": [
+        0.802,
+        0.316
+      ],
+      "parent": "torso",
+      "region": [
+        0,
+        0,
+        0.01,
+        0.01
+      ],
+      "charge": [
+        0,
+        0,
+        0
+      ],
+      "strike": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Forearm_R",
+      "pivot": [
+        0.841,
+        0.397
+      ],
+      "parent": "Arm_R",
+      "region": [
+        0,
+        0,
+        0.01,
+        0.01
+      ],
+      "charge": [
+        0,
+        0,
+        0
+      ],
+      "strike": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Ritual_Urn_Weapon",
+      "pivot": [
+        0.397,
+        0.453
+      ],
+      "parent": "torso",
+      "region": [
+        0,
+        0,
+        0.01,
+        0.01
+      ],
+      "charge": [
+        0,
+        0,
+        0
+      ],
+      "strike": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "queries": [
+    "heavy bronze rub",
+    "sludgy mud bubbling",
+    "earthquake boom"
+  ],
+  "effectSlots": [
+    "Tar_Wave_Layer"
+  ],
+  "contact": [
+    0.3,
+    0.88
+  ],
+  "newGuide": true,
+  "region": "temple",
+  "area": "海潮神殿外廊",
+  "name": "曳盂行祭者",
+  "rare": true,
+  "subject": "Rare ancient libation automaton. Oxidized bronze hydria vessel with distinctly triple handles forms its entire upper body, a shallow offering bowl supported in front, three walking marble legs; small streams of water leak from ceramic cracks. Ancient Greek craftsmanship, no modern robot, no human face.",
+  "W": 1024,
+  "H": 1536,
+  "foot": 1459.1999999999998,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "76d3751800e8737f945806630270b3405af12c3b42e676e05d273fc625d0cee8",
+  "guideHash": "0a8177da1f465d6d8ac342270e0cd47a6e964ce57393bcc442145c4a3990a3ea",
+  "guide": "painted-components-composite-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 0,
+    "coveredSourcePixels": 120760,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "new guide composited from painted backing and isolated moving attachments",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 7,
+    "slots": 6,
+    "grid": [
+      96,
+      144
+    ],
+    "vertices": 14065
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

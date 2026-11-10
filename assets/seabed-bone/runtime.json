@@ -1,0 +1,176 @@
+{
+  "number": 41,
+  "id": "seabed-bone",
+  "skill": "骨鰭突進",
+  "body": "Skeleton_Body",
+  "fx": "bone",
+  "parts": [
+    {
+      "name": "Head",
+      "pivot": [
+        0.33,
+        0.5
+      ],
+      "region": [
+        0.2,
+        0.51,
+        0.2,
+        0.29
+      ],
+      "charge": [
+        8,
+        0.015,
+        -0.01
+      ],
+      "strike": [
+        -10,
+        -0.045,
+        0.01
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Back_Ceramic",
+      "pivot": [
+        0.53,
+        0.33
+      ],
+      "region": [
+        0.55,
+        0.18,
+        0.17,
+        0.22
+      ],
+      "charge": [
+        4,
+        0.01,
+        0
+      ],
+      "strike": [
+        -5,
+        -0.01,
+        0
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Bone_Fins_L",
+      "pivot": [
+        0.4,
+        0.6
+      ],
+      "region": [
+        0.3,
+        0.81,
+        0.19,
+        0.24
+      ],
+      "charge": [
+        -12,
+        0.01,
+        0
+      ],
+      "strike": [
+        14,
+        -0.02,
+        0.01
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Bone_Fins_R",
+      "pivot": [
+        0.65,
+        0.57
+      ],
+      "region": [
+        0.76,
+        0.75,
+        0.2,
+        0.23
+      ],
+      "charge": [
+        8,
+        0,
+        0
+      ],
+      "strike": [
+        -10,
+        0.01,
+        0
+      ],
+      "parent": "torso"
+    }
+  ],
+  "queries": [
+    "skeleton bone rattle",
+    "ceramic scraping",
+    "torpedo aquatic whoosh"
+  ],
+  "effectSlots": [],
+  "contact": [
+    0.3,
+    0.88
+  ],
+  "effectKind": "fish-bones",
+  "presentation": {
+    "fit": 0.61,
+    "offsetX": 0.13
+  },
+  "emitters": [
+    {
+      "uv": [
+        0.15,
+        0.63
+      ],
+      "direction": 3.0115926535897932,
+      "slot": "@mesh"
+    }
+  ],
+  "designNote": "分批噴發不規則魚骨刺",
+  "region": "seabed",
+  "area": "外海床",
+  "name": "負陶骨匍",
+  "rare": false,
+  "subject": "A marine scavenger made of articulated ancient sea-fish bones, walks on four distinct ray-fin struts; a single small weathered white amphora lashed among dorsal bones with seagrass, honey amber eye. Flattened bent posture.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "ae8f743a34a56639fb03480f357d432d451358960eeaf12f9101e947392db23f",
+  "guideHash": "ae8f743a34a56639fb03480f357d432d451358960eeaf12f9101e947392db23f",
+  "guide": "existing-concept-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 750151,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 6,
+    "slots": 5,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

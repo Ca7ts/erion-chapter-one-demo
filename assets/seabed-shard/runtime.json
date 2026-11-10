@@ -1,0 +1,130 @@
+{
+  "number": 40,
+  "id": "seabed-shard",
+  "skill": "雙殼鉗擊",
+  "body": "Core_Flesh",
+  "fx": "clamp",
+  "parts": [
+    {
+      "name": "Upper_Shell",
+      "pivot": [
+        0.95,
+        0.17
+      ],
+      "region": [
+        0.49,
+        0.3,
+        0.53,
+        0.35
+      ],
+      "charge": [
+        -14,
+        0,
+        0
+      ],
+      "strike": [
+        -10,
+        0,
+        0
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Lower_Shell",
+      "pivot": [
+        0.95,
+        0.19
+      ],
+      "region": [
+        0.48,
+        0.61,
+        0.5,
+        0.24
+      ],
+      "charge": [
+        2,
+        0,
+        0
+      ],
+      "strike": [
+        2,
+        0,
+        0
+      ],
+      "parent": "torso"
+    }
+  ],
+  "queries": [
+    "iron gate slam",
+    "stone block impact",
+    "underwater bubble explosion"
+  ],
+  "effectSlots": [],
+  "contact": [
+    0.3,
+    0.88
+  ],
+  "opening": true,
+  "paintedInterior": true,
+  "effectKind": "pearls",
+  "presentation": {
+    "fit": 0.61,
+    "offsetX": 0.12
+  },
+  "emitters": [
+    {
+      "uv": [
+        0.24,
+        0.59
+      ],
+      "direction": 3.081592653589793,
+      "slot": "@Core_Flesh"
+    }
+  ],
+  "designNote": "張殼蓄勢，向前噴吐珍珠，保持噴射通道張開",
+  "region": "seabed",
+  "area": "外海床",
+  "name": "黑礁裂蚌",
+  "rare": false,
+  "subject": "A monstrous elongated razor clam, obsidian basalt shell plates slightly part to reveal pearl and an amber muscular wedge-foot. Patches of desiccation, ridged shell lip like a wedge in a wagon wheel.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "f4bbd43fc3280de1b2264556ce7a3cd4b87f6b89ceb8712f48e9bc051e88be6f",
+  "guideHash": "66bf8eb7811a4a2e0390765e4b2d0635e547faf617635e72a031de160ab38394",
+  "guide": "painted-components-composite-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 0,
+    "coveredSourcePixels": 518535,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "new guide composited from painted backing and isolated moving attachments",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 4,
+    "slots": 3,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

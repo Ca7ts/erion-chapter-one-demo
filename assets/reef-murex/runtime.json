@@ -1,0 +1,154 @@
+{
+  "number": 38,
+  "id": "reef-murex",
+  "skill": "螺音震潮",
+  "body": "Queen_Mollusk",
+  "fx": "royal",
+  "parts": [
+    {
+      "name": "Royal_Conch_Shell",
+      "pivot": [
+        0.61,
+        0.65
+      ],
+      "region": [
+        0.52,
+        0.33,
+        0.46,
+        0.38
+      ],
+      "charge": [
+        5,
+        0.01,
+        -0.012
+      ],
+      "strike": [
+        -7,
+        -0.025,
+        0.012
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Siphon",
+      "pivot": [
+        0.76,
+        0.64
+      ],
+      "region": [
+        0.88,
+        0.66,
+        0.16,
+        0.2
+      ],
+      "charge": [
+        -3,
+        -0.01,
+        -0.006
+      ],
+      "strike": [
+        4,
+        0.018,
+        0.004
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Mantle",
+      "pivot": [
+        0.4,
+        0.67
+      ],
+      "region": [
+        0.38,
+        0.77,
+        0.31,
+        0.18
+      ],
+      "charge": [
+        0,
+        -0.01,
+        0
+      ],
+      "strike": [
+        0,
+        0.025,
+        0
+      ],
+      "parent": "torso"
+    }
+  ],
+  "queries": [
+    "conch horn blare",
+    "heavy tidal crash",
+    "low frequency hum"
+  ],
+  "effectSlots": [
+    "Sonic_Tide_Ripples"
+  ],
+  "contact": [
+    0.9,
+    0.68
+  ],
+  "presentation": {
+    "fit": 0.6,
+    "offsetX": -0.14
+  },
+  "effectKind": "mouth-tide",
+  "emitters": [
+    {
+      "uv": [
+        0.9,
+        0.68
+      ],
+      "direction": 0.03,
+      "slot": "@mesh"
+    }
+  ],
+  "designNote": "嘴部朝前噴出音壓海潮",
+  "region": "reef",
+  "area": "育幼礁",
+  "name": "紫螺鳴后",
+  "rare": true,
+  "subject": "Rare regal giant murex sea snail: high spiral spire crowned with natural branching shell spines, warm ivory mother of pearl, deep Tyrian purple rippled mantle, two slender sensory horns; vivid violet siphon, anatomically marine.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "55ec4928834c985f9dfc4d77ebe263532170a282e4d83b84e8ef32679f35ee6d",
+  "guideHash": "55ec4928834c985f9dfc4d77ebe263532170a282e4d83b84e8ef32679f35ee6d",
+  "guide": "existing-concept-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 881314,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 5,
+    "slots": 4,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

@@ -1,0 +1,187 @@
+{
+  "id": "cliff-ram",
+  "number": 28,
+  "skill": "抵角衝撞",
+  "body": "Beast_Body",
+  "fx": "ram",
+  "contact": [
+    0.19,
+    0.91
+  ],
+  "queries": [
+    "heavy stone cracking",
+    "bull charge impact",
+    "earthquake boom"
+  ],
+  "parts": [
+    {
+      "name": "Head",
+      "pivot": [
+        0.36,
+        0.43
+      ],
+      "region": [
+        0.26,
+        0.34,
+        0.25,
+        0.3
+      ],
+      "charge": [
+        12,
+        0.015,
+        0.02
+      ],
+      "strike": [
+        -8,
+        -0.025,
+        0
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Salt_Horns_L",
+      "pivot": [
+        0.25,
+        0.25
+      ],
+      "region": [
+        0.22,
+        0.13,
+        0.18,
+        0.18
+      ],
+      "charge": [
+        2,
+        0,
+        0
+      ],
+      "strike": [
+        -2,
+        0,
+        0
+      ],
+      "parent": "Head"
+    },
+    {
+      "name": "Salt_Horns_R",
+      "pivot": [
+        0.4,
+        0.26
+      ],
+      "region": [
+        0.52,
+        0.14,
+        0.25,
+        0.2
+      ],
+      "charge": [
+        -2,
+        0,
+        0
+      ],
+      "strike": [
+        2,
+        0,
+        0
+      ],
+      "parent": "Head"
+    },
+    {
+      "name": "Foreleg_L",
+      "pivot": [
+        0.2,
+        0.62
+      ],
+      "region": [
+        0.15,
+        0.81,
+        0.16,
+        0.23
+      ],
+      "charge": [
+        12,
+        0.02,
+        -0.02
+      ],
+      "strike": [
+        -8,
+        -0.02,
+        0
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Foreleg_R",
+      "pivot": [
+        0.39,
+        0.63
+      ],
+      "region": [
+        0.32,
+        0.85,
+        0.14,
+        0.23
+      ],
+      "charge": [
+        7,
+        0.02,
+        0
+      ],
+      "strike": [
+        -4,
+        -0.02,
+        0
+      ],
+      "parent": "torso"
+    }
+  ],
+  "effectSlots": [
+    "Hooves_Debris_Layer"
+  ],
+  "newGuide": true,
+  "region": "cliff",
+  "area": "海岸高崖",
+  "name": "鹽角岩羱",
+  "rare": false,
+  "subject": "A stocky island ibex, cracked charcoal hide, deeply curled horns layered with translucent white sea salt, rust-gold climbing hooves. Windward-grown tufts, salt crust instead of gemstones.",
+  "W": 1230,
+  "H": 1278,
+  "foot": 1214.1,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "bed9d22cb0a7d2cf7472ed4db408d53cd9e8d68c0a58c281c6f6c3bebdddf774",
+  "guideHash": "bed9d22cb0a7d2cf7472ed4db408d53cd9e8d68c0a58c281c6f6c3bebdddf774",
+  "guide": "user-directed-redesign-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 999760,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 7,
+    "slots": 6,
+    "grid": [
+      64,
+      66
+    ],
+    "vertices": 4355
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

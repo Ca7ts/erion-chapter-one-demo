@@ -1,0 +1,173 @@
+{
+  "number": 42,
+  "id": "seabed-oath",
+  "skill": "沉舟重踏",
+  "body": "Leviathan_Body",
+  "fx": "wreck",
+  "parts": [
+    {
+      "name": "Shipwreck_Parts",
+      "pivot": [
+        0.56,
+        0.48
+      ],
+      "region": [
+        0.57,
+        0.25,
+        0.35,
+        0.3
+      ],
+      "charge": [
+        5,
+        0.01,
+        -0.01
+      ],
+      "strike": [
+        -6,
+        -0.015,
+        0.02
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Barnacle_Armor",
+      "pivot": [
+        0.55,
+        0.55
+      ],
+      "region": [
+        0.64,
+        0.48,
+        0.35,
+        0.3
+      ],
+      "charge": [
+        3,
+        0,
+        0
+      ],
+      "strike": [
+        -3,
+        0,
+        0
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Flipper_L",
+      "pivot": [
+        0.31,
+        0.5
+      ],
+      "region": [
+        0.19,
+        0.71,
+        0.23,
+        0.3
+      ],
+      "charge": [
+        -16,
+        0.01,
+        -0.025
+      ],
+      "strike": [
+        15,
+        -0.03,
+        0.02
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Flipper_R",
+      "pivot": [
+        0.57,
+        0.55
+      ],
+      "region": [
+        0.64,
+        0.81,
+        0.2,
+        0.22
+      ],
+      "charge": [
+        12,
+        0.01,
+        -0.03
+      ],
+      "strike": [
+        -13,
+        -0.02,
+        0.02
+      ],
+      "parent": "torso"
+    }
+  ],
+  "queries": [
+    "heavy wood cracking",
+    "shipwreck crush",
+    "cinematic low impact"
+  ],
+  "effectSlots": [],
+  "contact": [
+    0.54,
+    0.88
+  ],
+  "newGuide": true,
+  "effectKind": "ground-tide",
+  "emitters": [
+    {
+      "uv": [
+        0.54,
+        0.88
+      ],
+      "direction": 0,
+      "slot": "root"
+    }
+  ],
+  "designNote": "重壓落地，腹底中心海浪向外擴散、碎成泡沫消散",
+  "region": "seabed",
+  "area": "外海床",
+  "name": "沉舟負誓者",
+  "rare": true,
+  "subject": "Rare undersea funeral beast: a gigantic hooded sea-turtle apparition carrying the fragments of an ancient wrecked funeral bier as a shell. One oxidized bronze obol covers each eye socket, heavy charcoal flippers trail chains of shell coins, dull copper and teal. No rider.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "106f861209964c18c3a3114f664c108d1989bf6045cadc257d38c232e780f398",
+  "guideHash": "106f861209964c18c3a3114f664c108d1989bf6045cadc257d38c232e780f398",
+  "guide": "user-directed-redesign-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 906682,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 6,
+    "slots": 5,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

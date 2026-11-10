@@ -1,0 +1,167 @@
+{
+  "id": "harbor-float",
+  "number": 33,
+  "skill": "俯身連啄",
+  "body": "Buoy_Chest",
+  "fx": "peck",
+  "float": true,
+  "contact": [
+    0.18,
+    0.84
+  ],
+  "impacts": [
+    1.2,
+    1.49,
+    1.78
+  ],
+  "queries": [
+    "metal dagger stab",
+    "woodpecker rapid drilling",
+    "cinematic whoosh shockwave"
+  ],
+  "parts": [
+    {
+      "name": "Neck",
+      "pivot": [
+        0.33,
+        0.33
+      ],
+      "region": [
+        0.24,
+        0.2,
+        0.24,
+        0.3
+      ],
+      "charge": [
+        -10,
+        0.012,
+        -0.025
+      ],
+      "strike": [
+        13,
+        -0.018,
+        0.025
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Steel_Beak",
+      "pivot": [
+        0.16,
+        0.19
+      ],
+      "region": [
+        0.08,
+        0.32,
+        0.12,
+        0.22
+      ],
+      "charge": [
+        -5,
+        0,
+        -0.008
+      ],
+      "strike": [
+        7,
+        -0.008,
+        0.015
+      ],
+      "parent": "Neck"
+    },
+    {
+      "name": "Wing_R",
+      "pivot": [
+        0.5,
+        0.31
+      ],
+      "region": [
+        0.73,
+        0.47,
+        0.29,
+        0.35
+      ],
+      "charge": [
+        7,
+        0.008,
+        -0.008
+      ],
+      "strike": [
+        -6,
+        -0.008,
+        0
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Buoy_Sternum",
+      "pivot": [
+        0.37,
+        0.48
+      ],
+      "region": [
+        0.35,
+        0.44,
+        0.18,
+        0.19
+      ],
+      "charge": [
+        0,
+        0,
+        0.006
+      ],
+      "strike": [
+        0,
+        0,
+        -0.008
+      ],
+      "parent": "torso"
+    }
+  ],
+  "effectSlots": [
+    "Rapid_Peck_Blur"
+  ],
+  "newGuide": true,
+  "designNote": "紅白浮標胸腔與翼根一體化，移除漁網及吊掛浮標",
+  "region": "harbor",
+  "area": "退潮漁港／復潮漁港",
+  "name": "浮標啄客",
+  "rare": false,
+  "subject": "A hunched long-beaked shore wader, red ochre long beak and corklike pale plumage; barbed feet hook a tattered single fisher net on its back, faded red floats down its neck. Agitator of empty harbors.",
+  "W": 1024,
+  "H": 1536,
+  "foot": 1459.1999999999998,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 3.1799999999999997,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "hitStopSeconds": 0.05,
+  "sourceHash": "a265eff6b8a8906cd0fa60216e8488ca0db7ddb056a50c4ae2f33d7be5944161",
+  "guideHash": "a265eff6b8a8906cd0fa60216e8488ca0db7ddb056a50c4ae2f33d7be5944161",
+  "guide": "user-directed-redesign-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 4.547473508864641e-13,
+    "coveredSourcePixels": 766902,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 6,
+    "slots": 5,
+    "grid": [
+      64,
+      96
+    ],
+    "vertices": 6305
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

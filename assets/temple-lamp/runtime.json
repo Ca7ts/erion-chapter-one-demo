@@ -1,0 +1,116 @@
+{
+  "number": 47,
+  "id": "temple-lamp",
+  "skill": "飛灰振翅",
+  "body": "Moth_Body",
+  "fx": "ashWing",
+  "parts": [
+    {
+      "name": "Rock_Wings_L",
+      "pivot": [
+        0.46,
+        0.48
+      ],
+      "region": [
+        0.23,
+        0.3,
+        0.29,
+        0.35
+      ],
+      "charge": [
+        16,
+        0.01,
+        0.01
+      ],
+      "strike": [
+        -18,
+        -0.025,
+        -0.01
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Rock_Wings_R",
+      "pivot": [
+        0.54,
+        0.48
+      ],
+      "region": [
+        0.75,
+        0.35,
+        0.3,
+        0.35
+      ],
+      "charge": [
+        -16,
+        -0.01,
+        0.01
+      ],
+      "strike": [
+        18,
+        0.025,
+        -0.01
+      ],
+      "parent": "torso"
+    }
+  ],
+  "queries": [
+    "moth wings flapping",
+    "fire crackle sfx",
+    "low frequency wind"
+  ],
+  "effectSlots": [
+    "Ash_Dust_Layer"
+  ],
+  "contact": [
+    0.3,
+    0.88
+  ],
+  "float": true,
+  "newGuide": true,
+  "region": "temple",
+  "area": "海潮神殿外廊",
+  "name": "啜焰礁蛾",
+  "rare": false,
+  "subject": "A nocturnal moth drawn to Greek votive braziers. Asymmetric soot-dark velvet wings with gold flickers in torch-shaped eyespots, pale antennae like worn bronze filigree, full spread, no literal flames.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "90bba0afba7f93a3af20eab0edd20dac5299bb00fd1e02471becf65c646bde11",
+  "guideHash": "90bba0afba7f93a3af20eab0edd20dac5299bb00fd1e02471becf65c646bde11",
+  "guide": "user-directed-redesign-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 846940,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 4,
+    "slots": 3,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

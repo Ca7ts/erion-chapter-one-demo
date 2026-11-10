@@ -1,0 +1,258 @@
+{
+  "number": 44,
+  "id": "gate-chiton",
+  "skill": "鎖甲翻身",
+  "body": "Stone_Foot",
+  "fx": "plates",
+  "parts": [
+    {
+      "name": "Layered_Scale_Armor_0",
+      "pivot": [
+        0.25,
+        0.4
+      ],
+      "region": [
+        0.24,
+        0.25,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        -4.8999999999999995,
+        0,
+        -0.01
+      ],
+      "strike": [
+        5,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_1",
+      "pivot": [
+        0.325,
+        0.42000000000000004
+      ],
+      "region": [
+        0.317,
+        0.28500000000000003,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        -3.5,
+        0,
+        -0.01
+      ],
+      "strike": [
+        4.2,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_2",
+      "pivot": [
+        0.4,
+        0.44
+      ],
+      "region": [
+        0.394,
+        0.32,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        -2.0999999999999996,
+        0,
+        -0.01
+      ],
+      "strike": [
+        3.4,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_3",
+      "pivot": [
+        0.475,
+        0.46
+      ],
+      "region": [
+        0.471,
+        0.355,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        -0.7,
+        0,
+        -0.01
+      ],
+      "strike": [
+        2.5999999999999996,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_4",
+      "pivot": [
+        0.55,
+        0.48000000000000004
+      ],
+      "region": [
+        0.548,
+        0.39,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        0.7,
+        0,
+        -0.01
+      ],
+      "strike": [
+        1.7999999999999998,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_5",
+      "pivot": [
+        0.625,
+        0.5
+      ],
+      "region": [
+        0.625,
+        0.42500000000000004,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        2.0999999999999996,
+        0,
+        -0.01
+      ],
+      "strike": [
+        1,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_6",
+      "pivot": [
+        0.7,
+        0.52
+      ],
+      "region": [
+        0.702,
+        0.46,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        3.5,
+        0,
+        -0.01
+      ],
+      "strike": [
+        0.1999999999999993,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Layered_Scale_Armor_7",
+      "pivot": [
+        0.775,
+        0.54
+      ],
+      "region": [
+        0.779,
+        0.495,
+        0.14,
+        0.22
+      ],
+      "charge": [
+        4.8999999999999995,
+        0,
+        -0.01
+      ],
+      "strike": [
+        -0.6000000000000005,
+        -0.01,
+        0.015
+      ],
+      "parent": "torso"
+    }
+  ],
+  "queries": [
+    "metal scale plates",
+    "heavy rock thump",
+    "industrial mechanical clank"
+  ],
+  "effectSlots": [
+    "Impact_VFX_Slot"
+  ],
+  "contact": [
+    0.3,
+    0.88
+  ],
+  "region": "gate",
+  "area": "潮門",
+  "name": "扣門石鱉",
+  "rare": false,
+  "subject": "A huge plated coastal chiton arched on a strong muscular foot, exactly eight overlapping dorsal plates colored foam-white and iron-red, salt crystals around ridges. Defensively curled silhouette of an ancient door latch.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "8051c8b259f9a980b14424351d1ec54734f5aa479ab05e330401e8e23e9226a0",
+  "guideHash": "8051c8b259f9a980b14424351d1ec54734f5aa479ab05e330401e8e23e9226a0",
+  "guide": "existing-concept-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 976307,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 10,
+    "slots": 9,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

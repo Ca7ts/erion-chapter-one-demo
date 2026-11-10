@@ -1,0 +1,256 @@
+{
+  "number": 45,
+  "id": "gate-siphon",
+  "skill": "汲流噴湧",
+  "body": "Anchor_Base",
+  "fx": "jet",
+  "parts": [
+    {
+      "name": "Translucent_Body",
+      "pivot": [
+        0.5,
+        0.73
+      ],
+      "region": [
+        0.5,
+        0.62,
+        0.38,
+        0.36
+      ],
+      "charge": [
+        0,
+        0,
+        0.02
+      ],
+      "strike": [
+        0,
+        0,
+        -0.015
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Siphon_Back_L",
+      "pivot": [
+        0.3,
+        0.37
+      ],
+      "region": [
+        0.15,
+        0.17,
+        0.22,
+        0.24
+      ],
+      "charge": [
+        4,
+        0.008,
+        0.01
+      ],
+      "strike": [
+        -5,
+        -0.008,
+        -0.01
+      ],
+      "parent": "Translucent_Body"
+    },
+    {
+      "name": "Siphon_Back_R",
+      "pivot": [
+        0.68,
+        0.39
+      ],
+      "region": [
+        0.87,
+        0.22,
+        0.22,
+        0.25
+      ],
+      "charge": [
+        -4,
+        -0.008,
+        0.01
+      ],
+      "strike": [
+        5,
+        0.008,
+        -0.01
+      ],
+      "parent": "Translucent_Body"
+    },
+    {
+      "name": "Siphon_Centre",
+      "pivot": [
+        0.41,
+        0.52
+      ],
+      "region": [
+        0.39,
+        0.33,
+        0.16,
+        0.19
+      ],
+      "charge": [
+        0,
+        0,
+        0.012
+      ],
+      "strike": [
+        0,
+        0,
+        -0.015
+      ],
+      "parent": "Translucent_Body"
+    },
+    {
+      "name": "Siphon_Front_L",
+      "pivot": [
+        0.27,
+        0.65
+      ],
+      "region": [
+        0.14,
+        0.5,
+        0.15,
+        0.19
+      ],
+      "charge": [
+        3,
+        0.008,
+        0.01
+      ],
+      "strike": [
+        -4,
+        -0.008,
+        -0.008
+      ],
+      "parent": "Translucent_Body"
+    },
+    {
+      "name": "Siphon_Front_R",
+      "pivot": [
+        0.66,
+        0.66
+      ],
+      "region": [
+        0.75,
+        0.52,
+        0.17,
+        0.21
+      ],
+      "charge": [
+        -3,
+        -0.008,
+        0.01
+      ],
+      "strike": [
+        4,
+        0.008,
+        -0.008
+      ],
+      "parent": "Translucent_Body"
+    }
+  ],
+  "queries": [
+    "high pressure water jet",
+    "aquatic explosion",
+    "sub bass boom"
+  ],
+  "effectSlots": [],
+  "contact": [
+    0.3,
+    0.88
+  ],
+  "effectKind": "multi-jet",
+  "presentation": {
+    "fit": 0.57,
+    "offsetX": 0
+  },
+  "emitters": [
+    {
+      "uv": [
+        0.075,
+        0.095
+      ],
+      "direction": -2.55,
+      "slot": "@mesh"
+    },
+    {
+      "uv": [
+        0.91,
+        0.14
+      ],
+      "direction": -0.55,
+      "slot": "@mesh"
+    },
+    {
+      "uv": [
+        0.39,
+        0.32
+      ],
+      "direction": -1.52,
+      "slot": "@mesh"
+    },
+    {
+      "uv": [
+        0.14,
+        0.49
+      ],
+      "direction": -2.7,
+      "slot": "@mesh"
+    },
+    {
+      "uv": [
+        0.74,
+        0.51
+      ],
+      "direction": -0.25,
+      "slot": "@mesh"
+    }
+  ],
+  "designNote": "五個嘴各自發射高壓水柱，發射點跟隨嘴部網格",
+  "region": "gate",
+  "area": "潮門",
+  "name": "汲流海鞘",
+  "rare": false,
+  "subject": "A colony of three connected siphon tunicates fused into one grounded beast. Twin long inlet and outlet tubes like sounding horns, leathery ochre skin, blue-green inner lips, muscular central foot, mouth apertures distinct. Ancient sea wonder.",
+  "W": 1312,
+  "H": 1199,
+  "foot": 1139.05,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "b86deddf744b2336460267be31b40a26fc0ad552d6a185820c10a95cfd9fbe85",
+  "guideHash": "b86deddf744b2336460267be31b40a26fc0ad552d6a185820c10a95cfd9fbe85",
+  "guide": "existing-concept-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 840505,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 8,
+    "slots": 7,
+    "grid": [
+      64,
+      58
+    ],
+    "vertices": 3835
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

@@ -1,0 +1,138 @@
+{
+  "id": "cliff-windhorn",
+  "number": 30,
+  "skill": "雙角共鳴",
+  "body": "Beast_Body",
+  "fx": "resonance",
+  "contact": [
+    0.33,
+    0.88
+  ],
+  "queries": [
+    "heavy metal chains jangle",
+    "metal screech resonance",
+    "earthquake boom"
+  ],
+  "parts": [
+    {
+      "name": "Head",
+      "pivot": [
+        0.4,
+        0.43
+      ],
+      "region": [
+        0.29,
+        0.34,
+        0.25,
+        0.25
+      ],
+      "charge": [
+        5,
+        0,
+        0.01
+      ],
+      "strike": [
+        -5,
+        0,
+        -0.01
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Resonance_Horns_L",
+      "pivot": [
+        0.23,
+        0.27
+      ],
+      "region": [
+        0.13,
+        0.14,
+        0.18,
+        0.22
+      ],
+      "charge": [
+        -3,
+        0,
+        0
+      ],
+      "strike": [
+        4,
+        0,
+        0
+      ],
+      "parent": "Head"
+    },
+    {
+      "name": "Resonance_Horns_R",
+      "pivot": [
+        0.43,
+        0.24
+      ],
+      "region": [
+        0.52,
+        0.14,
+        0.18,
+        0.21
+      ],
+      "charge": [
+        3,
+        0,
+        0
+      ],
+      "strike": [
+        -4,
+        0,
+        0
+      ],
+      "parent": "Head"
+    }
+  ],
+  "effectSlots": [
+    "Sonic_Ripples_Layer"
+  ],
+  "region": "cliff",
+  "area": "海岸高崖",
+  "name": "背風鳴角",
+  "rare": true,
+  "subject": "Rare high-cliff sentinel: a wind-worn hollow limestone bull, muscular stone segments, mouthless muzzle, enormous twin natural hollow horns with fluted conch-like outlets through which the wind sings, old offerings of weathered ochre wool tied to horn base. A looming grounded stance.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "5a84ec7f28186073fd15a79aa873c823ec19dc7f172514b82b54a0fcc2eaa00a",
+  "guideHash": "5a84ec7f28186073fd15a79aa873c823ec19dc7f172514b82b54a0fcc2eaa00a",
+  "guide": "existing-concept-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 763167,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 5,
+    "slots": 4,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

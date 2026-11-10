@@ -1,0 +1,164 @@
+{
+  "id": "harbor-keel",
+  "number": 34,
+  "skill": "艏柱破浪",
+  "body": "Obsidian_Engine_Base",
+  "fx": "prow",
+  "contact": [
+    0.19,
+    0.83
+  ],
+  "queries": [
+    "heavy wood cracking",
+    "shipwreck crush",
+    "tsunami wave crash"
+  ],
+  "parts": [
+    {
+      "name": "Ship_Prow_Stem",
+      "pivot": [
+        0.48,
+        0.54
+      ],
+      "region": [
+        0.33,
+        0.39,
+        0.36,
+        0.25
+      ],
+      "charge": [
+        5,
+        0.015,
+        -0.008
+      ],
+      "strike": [
+        -7,
+        -0.025,
+        0.01
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Front_Limb",
+      "pivot": [
+        0.38,
+        0.61
+      ],
+      "region": [
+        0.23,
+        0.77,
+        0.22,
+        0.18
+      ],
+      "charge": [
+        -8,
+        0.006,
+        -0.012
+      ],
+      "strike": [
+        9,
+        -0.012,
+        0.012
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Rear_Limb",
+      "pivot": [
+        0.79,
+        0.57
+      ],
+      "region": [
+        0.86,
+        0.74,
+        0.16,
+        0.2
+      ],
+      "charge": [
+        6,
+        0,
+        -0.008
+      ],
+      "strike": [
+        -7,
+        0,
+        0.008
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Keel_Spines",
+      "pivot": [
+        0.68,
+        0.4
+      ],
+      "region": [
+        0.77,
+        0.29,
+        0.26,
+        0.2
+      ],
+      "charge": [
+        3,
+        0,
+        -0.004
+      ],
+      "strike": [
+        -3,
+        0,
+        0.004
+      ],
+      "parent": "torso"
+    }
+  ],
+  "effectSlots": [
+    "Crashing_Waves_Layer"
+  ],
+  "newGuide": true,
+  "designNote": "低重心長艏柱、四肢承重、沉船骨架融合黑曜石機關",
+  "region": "harbor",
+  "area": "退潮漁港／復潮漁港",
+  "name": "失泊之艏",
+  "rare": true,
+  "subject": "Rare possessed ancient Greek wooden ship prow risen on two bent broken oar limbs, ceremonial white painted ship-eye awakens in a warped indigo and terracotta body; no human head. A copper eye ring and sharply curved ram make a stately silhouette. Vessel fragment, not entire ship.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "da7583db5c7d7d090489b51c53cf8eba323fb4e92fddc62027eb37152f135cfe",
+  "guideHash": "da7583db5c7d7d090489b51c53cf8eba323fb4e92fddc62027eb37152f135cfe",
+  "guide": "user-directed-redesign-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 2.2737367544323206e-13,
+    "coveredSourcePixels": 637793,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "native guide coordinate space",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 6,
+    "slots": 5,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}

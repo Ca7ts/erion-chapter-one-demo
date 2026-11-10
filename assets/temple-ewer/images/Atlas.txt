@@ -1,0 +1,38 @@
+Master.webp
+size: 1024,1536
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Master
+  rotate: false
+  xy: 0,0
+  size: 1024,1536
+  orig: 1024,1536
+  offset: 0,0
+  index: -1
+
+Mantle.webp
+size: 1024,1536
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Mantle
+  rotate: false
+  xy: 0,0
+  size: 1024,1536
+  orig: 1024,1536
+  offset: 0,0
+  index: -1
+
+Arms.webp
+size: 1024,1536
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Arms
+  rotate: false
+  xy: 0,0
+  size: 1024,1536
+  orig: 1024,1536
+  offset: 0,0
+  index: -1
