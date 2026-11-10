@@ -23,7 +23,12 @@
    }
    const first=read(key),sea=read('erion-sea-chapter-v1'),old=read('erion-chapter-continuity-backup-v1'),legacy=read(shared);
    if(!first||!old?.first||!old.shared||!sea?.rpg||sea.rpg.continuityVersion===2)return;
-   if(!countsEqual(first.items,legacy?.items)||!countsEqual(sea.rpg.inventory,old.first.items)||!equal(first.loot,sea.rpg.loot)||first.growth?.xp!==sea.rpg.growth?.xp)return;
+   // The old adapter serialized herb/material getters from the shared proxy.
+   // After a second entry its imported inventory can itself be the stale baseline.
+   const withoutSupplies=v=>({...v,herb:0,seaMaterial:0});
+   const originalImport=countsEqual(withoutSupplies(sea.rpg.inventory),withoutSupplies(old.first.items));
+   const repeatedEntry=countsEqual(sea.rpg.inventory,old.shared.items)&&equal(first.loot,old.first.loot)&&equal(first.flags,old.first.flags);
+   if(!countsEqual(first.items,legacy?.items)||(!originalImport&&!repeatedEntry)||!equal(first.loot,sea.rpg.loot)||first.growth?.xp!==sea.rpg.growth?.xp)return;
    const repaired=[];const items={...first.items};
    for(const k of new Set([...Object.keys(old.first.items||{}),...Object.keys(old.shared.items||{})])){
     const before=old.first.items?.[k]||0,wrong=old.shared.items?.[k]||0,current=items[k]||0;
