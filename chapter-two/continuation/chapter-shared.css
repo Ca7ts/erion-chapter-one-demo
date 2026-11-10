@@ -1,14 +1,38 @@
-/* Structure adaptations only; panel art, slot layout, rarity colours and
-   typography come directly from the first chapter's shared stylesheets. */
-body.rpg-clean-layout .top .chapter,body.rpg-clean-layout .top .brand{display:none}
-body.rpg-clean-layout .layout{display:block;height:calc(100dvh - var(--journey-header-height,64px))}
-body.rpg-clean-layout .layout>aside{display:none}
-body.rpg-clean-layout .layout>main{height:100%;min-width:0}
-body.rpg-clean-layout #world{height:100%;min-height:0}
-body.rpg-clean-layout main>footer{display:none}
-body.rpg-clean-layout .rpg-minimap-dock{position:absolute;right:12px;top:12px;z-index:10}
-body.rpg-clean-layout .rpg-minimap-dock #minimap{position:static;max-width:150px;height:auto}
-body.rpg-clean-layout .rpg-minimap-dock.collapsed #minimap{display:none}
-body.rpg-clean-layout #quest-guide-panel #party{display:none}
-#sea-victory{background:#121a20 url('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/ui/victory-r20.webp') center/cover;border:1px solid #bba274;color:#ede3cd}
-@media(max-width:760px){body.rpg-clean-layout .top{min-width:0;max-width:100vw}body.rpg-clean-layout .layout{height:calc(100dvh - 60px)}.top nav{min-width:0;overflow-x:auto;flex-wrap:nowrap}.rpg-hero-hud{flex-shrink:0}.rpg-vitals strong{display:flex;gap:12px;align-items:center;justify-content:space-between}.rpg-vitals strong small{position:static;display:block;white-space:nowrap}#battle .battle-bottom{max-height:43dvh;overflow:auto}#battle #commands{display:flex;gap:5px;overflow-x:auto}#battle #commands button{flex:1 0 62px;min-width:62px}#sea-victory{max-width:94vw;max-height:90dvh;overflow:auto}}
+/* Art and layout come from the installed Chapter I skin. These are only
+   chapter-specific structural and interaction adaptations. */
+html,body{height:100%;margin:0;overflow:hidden;line-height:normal}
+body.rpg-clean-layout .top>.chapter,body.rpg-clean-layout .layout>aside,body.rpg-clean-layout .layout>main>footer{display:none!important}
+body.rpg-clean-layout:not(.mobile-game) .top.journey-icon-header{position:relative;inset:0;flex-wrap:nowrap;align-items:center;pointer-events:auto}
+body.rpg-clean-layout:not(.mobile-game) .top.journey-icon-header nav{margin-left:auto;max-width:none;align-items:center}
+body.rpg-clean-layout:not(.mobile-game) .layout{position:static;inset:auto;display:flex;height:calc(100dvh - var(--journey-header-height));width:100%;padding:0;margin:0}
+body.rpg-clean-layout .layout>main{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;height:100%;padding:0;margin:0}
+body.rpg-clean-layout #world{position:relative;flex:1;min-height:0;max-height:none;overflow:hidden;width:100%;height:100%;border:0;border-radius:0}
+body.rpg-clean-layout #map{display:block;width:100%;height:100%;touch-action:none}
+body.rpg-clean-layout #world .place{text-align:left;right:auto;bottom:auto}
+body.rpg-clean-layout #world .map-controls{left:auto;top:auto;right:16px;bottom:14px;z-index:20}
+#quest-guide-panel #party{display:none}
+#sea-stick{display:none}
+#atlas .sea-route-list,#sea-craft .sea-craft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+#sea-craft .sea-craft-grid button{display:flex;gap:8px;align-items:center;text-align:left}
+#sea-craft .sea-craft-grid img{width:36px;height:34px;object-fit:contain}
+#sea-model-view{width:min(850px,96vw);padding:10px}#sea-model-view iframe{width:100%;height:min(65dvh,550px);border:0}
+#story .sea-cinema-buttons{display:flex;gap:6px;position:absolute;right:12px;bottom:max(8px,env(safe-area-inset-bottom));z-index:80}
+#story .story-controls,#story #story-mode,#story #row-count,#story #line-progress{display:none!important}
+@media(max-width:1050px),(hover:none) and (max-width:1366px){
+ :root body.mobile-game header.top .rpg-vitals{inset:4px 6px 4px 28%;grid-template-rows:16px 11px 11px;gap:2px}
+ :root body.mobile-game header.top .rpg-vitals>strong{font-size:11px;line-height:16px;padding:0;gap:3px}
+ :root body.mobile-game header.top .rpg-vitals>strong>small{font-size:11px!important;line-height:14px;padding:0 3px}
+ :root body.mobile-game header.top .rpg-meter{min-height:0;height:11px}
+ :root body.mobile-game header.top .rpg-meter span{font-size:9px;line-height:9px}
+ #sea-stick{position:absolute;display:grid;place-items:center;left:max(20px,env(safe-area-inset-left));bottom:max(20px,env(safe-area-inset-bottom));width:112px;height:112px;box-sizing:border-box;border-radius:50%;padding:0;touch-action:none;z-index:11;background:radial-gradient(circle,#0a18275c 0 36%,#07131d85 38% 66%,#b6a06d3b 67% 70%,#07111b99 72%);border:2px solid #c9ae6d77;box-shadow:inset 0 0 18px #0007,0 3px 9px #0005}
+ #sea-stick::before{content:'✥';position:absolute;inset:0;display:grid;place-items:center;color:#bca16b70;font:80px/1 serif;pointer-events:none}
+ #sea-stick i{position:relative;z-index:1;display:block;width:44px;height:44px;box-sizing:border-box;border:2px solid #d1b57caa;border-radius:50%;background:radial-gradient(circle at 35% 25%,#728088b8,#243a46cc 50%,#101c2aef);box-shadow:inset 0 2px 4px #f3dd9f55,0 4px 8px #0008}
+}
+@media(orientation:landscape) and (max-height:420px){body.mobile-game #sea-stick{bottom:max(10px,env(safe-area-inset-bottom));left:max(12px,env(safe-area-inset-left));width:96px;height:96px}}
+@media(max-width:680px) and (orientation:portrait){
+ body.mobile-game .top nav{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:start;width:auto;left:0;right:0;max-width:100%;height:auto;gap:5px}
+ body.mobile-game .top .journey-main-items{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;overflow:visible;max-width:100%;width:100%;min-width:0;pointer-events:auto;touch-action:manipulation}
+ body.mobile-game .top .journey-main-items .journey-icon-button{width:100%;min-width:44px;height:48px;pointer-events:auto}
+ body.mobile-game .top .journey-main-items .journey-icon-button::before{width:24px;height:24px}
+ body.mobile-game .top .journey-main-items .journey-icon-button::after{font-size:10.5px;letter-spacing:0}
+}
