@@ -10,7 +10,7 @@
     return WeaponAscent.clears(first,S.step>=17&&!window.SeaNewMaps?.enabled);
   }});
   for(const [k,initial]of [['herb',S.herbs],['seaMaterial',S.materials]])Object.defineProperty(itemStore,k,{enumerable:true,configurable:true,get:()=>k==='herb'?S.herbs:S.materials,set:n=>{if(k==='herb')S.herbs=n;else S.materials=n}});
-  if(!game.isolated){const holder={};SharedCharacter.bind(holder,1);Object.defineProperty(s,'items',{configurable:true,get:()=>holder.items});}else Object.defineProperty(s,'items',{configurable:true,get:()=>itemStore});
+  Object.defineProperty(s,'items',{configurable:true,enumerable:true,get:()=>itemStore});
   for(const k of ['hp','maxHp','mp','maxMp','defense','support','area'])Object.defineProperty(s,k,{configurable:true,get:()=>S[k]??0,set:n=>S[k]=n});
   window.REGION_MAPS={order:Object.keys(M.levels),areas:D.maps};
   const itemNames={...SharedCharacter.names,...Object.fromEntries(M.catalog.map(c=>[c.key,c.name]))};
@@ -91,6 +91,6 @@
     }
     const receipt='c2-field-'+crypto.randomUUID();canonical.award(s,receipt,xp);s.economy.balance+=coins;recompute();save();SeaControls.victory(xp,coins,rows);
   }
-  function capture(){if(!window.ExplorationLedger||!window.Loot)return;ExplorationLedger.capture(s);ChapterContinuity.capture(S,s,game.isolated);}
+  function capture(){if(!window.ExplorationLedger||!window.Loot)return;ExplorationLedger.capture(s);return ChapterContinuity.capture(S,s,game.isolated);}
   window.SeaRPG={state:s,hasSupport,save,start,harborTargets,harborHunt,opening,draw,reward,capture,enter:area=>{distance=0;ExplorationLedger.enter(s,area)},walk:(n,locked)=>{if(locked||S.active||S.checkpoint||S.step<1||S.step>=16||['cliff','harbor'].includes(S.area))return;distance+=n;if(distance>=threshold){distance=0;threshold=800+Math.random()*650;start();}},damage:(raw,e,skill)=>canonical.damage((skill?raw:s.attack)*(Math.random()*100<s.critChance?1.5:1),e.armor||0,skill?S.rune:'attack')};
 })();

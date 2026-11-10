@@ -10,7 +10,13 @@
  const overlay=document.createElement('div');overlay.className='film-caption';overlay.setAttribute('aria-hidden','true');
  const who=document.createElement('span'),lines=document.createElement('div');who.className='film-caption-speaker';lines.className='film-caption-lines';overlay.append(who,lines);root.append(overlay);
  const transcript=document.createElement('details'),summary=document.createElement('summary'),fullText=document.createElement('p');transcript.className='film-transcript';summary.textContent='查看完整台詞';transcript.append(summary,fullText);originalPanel?.append(transcript);
- if(dialog){
+ if(dialog&&(isSea||window.PrivateTest)){
+  root.classList.add('film-simple-controls');const top=root.querySelector('.story-top');if(top){top.inert=true;top.setAttribute('aria-hidden','true');}if(originalPanel){originalPanel.inert=true;originalPanel.setAttribute('aria-hidden','true');}
+  const controls=document.createElement('nav');controls.className='film-story-actions';controls.setAttribute('aria-label','劇情操作');
+  const next=document.createElement('button');next.type='button';next.textContent='下一幕';next.setAttribute('aria-label','下一幕，跳至下一段劇情');next.onclick=()=>isSea?window.SeaGame?.nextRow():document.getElementById('next-line')?.click();
+  const skip=document.createElement('button');skip.type='button';skip.textContent='SKIP';skip.setAttribute('aria-label','SKIP，跳過本次劇情');skip.onclick=()=>isSea?window.SeaGame?.skip():window.PrivateTest?.game?.skipStory();
+  controls.append(next,skip);root.append(controls);
+ }else if(dialog){
   const toggle=document.createElement('button');toggle.type='button';toggle.className='film-controls-toggle';toggle.textContent='播放控制';toggle.setAttribute('aria-expanded','false');toggle.autofocus=true;
   const show=v=>{root.classList.toggle('film-controls-open',v);toggle.setAttribute('aria-expanded',String(v));toggle.textContent=v?'收起控制':'播放控制';};
   toggle.onclick=()=>show(!root.classList.contains('film-controls-open'));
@@ -26,7 +32,7 @@
   const r=root.getBoundingClientRect(),c=canvas.getBoundingClientRect(),ratio=Math.min(c.width/canvas.width,c.height/canvas.height),w=canvas.width*ratio,h=canvas.height*ratio;
   const x=c.left-r.left+(c.width-w)/2,y=c.top-r.top+(c.height-h)/2;
   captionWidth=Math.min(1060,w*.84);font=clamp(w*.020,17,29);
-  const bottom=y+h-Math.max(24,h*.065);
+  const bottom=y+h-Math.max(root.classList.contains('film-simple-controls')&&r.width>r.height?62:24,h*.065);
   overlay.style.setProperty('--film-left',(x+(w-captionWidth)/2)+'px');overlay.style.setProperty('--film-width',captionWidth+'px');overlay.style.setProperty('--film-bottom',bottom+'px');overlay.style.setProperty('--film-font',font+'px');
   const key=Math.round(captionWidth)+':'+font.toFixed(2);if(key!==sizeKey){sizeKey=key;pages=[];page=-1;}
  }

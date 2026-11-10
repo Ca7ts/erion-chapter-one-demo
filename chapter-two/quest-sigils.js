@@ -1,7 +1,7 @@
 /* Local chapter maps share image-backed quest markers; visibility and hit tests belong to the map. */
 (()=>{
  const images=new Map(),reduced=matchMedia('(prefers-reduced-motion:reduce)');
- const root=new URL('https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/media/quest-sigils/',document.currentScript?.src||document.baseURI);
+ const root=new URL('../media/quest-sigils/',document.currentScript?.src||document.baseURI);
  const discharge=new ChapterImage();discharge.src=new URL('../forge/rite-inflow-rifts.webp',root).href;
  function get(type){
   const id=type.endsWith('-pending')?'pending':type;

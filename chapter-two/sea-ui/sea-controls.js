@@ -4,7 +4,7 @@
   const elem=(t,text,cls)=>{const n=document.createElement(t);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n};
   const btn=(text,fn)=>{const b=elem('button',text);b.type='button';b.onclick=fn;return b};
   const dlg=(id,title)=>{let n=by(id);if(!n){n=elem('dialog');n.id=id;document.body.append(n)}n.replaceChildren(elem('h2',title));n.setAttribute('aria-label',title);return n};
-  const closeX=d=>{if(d.querySelector('.panel-close-x,.close')||d.id==='story')return;const b=btn('×',()=>{if(d.dataset.pendingAction==='true'){confirmAction('關閉目前的裝備選擇？',()=>d.close());}else d.close()});b.className='panel-close-x';b.setAttribute('aria-label','關閉');d.prepend(b)};
+  const closeX=d=>{if(d.querySelector('.panel-close-x,.close')||['story','game-resume-overlay'].includes(d.id))return;const b=btn('×',()=>{if(d.dataset.pendingAction==='true'){confirmAction('關閉目前的裝備選擇？',()=>d.close());}else d.close()});b.className='panel-close-x';b.setAttribute('aria-label','關閉');d.prepend(b)};
   function confirmAction(title,yes){const n=dlg('sea-confirm',title);n.append(btn('取消',()=>n.close()),btn('確認',()=>{n.close();yes()}));n.showModal();}
   const monitor=new MutationObserver(records=>{for(const r of records){const d=r.target.closest?.('dialog[open]');if(d)closeX(d);for(const n of r.addedNodes)if(n.matches?.('dialog[open]'))closeX(n)}});
   monitor.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['open']});
@@ -82,7 +82,6 @@
   }
   // Game renders targets and effects in the same horizontal coordinate system.
   by('battle-canvas').addEventListener('click',ev=>{const b=g.battle;if(!b||b.busy||!['main','target'].includes(deck))return;const rect=ev.target.getBoundingClientRect(),w=rect.width,h=by('targets').getBoundingClientRect().top-rect.top,y=ev.clientY-rect.top;if(y<h*.22||y>h)return;const x=(ev.clientX-rect.left)/w,i=Math.round((x-.2)*(b.enemies.length+1)/.6)-1;if(i>=0&&i<b.enemies.length&&Math.abs(x-(.2+(i+1)*.6/(b.enemies.length+1)))<Math.min(.12,.31/b.enemies.length))by('targets').children[i]?.click();});
-  const strip=elem('div',null,'sea-cinema-buttons');strip.append(btn('下一幕',g.nextRow),btn('SKIP',g.skip));by('story').append(strip);by('story-exit').onclick=g.skip;by('story-exit').textContent='×';by('story-exit').setAttribute('aria-label','跳過過場');by('story').addEventListener('cancel',e=>{e.preventDefault();e.stopImmediatePropagation();g.skip()},true);
   const stick=btn('',()=>{});stick.id='sea-stick';stick.setAttribute('aria-label','移動搖桿');const knob=elem('i');stick.append(knob);by('world').append(stick);let pointer=null;
   function move(e){if(e.pointerId!==pointer)return;const r=stick.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/(r.width*.38),y=(e.clientY-r.top-r.height/2)/(r.width*.38),len=Math.max(1,Math.hypot(x,y));knob.style.transform='translate('+x/len*24+'px,'+y/len*24+'px)';g.input(x/len,y/len)}
   function release(){pointer=null;knob.style.transform='';g.input(0,0)}

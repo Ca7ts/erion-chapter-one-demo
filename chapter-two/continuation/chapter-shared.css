@@ -16,7 +16,7 @@ body.rpg-clean-layout #world .map-controls{left:auto;top:auto;right:16px;bottom:
 #sea-craft .sea-craft-grid button{display:flex;gap:8px;align-items:center;text-align:left}
 #sea-craft .sea-craft-grid img{width:36px;height:34px;object-fit:contain}
 #sea-model-view{width:min(850px,96vw);padding:10px}#sea-model-view iframe{width:100%;height:min(65dvh,550px);border:0}
-#story .sea-cinema-buttons{display:flex;gap:6px;position:absolute;right:12px;bottom:max(8px,env(safe-area-inset-bottom));z-index:80}
+#story.film-simple-controls :is(.story-top,.subtitle){opacity:0!important;pointer-events:none!important}
 #story .story-controls,#story #story-mode,#story #row-count,#story #line-progress{display:none!important}
 @media(max-width:1050px),(hover:none) and (max-width:1366px){
  :root body.mobile-game header.top .rpg-vitals{inset:4px 6px 4px 28%;grid-template-rows:16px 11px 11px;gap:2px}
