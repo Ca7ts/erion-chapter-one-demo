@@ -51,26 +51,26 @@
     game.beginBattle('field',[foe]);byId('battle-title').textContent=M.enemies[id].area+' · 取材委託';
     return true;
   }
-  function start(){if(window.SeaNewMaps?.enabled){game.toast("本次試玩暫緩怪物與戰鬥。");return false;}
+  function start(){
     if(!game.ready||!game.safe){game.toast('請先完成眼前的互動，再調查附近。');return false}
-    const zone=M.region(S.area);if(!zone)return false;
+    const zone=M.region(S.area);if(!zone)return false;if(window.SeaNewMaps?.enabled&&!zone.monsters.some(id=>!M.enemies[id].rare&&window.SeaApprovedMonsters?.includes(id))){game.toast('此區怪物技能尚待確認。');return false;}
     const roll=Math.random(),count=roll<.2?1:roll<.65?2:roll<.95?3:4;
-    const group=Array.from({length:count},()=>pick(zone.monsters.filter(id=>!M.enemies[id].rare)));
-    if(Math.random()<.08)group[0]=zone.monsters.find(id=>M.enemies[id].rare);
+    const group=Array.from({length:count},()=>pick(zone.monsters.filter(id=>!M.enemies[id].rare&&(!window.SeaNewMaps?.enabled||window.SeaApprovedMonsters?.includes(id)))));
+    const rare=zone.monsters.find(id=>M.enemies[id].rare&&(!window.SeaNewMaps?.enabled||window.SeaApprovedMonsters?.includes(id)));if(rare&&Math.random()<.08)group[0]=rare;
     game.beginBattle('field',group.map(fieldFoe));return true;
   }
   function opening(b){
     window.SeaControls?.resetBattle();const zone=b.kind==='escort'?'seabed':b.kind==='kraken'?'gate':b.enemies[0]?.huntRegion||S.area;
-    b.arena=new ChapterImage();b.arena.src='sea-ui/arenas/'+zone+'.webp';if(b.kind!=='field')return;
+    b.arena=new ChapterImage();b.arena.src="https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/429b930ba6730bb5a7c0032c3cc9f7603a9635bf/arenas/"+zone+'.webp';if(b.kind!=='field')return;
     ExplorationLedger.encounter(s,b.enemies.map(e=>e.id));imageCache.clear();
-    for(const e of b.enemies){if(!imageCache.has(e.id)){const im=new ChapterImage();im.onerror=()=>{im.onerror=null;im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/sea-ui/creatures/'+e.id+'.webp'};im.src='sea-ui/battle-portraits/'+e.id+'.webp';imageCache.set(e.id,im)}}
-    if(!matchMedia('(pointer:coarse)').matches)import('./sea-actors.js').then(()=>{if(game.battle===b)SeaActors.start(b)}).catch(()=>{});
+    for(const e of (window.SeaNewMaps?.enabled?[]:b.enemies)){if(!imageCache.has(e.id)){const im=new ChapterImage();im.onerror=()=>{im.onerror=null;im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/sea-ui/creatures/'+e.id+'.webp'};im.src='sea-ui/battle-portraits/'+e.id+'.webp';imageCache.set(e.id,im)}}
+    b.busy=true;b.loading=true;import('../continuation/approved-monsters-r34.mjs?v=34b').then(()=>SeaActors.start(b)).then(ok=>{if(game.battle!==b)return;if(!ok)throw Error('模型未載入');b.loading=false;b.busy=false;SeaControls.battleUI(b);}).catch(err=>{if(game.battle!==b)return;b.loading=false;game.toast('怪物載入失敗，已安全退出戰鬥。');game.finishBattle(false);console.error(err);});
     save();
   }
   function draw(ctx,b,w,h,visualH,visual){
     const rendered=window.SeaActors?.draw(ctx,b,w,visualH,visual),mode=rendered?'model':'portrait';
     if(ctx.canvas.dataset.enemies!==mode)ctx.canvas.dataset.enemies=mode;
-    if(rendered)return;
+    if(rendered)return;if(window.SeaNewMaps?.enabled){ctx.save();ctx.fillStyle='#ead8b0';ctx.font='16px serif';ctx.textAlign='center';ctx.fillText('潮岸異獸正在現身…',w/2,visualH/2);ctx.restore();return;}
     for(const [i,e]of b.enemies.entries()){if(e.hp<=0)continue;const im=imageCache.get(e.id);if(!im?.naturalWidth)continue;
       const recoil=visual?.recoil(i)||{x:0,y:0},x=w*(.2+(i+1)*.6/(b.enemies.length+1))+recoil.x*w,foot=visualH*.86+recoil.y*visualH;
       const scale=Math.min(visualH*(e.rare?.70:.58)/im.naturalHeight,w*(b.enemies.length===1?.52:.80/b.enemies.length)/im.naturalWidth);
@@ -92,5 +92,13 @@
     const receipt='c2-field-'+crypto.randomUUID();canonical.award(s,receipt,xp);s.economy.balance+=coins;recompute();save();SeaControls.victory(xp,coins,rows);
   }
   function capture(){if(!window.ExplorationLedger||!window.Loot)return;ExplorationLedger.capture(s);return ChapterContinuity.capture(S,s,game.isolated);}
+  if(game.isolated&&new URLSearchParams(location.search).get('audit')==='new-map-review'){
+    const panel=document.createElement('div');panel.id='skill-audit-controls';panel.style='position:fixed;bottom:28px;left:8px;z-index:4000;background:#17222b;padding:6px;border:1px solid #bc9a62;display:flex;gap:4px';
+    const select=document.createElement('select');select.id='skill-audit-species';select.setAttribute('aria-label','檢查怪物');
+    for(const id of window.SeaApprovedMonsters||[])select.append(new Option(M.enemies[id].name,id));
+    const count=document.createElement('select');count.id='skill-audit-count';count.setAttribute('aria-label','檢查數量');for(const n of [1,2,3])count.append(new Option(n+' 隻',n));
+    const launch=document.createElement('button');launch.textContent='檢查技能戰鬥';launch.onclick=()=>{if(game.battle||!game.ready)return;game.beginBattle('field',Array.from({length:+count.value},()=>fieldFoe(select.value)));};
+    panel.append(select,count,launch);document.body.append(panel);
+  }
   window.SeaRPG={state:s,hasSupport,save,start,harborTargets,harborHunt,opening,draw,reward,capture,enter:area=>{distance=0;ExplorationLedger.enter(s,area)},walk:(n,locked)=>{if(locked||S.active||S.checkpoint||S.step<1||S.step>=16||['cliff','harbor'].includes(S.area))return;distance+=n;if(distance>=threshold){distance=0;threshold=800+Math.random()*650;start();}},damage:(raw,e,skill)=>canonical.damage((skill?raw:s.attack)*(Math.random()*100<s.critChance?1.5:1),e.armor||0,skill?S.rune:'attack')};
 })();
