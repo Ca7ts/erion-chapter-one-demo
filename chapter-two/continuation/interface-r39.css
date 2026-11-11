@@ -1,0 +1,8 @@
+/* Only placement of the chapter-specific actors differs; artwork and panels use C1. */
+#battle #enemy-targets{position:absolute;inset:0;pointer-events:none}
+#battle #enemy-targets .enemy-button{top:auto;bottom:calc(var(--command-deck-height,130px) + 18px);transform:translateX(-50%);min-width:0;pointer-events:auto;box-sizing:border-box}
+#battle #enemy-targets .enemy-button small{white-space:normal}
+#battle .command-deck{z-index:5}
+#battle[hidden]{display:none!important}
+#atlas #journey-route img{object-fit:cover}
+@media(max-width:620px){#battle #enemy-targets .enemy-button{padding:5px 3px}#battle #enemy-targets .enemy-button>span:first-child{font-size:11px}#battle #enemy-targets .enemy-button small{font-size:10px}}

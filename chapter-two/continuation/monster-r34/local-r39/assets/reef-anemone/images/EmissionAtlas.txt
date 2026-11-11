@@ -1,0 +1,25 @@
+Emissive.webp
+size: 1241,1267
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Master
+  rotate: false
+  xy: 0,0
+  size: 1241,1267
+  orig: 1241,1267
+  offset: 0,0
+  index: -1
+
+Mantle-Emissive.webp
+size: 1241,1267
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Mantle
+  rotate: false
+  xy: 0,0
+  size: 1241,1267
+  orig: 1241,1267
+  offset: 0,0
+  index: -1

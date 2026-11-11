@@ -25,7 +25,7 @@
   window.Growth={...canonical,recompute:(state=s)=>canonical.recompute(state),spell:(state,k)=>canonical.spell(state,k)};
   const hasSupport=k=>k==='none'||k===S.support||(!game.isolated&&SharedCharacter.has(k));
   const save=()=>{game.save();window.RpgHUD?.updateHud()};
-  window.PrivateTest={game:{state:s,blocked:game.blocked,hooks:{area:()=>S.area,stop:game.stop,toast:game.toast},canVisit:k=>game.allowedArea(k)&&S.seen.includes(k),save,combat:{get active(){return !!game.battle}},suspendInfo:()=>byId('talk').close()},openCraft:()=>SeaControls.craft()};
+  window.PrivateTest={game:{state:s,blocked:game.blocked,hooks:{area:()=>S.area,stop:game.stop,toast:game.toast},canVisit:k=>game.allowedArea(k)&&S.seen.includes(k),save,combat:{get active(){return !!game.battle},closeToMap:()=>game.closeBattleRewards()},suspendInfo:()=>byId('talk').close()},openCraft:()=>SeaControls.craft()};
   const nav=document.querySelector('header.top nav');
   function navButton(id,label,fn){const n=document.createElement('button');n.id=id;n.textContent=label;n.onclick=fn;nav.append(n);return n}
   for(const [id,label,fn]of [
@@ -64,7 +64,7 @@
     b.arena=new ChapterImage();b.arena.src="https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/429b930ba6730bb5a7c0032c3cc9f7603a9635bf/arenas/"+zone+'.webp';if(b.kind!=='field')return;
     ExplorationLedger.encounter(s,b.enemies.map(e=>e.id));imageCache.clear();
     for(const e of (window.SeaNewMaps?.enabled?[]:b.enemies)){if(!imageCache.has(e.id)){const im=new ChapterImage();im.onerror=()=>{im.onerror=null;im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/sea-ui/creatures/'+e.id+'.webp'};im.src='sea-ui/battle-portraits/'+e.id+'.webp';imageCache.set(e.id,im)}}
-    b.busy=true;b.loading=true;import('../continuation/approved-monsters-r34.mjs?v=34b').then(()=>SeaActors.start(b)).then(ok=>{if(game.battle!==b)return;if(!ok)throw Error('模型未載入');b.loading=false;b.busy=false;SeaControls.battleUI(b);}).catch(err=>{if(game.battle!==b)return;b.loading=false;game.toast('怪物載入失敗，已安全退出戰鬥。');game.finishBattle(false);console.error(err);});
+    b.busy=true;b.loading=true;const weapon=window.LoadBattlePresentation();import('../continuation/approved-monsters-r34.mjs?v=39').then(async()=>{const ok=await SeaActors.start(b);if(!await weapon)throw Error('武器演出未載入');return ok;}).then(ok=>{if(game.battle!==b)return;if(!ok)throw Error('模型未載入');b.loading=false;b.busy=false;SeaControls.battleUI(b);}).catch(err=>{if(game.battle!==b)return;b.loading=false;game.toast('怪物載入失敗，已安全退出戰鬥。');game.finishBattle(false);console.error(err);});
     save();
   }
   function draw(ctx,b,w,h,visualH,visual){
@@ -82,14 +82,14 @@
   }
   function reward(b){
     if(b.rewardSettled)return;b.rewardSettled=true;
-    const rows=[];let xp=0,coins=0;
+    const rows=[],levelBefore=s.level;let xp=0,coins=0;
     for(const foe of b.enemies){if(foe.hp>0||foe.summoned)continue;const e=M.enemies[foe.id];s.bestiary.kills[e.id]=(s.bestiary.kills[e.id]||0)+1;
       xp+=foe.level*(e.rare?8:4);coins+=foe.level+(e.rare?10:1);
       for(const [k,n,p]of e.drops)if((!LeonPatterns.byProof[k]||(!foe.summoned&&LeonPatterns.available(s,LeonPatterns.byProof[k])))&&Math.random()<p){s.items[k]=(s.items[k]||0)+n;rows.push({key:k,name:itemNames[k],count:n,color:Loot.quality(M.materials[k].tier).color});}
       if(Math.random()<e.chance){const rarity=M.rollRarity(e,Math.random);
         const it=Loot.roll(s,{template:e.id,slot:e.slot,rarity,level:foe.level,source:e.name});rows.push({key:it,name:it.name,count:1,color:Loot.quality(rarity).color});}
     }
-    const receipt='c2-field-'+crypto.randomUUID();canonical.award(s,receipt,xp);s.economy.balance+=coins;recompute();save();SeaControls.victory(xp,coins,rows);
+    const receipt='c2-field-'+crypto.randomUUID();canonical.award(s,receipt,xp);s.economy.balance+=coins;recompute();save();SeaControls.victory(xp,coins,rows,levelBefore);
   }
   function capture(){if(!window.ExplorationLedger||!window.Loot)return;ExplorationLedger.capture(s);return ChapterContinuity.capture(S,s,game.isolated);}
   if(game.isolated&&new URLSearchParams(location.search).get('audit')==='new-map-review'){

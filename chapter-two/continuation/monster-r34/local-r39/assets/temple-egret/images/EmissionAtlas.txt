@@ -1,0 +1,12 @@
+Emissive.webp
+size: 1199,1312
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Master
+  rotate: false
+  xy: 0,0
+  size: 1199,1312
+  orig: 1199,1312
+  offset: 0,0
+  index: -1

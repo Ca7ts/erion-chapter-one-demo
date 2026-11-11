@@ -1,0 +1,12 @@
+Master.webp
+size: 1312,1199
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Master
+  rotate: false
+  xy: 0,0
+  size: 1312,1199
+  orig: 1312,1199
+  offset: 0,0
+  index: -1

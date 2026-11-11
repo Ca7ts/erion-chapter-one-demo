@@ -1,0 +1,113 @@
+{
+  "id": "cliff-limpet",
+  "number": 29,
+  "skill": "掀殼刮擊",
+  "body": "Foot_Slot",
+  "fx": "scrape",
+  "contact": [
+    0.24,
+    0.87
+  ],
+  "queries": [
+    "heavy stone cracking",
+    "ceramic scratch",
+    "ocean crash"
+  ],
+  "parts": [
+    {
+      "name": "Giant_Conch_Shell",
+      "pivot": [
+        0.79,
+        0.5
+      ],
+      "region": [
+        0.48,
+        0.31,
+        0.52,
+        0.35
+      ],
+      "charge": [
+        -13,
+        0.015,
+        -0.075
+      ],
+      "strike": [
+        4,
+        -0.015,
+        0.02
+      ],
+      "parent": "torso"
+    },
+    {
+      "name": "Radula_Mouth",
+      "pivot": [
+        0.3,
+        0.64
+      ],
+      "region": [
+        0.27,
+        0.76,
+        0.11,
+        0.18
+      ],
+      "charge": [
+        -9,
+        0.02,
+        -0.01
+      ],
+      "strike": [
+        12,
+        -0.08,
+        0.025
+      ],
+      "parent": "torso"
+    }
+  ],
+  "effectSlots": [],
+  "opening": true,
+  "region": "cliff",
+  "area": "海岸高崖",
+  "name": "伏崖笠螺",
+  "rare": false,
+  "subject": "A predatory giant limpet, low broad ovoid slate roof shell patterned by receding tide lines; a narrow bronze rasp and curling muscular plum mantle grip sheer rock. Strong non-mammalian silhouette.",
+  "W": 1536,
+  "H": 1024,
+  "foot": 972.8,
+  "durations": {
+    "setup": 1,
+    "idle": 3.2,
+    "charge": 1.2,
+    "skill": 2.5999999999999996,
+    "attack": 0.8,
+    "hit": 0.4,
+    "defeat": 1.3
+  },
+  "impacts": [
+    1.2
+  ],
+  "hitStopSeconds": 0.05,
+  "sourceHash": "70a58b5d4241079ca885a4eec67d235193e3d953a4ab1ecea26c95fc4755e406",
+  "guideHash": "363e4909510b850eca42dc09be72e443bb42cf42bd8dee3939d4447988dc152b",
+  "guide": "painted-components-composite-guide",
+  "status": "engineering-candidate-awaiting-pose-review",
+  "pixelRegistration": {
+    "maxCoordinateError": 0,
+    "coveredSourcePixels": 433051,
+    "rasterPartition": "each nonzero-alpha component-source pixel assigned exactly once",
+    "reference": "new guide composited from painted backing and isolated moving attachments",
+    "browserPixelDiffVerified": false
+  },
+  "geometry": {
+    "bones": 4,
+    "slots": 3,
+    "grid": [
+      64,
+      43
+    ],
+    "vertices": 2860
+  },
+  "materials": "native albedo; derived emissive control masks; no physical 8K PBR or millimetre claim",
+  "limitations": [],
+  "spineEditorImportVerified": false,
+  "gameIntegrated": false
+}
