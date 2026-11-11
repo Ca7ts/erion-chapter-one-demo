@@ -198,6 +198,36 @@ if(S.area==='core'){mist(ctx,790,460,170,S.flags.linked?'#5edbff':'#ed6b43',.17+
 }
 // A failed frame must not silently abandon the only movement/interaction loop.
 let frameFailures=0,stickMoving=false,exitLatch=false,mouseHold=null;
+// Same visible-page rAF fallback as Chapter I. Both paths share one frame gate.
+let frameRequest=0,frameTimer=0,frameStopped=true,lastRAF=0,lastPaint=0,healthyRAF=0,timerMode=false;
+const frameStats={mode:'raf',updates:0,fallbackUpdates:0,longFrames:0};
+function paintFrame(t,fallback){
+ if(frameStopped||frameFailures>=3||document.hidden||t-lastPaint<14)return;
+ if(lastPaint&&t-lastPaint>50)frameStats.longFrames++;
+ lastPaint=t;frameStats.updates++;if(fallback)frameStats.fallbackUpdates++;
+ frame(t);
+ if(AUDIT)document.documentElement.dataset.frameClock=JSON.stringify(frameStats);
+}
+function animateFrame(){
+ if(frameStopped)return;
+ const t=performance.now(),gap=t-lastRAF;healthyRAF=gap<45?healthyRAF+1:0;lastRAF=t;
+ if(healthyRAF>=6)timerMode=false;
+ frameStats.mode=timerMode?'visible-timer':'raf';paintFrame(t,false);
+ frameRequest=requestAnimationFrame(animateFrame);
+}
+function watchFrame(){
+ const t=performance.now();if(document.hidden){lastPaint=0;prev=t;return;}
+ if(t-lastRAF>100){timerMode=true;healthyRAF=0;}
+ if(timerMode){frameStats.mode='visible-timer';paintFrame(t,true);}
+}
+function startChapterClock(){
+ if(!frameStopped)return;frameStopped=false;prev=performance.now();lastPaint=0;lastRAF=prev;healthyRAF=0;timerMode=false;
+ frameRequest=requestAnimationFrame(animateFrame);frameTimer=setInterval(watchFrame,1000/60);
+}
+window.addEventListener('pagehide',()=>{frameStopped=true;cancelAnimationFrame(frameRequest);clearInterval(frameTimer);});
+window.addEventListener('pageshow',e=>{if(e.persisted)startChapterClock();});
+document.addEventListener('visibilitychange',()=>{prev=performance.now();lastPaint=0;lastRAF=prev;healthyRAF=0;timerMode=false;if(document.hidden)keys={};});
+
 function frame(ts){
  try{
   if(document.hidden&&!AUDIT){prev=ts;keys={};return;}frameStep(ts);frameFailures=0;
@@ -214,8 +244,6 @@ function frame(ts){
    const retry=document.createElement('button');retry.className='gold';retry.textContent='保留進度，重新載入';retry.onclick=()=>{try{save();}catch{}location.reload();};
    box.append(message,retry);document.body.append(box);
   }
- }finally{
-  if(frameFailures<3){if(AUDIT)setTimeout(()=>frame(performance.now()),16);else requestAnimationFrame(frame);}
  }
 }
 function frameStep(ts){const dt=document.hidden&&!AUDIT?0:Math.min(battle ? .2 : .045,Math.max(0,(ts-prev)/1000)||0);prev=ts;clock+=dt;if(mouseHold&&performance.now()-mouseHold.at>=180){if(blocked()||sceneInteraction.active){mouseHold=null;}else if(clock-mouseHold.last>.13){mouseHold.last=clock;mouseHold.tracking=true;const [mx,my]=screenPoint({clientX:mouseHold.x,clientY:mouseHold.y}),lastTarget=mouseHold.target;if(!lastTarget||Math.hypot(lastTarget[0]-mx,lastTarget[1]-my)>14){mouseHold.target=[mx,my];path=route(mx,my);pending=null;}}}if(!blocked()&&(!sceneInteraction.active||sceneInteraction.allowsMovement||pending)&&dt){let dx=(keys.ArrowRight||keys.d?1:0)-(keys.ArrowLeft||keys.a?1:0),dy=(keys.ArrowDown||keys.s?1:0)-(keys.ArrowUp||keys.w?1:0);const old=[player.x,player.y];if(dx||dy){path=[];pending=null;let len=Math.hypot(dx,dy);dx/=len;dy/=len;const v=heroSpeed(dx,dy)*SeaTerrain.speed(S.area,S.flags,player.x,player.y)*dt;if(routeSegmentClear([player.x,player.y],[player.x+dx*v,player.y]))player.x+=dx*v;if(routeSegmentClear([player.x,player.y],[player.x,player.y+dy*v]))player.y+=dy*v;}else if(path.length){let timeLeft=dt;while(path.length&&timeLeft>.000001){const p=path[0],dx=p[0]-player.x,dy=p[1]-player.y,len=Math.hypot(dx,dy);if(len<.001){path.shift();continue;}const speed=heroSpeed(dx,dy)*SeaTerrain.speed(S.area,S.flags,player.x,player.y),step=Math.min(len,speed*timeLeft);if(!routeSegmentClear([player.x,player.y],[player.x+dx/len*step,player.y+dy/len*step])){path=[];pending=null;break;}player.x+=dx/len*step;player.y+=dy/len*step;timeLeft-=step/speed;if(step>=len-.001){player.x=p[0];player.y=p[1];path.shift();}}}
@@ -310,14 +338,52 @@ async function battleAction(type){
  if(b.kind==='escort'&&type==='attack'){message+=' 軟泥拖住腳步，退回原位較慢。';b.slow=true;}
  $('battle-message').textContent=message;battleUI();b.wait=b.slow?.7:type==='guard'?.55:.25;b.slow=false;b.phase='answer';save();
 }
+// Injected into the actual Chapter II battle scope. Index matches the fixed
+// left-to-right formation; removing a defeated target never renumbers survivors.
+async function fieldEnemyAnswer(b){
+ const skill=b.turn%3===0,guard=b.guard?(b.playerAction==='guard'?'guard':'rune'):null;
+ const order=b.enemies.filter(e=>e.hp>0&&!e.object).slice().sort((a,c)=>a.index-c.index),results=[];
+ b.enemyOrder=order.map(e=>e.index);b.enemyActed=[];
+ try{
+  for(const foe of order){
+   if(battle!==b||b.ended)return false;
+   if(S.hp<=0)break;
+   if(foe.hp<=0)continue;
+   b.enemyTurnIndex=foe.index;
+   const move=skill?foe.move:window.SeaActors?.normalName?.(foe)||'普攻';
+   $('battle-message').textContent=foe.name+' '+(foe.index+1)+' · '+(skill?'施放':'普攻')+'「'+move+'」！';
+   battleUI();let settled=false;
+   const receive=()=>{
+    if(settled||battle!==b||b.ended||S.hp<=0||foe.hp<=0)return;
+    settled=true;const notes=[],raw=foe.atk*(skill?(foe.skillMultiplier||1.45):1);
+    const damage=LeonPatterns.receive(SeaRPG.state,b,guard==='guard',Growth.received(raw,S.defense||0,guard),t=>notes.push(t));
+    window.AudioMatrix?.enemyImpact(foe,skill?'skill':'attack',guard||false);
+    foe.attackAt=b.time;S.hp=Math.max(0,S.hp-damage);window.SeaAscentForms?.guard(b,damage);b.flash=.8;
+    results.push({index:foe.index,name:foe.name,move:foe.move,damage});
+    $('battle-message').textContent=foe.name+' '+(foe.index+1)+' · '+move+'，受到 '+damage+' 傷害。'+(guard?' 你避開了大部分攻勢。':'')+(notes.length?' '+notes.join(' '):'');
+    battleUI();save();
+   };
+   const animation=window.SeaActors?.perform(b,skill,receive,foe);
+   if(animation){if(await animation===false)return false;}else receive();
+   if(battle!==b||b.ended)return false;
+   b.enemyActed.push(foe.index);
+  }
+  if(battle!==b||b.ended)return false;
+  if(S.hp>0&&results.length){const total=results.reduce((n,r)=>n+r.damage,0);$('battle-message').textContent=(skill?results.map(r=>r.move).join('、'):'敵方依序行動結束')+'，合計受到 '+total+' 傷害。';}
+  return true;
+ }finally{delete b.enemyTurnIndex;delete b.enemyOrder;delete b.enemyActed;}
+}
+
 async function battleAnswer(){
  const b=battle;if(!b||b.phase!=='answer')return;b.phase='responding';
  if(b.enemies.filter(e=>!e.object).every(e=>e.hp<=0)){finishBattle(true);return;}
+ if(b.kind==='field'){if(!await fieldEnemyAnswer(b))return;if(S.hp<=0){finishBattle(false);return;}}else{
  const power=b.turn%3===0?(b.kind==='field'?1.45:1.8):1,raw=b.enemies.filter(e=>e.hp>0&&!e.object).reduce((n,e)=>n+e.atk,0);
  const shard=b.kind==='escort'&&b.enemies.some(x=>x.name==='晶燈手'&&x.hp>0)?8:0;
  const relicNotes=[],damage=LeonPatterns.receive(SeaRPG.state,b,b.playerAction==='guard',b.kind==='field'?SeaCombatBalance.incoming(b.enemies,b.turn%3===0,S.defense||0,b.guard?(b.playerAction==='guard'?'guard':'rune'):null,Growth.received):Growth.received(raw*power+shard,S.defense||0,b.guard?(b.playerAction==='guard'?'guard':'rune'):null),t=>relicNotes.push(t));
  const receive=()=>{window.AudioMatrix?.groupImpact(b.enemies,b.turn%3===0,b.guard?(b.kind==='kraken'?'dodge':'guard'):false);if(b.kind==="field")for(const foe of b.enemies)if(foe.hp>0)foe.attackAt=b.time;b.shards=shard?1.3:0;S.hp=Math.max(0,S.hp-damage);window.SeaAscentForms?.guard(b,damage);b.flash=.8;$('battle-message').textContent=(b.kind==='field'&&b.turn%3===0?b.enemies.filter(e=>e.hp>0).map(e=>e.move).join('、'):b.kind==='kraken'?'觸腕掃過礁面':'敵人反擊')+'，受到 '+damage+' 傷害。'+(b.guard?' 你避開了大部分攻勢。':'')+(shard?' 晶燈手擲出灼熱碎晶。':'')+' '+relicNotes.join(' ');if(!b.guard&&!window.AudioMatrix)sound('wood',.6);battleUI();save();};
  if(b.kind==='field'&&window.SeaActors?.perform){await SeaActors.perform(b,b.turn%3===0,receive);}else if(b.guard){$('battle-message').textContent=b.kind==='kraken'?'觸腕掃來，側身閃避！':'敵人攻來，用重鎚擋下！';await presentBattle(b.kind==='kraken'?'dodge':'guard',[],receive);}else receive();
+ }
  if(battle!==b)return;window.BattlePresentation?.setGuard(false);
  if(SeaRPG.state.flags.demeter&&SeaRPG.state.flags.restored&&S.hp>0&&b.turn>=(b.healReadyTurn||1)){b.healReadyTurn=b.turn+2;await presentBattle('heal',[],()=>{S.hp=Math.min(S.maxHp,S.hp+22);S.mp=Math.min(S.maxMp,S.mp+2);$('battle-message').textContent='得墨忒耳以穗光護佑：生命 +22，精神 +2。';battleUI();});if(battle!==b)return;}
  b.turn++;b.busy=false;b.phase=null;save();if(S.hp===0){finishBattle(false);return;}battleUI();
@@ -420,7 +486,7 @@ function battleIntegrationQA(){
  }document.body.append(panel);
 }
 
-async function init(){try{if(SeaNewMaps.enabled)return await initNewMaps();await SeaVoice.ready;const response=await fetch('chapter-two-story.json?v=core-steps-20261026');if(!response.ok)throw Error('章節文字未載入');book=await response.json();auditReviewUI();auditGalleryUI();const names=['cliff.webp','cliff-restored.webp','harbor.webp','reef.webp','routes.webp','temple.webp','rescue.webp','climax.webp','cast-reference.webp','cast-support.webp'];const all=[...names.map(n=>D.root+n),ReefBoat.asset,...(window.SEA_DIRECTOR_ASSETS||[]),...SeaLayeredProps.sources,...cliffCamp.sources,...Object.values(D.actors).map(a=>a.src).filter(Boolean),'https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/characters/griffin.webp','https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/characters/griffin-companion-cartoon-v2.webp'];await Promise.all([...new Set(all)].map(img));ReefBoat.prepare(images[ReefBoat.asset]);SeaLayeredProps.prepare(images);cliffCamp.prepare(images);await Promise.all(Object.keys(WorldProps.catalog).filter(k=>k.startsWith('c2:')).map(k=>WorldProps.load(k)));await WorldProps.loadSmall();SeaPropDepth.clear();await rig.load();if(SeaNewMaps.enabled)SeaNewTerrain.settle(S.area,S.flags,player);else SeaPropDepth.settle(player,mapConfig().height,walkable);resize();$('loading').hidden=true;hud();const review=new URLSearchParams(location.search).get('review');if(review&&book.events[review]){playEvent(review,Math.max(0,Math.min(book.events[review].rows.length-1,Number(new URLSearchParams(location.search).get('row'))||0)),true);story.paused=true;story.elapsed=story.duration*.45;SeaVoice.setPaused(true);pauseRowSounds(true);$('line-pause').textContent='繼續演出';}requestAnimationFrame(frame);battleIntegrationQA();travelTip();if(!review)sceneInteraction.setupCore();if(S.area==='gate'&&!review){if(S.checkpoint?.game==='calm-wound')sceneInteraction.pulse(sites().find(s=>s.id==='dori'),S.checkpoint);else if(S.checkpoint?.key==='R2-11A:8'||S.checkpoint?.game==='rock-release')sceneInteraction.pulse(sites().find(s=>s.id==='rock'),S.checkpoint);}}catch(err){$('loading').className='error';$('loading').textContent=err.message+'。請重新整理；第一章存檔不受影響。';console.error(err);}}
+async function init(){try{if(SeaNewMaps.enabled)return await initNewMaps();await SeaVoice.ready;const response=await fetch('chapter-two-story.json?v=core-steps-20261026');if(!response.ok)throw Error('章節文字未載入');book=await response.json();auditReviewUI();auditGalleryUI();const names=['cliff.webp','cliff-restored.webp','harbor.webp','reef.webp','routes.webp','temple.webp','rescue.webp','climax.webp','cast-reference.webp','cast-support.webp'];const all=[...names.map(n=>D.root+n),ReefBoat.asset,...(window.SEA_DIRECTOR_ASSETS||[]),...SeaLayeredProps.sources,...cliffCamp.sources,...Object.values(D.actors).map(a=>a.src).filter(Boolean),'https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/characters/griffin.webp','https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/characters/griffin-companion-cartoon-v2.webp'];await Promise.all([...new Set(all)].map(img));ReefBoat.prepare(images[ReefBoat.asset]);SeaLayeredProps.prepare(images);cliffCamp.prepare(images);await Promise.all(Object.keys(WorldProps.catalog).filter(k=>k.startsWith('c2:')).map(k=>WorldProps.load(k)));await WorldProps.loadSmall();SeaPropDepth.clear();await rig.load();if(SeaNewMaps.enabled)SeaNewTerrain.settle(S.area,S.flags,player);else SeaPropDepth.settle(player,mapConfig().height,walkable);resize();$('loading').hidden=true;hud();const review=new URLSearchParams(location.search).get('review');if(review&&book.events[review]){playEvent(review,Math.max(0,Math.min(book.events[review].rows.length-1,Number(new URLSearchParams(location.search).get('row'))||0)),true);story.paused=true;story.elapsed=story.duration*.45;SeaVoice.setPaused(true);pauseRowSounds(true);$('line-pause').textContent='繼續演出';}startChapterClock();battleIntegrationQA();travelTip();if(!review)sceneInteraction.setupCore();if(S.area==='gate'&&!review){if(S.checkpoint?.game==='calm-wound')sceneInteraction.pulse(sites().find(s=>s.id==='dori'),S.checkpoint);else if(S.checkpoint?.key==='R2-11A:8'||S.checkpoint?.game==='rock-release')sceneInteraction.pulse(sites().find(s=>s.id==='rock'),S.checkpoint);}}catch(err){$('loading').className='error';$('loading').textContent=err.message+'。請重新整理；第一章存檔不受影響。';console.error(err);}}
 window.SeaWalk={route:(x,y,accept)=>route(x,y,accept),walkable,segment:routeSegmentClear,sites,reach:siteReach,player:()=>({...player}),camera:()=>({...camera}),pending:()=>pending?.id,path:()=>path.map(p=>[...p]),go:walkToSite,story:()=>story&&({event:story.event.id,row:story.index}),terrain:()=>SeaTerrain.meta(S.area,S.flags,player.x,player.y)};
 // This file is inserted into the existing story engine closure by runtime.cjs.
 const newShotCache=[];
@@ -463,7 +529,7 @@ function drawNewWorld(){const W=1536,H=660,fit=Math.max(vw/W,vh/H),mobile=docume
  const c=$('minimap'),q=c.getContext('2d');c.hidden=ReefBoat.aboard;q.clearRect(0,0,c.width,c.height);if(im)q.drawImage(im,0,20,220,95);q.fillStyle='#ffe5a0';q.beginPath();q.arc(player.x/W*220,20+player.y/H*95,3,0,7);q.fill();
 }
 async function initNewMaps(){await Promise.all([SeaVoice.ready,window.ChapterHeroReady]);const response=await fetch('chapter-two-story.json?v=new-maps-r28');if(!response.ok)throw Error('章節文字未載入');book=await response.json();
- const all=[ReefBoat.asset,...Object.values(D.actors).map(a=>a.src||D.root+a.image).filter(Boolean),'https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/characters/griffin-companion-cartoon-v2.webp'];let index=0;const work=async()=>{while(index<all.length)await img(all[index++]);};await Promise.all([work(),work(),newPrepare(S.area,S.flags)]);ReefBoat.prepare(images[ReefBoat.asset]);SeaNewTerrain.settle(S.area,S.flags,player);resize();$('loading').hidden=true;save();hud();requestAnimationFrame(frame);travelTip();
+ const all=[ReefBoat.asset,...Object.values(D.actors).map(a=>a.src||D.root+a.image).filter(Boolean),'https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/characters/griffin-companion-cartoon-v2.webp'];let index=0;const work=async()=>{while(index<all.length)await img(all[index++]);};await Promise.all([work(),work(),newPrepare(S.area,S.flags)]);ReefBoat.prepare(images[ReefBoat.asset]);SeaNewTerrain.settle(S.area,S.flags,player);resize();$('loading').hidden=true;save();hud();startChapterClock();travelTip();
  document.documentElement.dataset.chapterLayout='chapter-one-shared';
  // Authored cinema art is loaded on demand, rather than decoding every shot up front.
  if(AUDIT==='new-map-review'){const panel=document.createElement('details');panel.className='map-audit';panel.innerHTML='<summary>隔離審查 · 地圖與主線節點</summary>';for(const [a,m]of Object.entries(D.maps)){const b=button(m.name,()=>{const u=new URL(location.href);u.searchParams.set('area',a);location.href=u;});panel.append(b);}const skip=button('前往本段下一個操作點',()=>{if(story)SeaGame.skip();else{const q=activeQuest();playEvent(S.active?.event||q[2],S.active?.row||0);}});panel.append(skip);document.body.append(panel);}

@@ -61,7 +61,7 @@
     b.arena=new ChapterImage();b.arena.src="https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/429b930ba6730bb5a7c0032c3cc9f7603a9635bf/arenas/"+zone+'.webp';if(b.kind!=='field')return;
     ExplorationLedger.encounter(s,b.enemies.map(e=>e.id));imageCache.clear();
     for(const e of (window.SeaNewMaps?.enabled?[]:b.enemies)){if(!imageCache.has(e.id)){const im=new ChapterImage();im.onerror=()=>{im.onerror=null;im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/sea-ui/creatures/'+e.id+'.webp'};im.src='sea-ui/battle-portraits/'+e.id+'.webp';imageCache.set(e.id,im)}}
-    b.busy=true;b.loading=true;const weapon=window.LoadBattlePresentation();import('../continuation/approved-monsters-r34.mjs?v=39').then(async()=>{const ok=await SeaActors.start(b);if(!await weapon)throw Error('武器演出未載入');return ok;}).then(ok=>{if(game.battle!==b)return;if(!ok)throw Error('模型未載入');b.loading=false;b.busy=false;SeaControls.battleUI(b);}).catch(err=>{if(game.battle!==b)return;b.loading=false;game.toast('怪物載入失敗，已安全退出戰鬥。');game.finishBattle(false);console.error(err);});
+    b.busy=true;b.loading=true;const weapon=window.LoadBattlePresentation();import('../continuation/approved-monsters-r34.mjs?v=41').then(async()=>{const ok=await SeaActors.start(b);if(!await weapon)throw Error('武器演出未載入');return ok;}).then(ok=>{if(game.battle!==b)return;if(!ok)throw Error('模型未載入');b.loading=false;b.busy=false;SeaControls.battleUI(b);}).catch(err=>{if(game.battle!==b)return;b.loading=false;game.toast('怪物載入失敗，已安全退出戰鬥。');game.finishBattle(false);console.error(err);});
     save();
   }
   function draw(ctx,b,w,h,visualH,visual){

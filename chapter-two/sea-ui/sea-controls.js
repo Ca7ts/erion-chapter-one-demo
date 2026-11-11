@@ -104,13 +104,16 @@
    by('battle-cooldown').textContent=['water','earth'].filter(k=>s.flags[k]).map(k=>Growth.spell(s,k).name+'：'+(b.cooldowns[k]?'尚需 '+b.cooldowns[k]+' 次行動':'就緒')).join(' · ');
    if(hooks.divine())by('battle-cooldown').textContent+=' · 穗光護佑：'+(b.turn<(b.healReadyTurn||1)?'冷卻 '+(b.healReadyTurn-b.turn)+' 回合':'本回合結束時援助');
    const mark=b.turn%3===0&&b.phase!=='responding'?b.enemies.find(e=>e.hp>0)?.move:'';
-   by('battle-alert').textContent=mark?'敵方蓄力 · '+mark:'';
+   const acting=b.enemyOrder&&b.enemies.find(e=>e.index===b.enemyTurnIndex);
+   by('battle-alert').textContent=acting?'敵方行動 '+(b.enemyOrder.indexOf(acting.index)+1)+' / '+b.enemyOrder.length+' · '+acting.name+(b.turn%3===0?' · '+acting.move:''):mark?'敵方蓄力 · '+mark:'';
    by('enemy-targets').replaceChildren();
    b.enemies.forEach(e=>{if(e.hp<=0)return;
-    const el=button('Lv.'+(e.level||1)+' '+e.name+' '+(e.index+1),'生命 '+Math.max(0,e.hp)+' / '+e.max+(mark?' · '+e.move:''),()=>{if(canChooseTarget())act(b.targeting||'attack',e);},!canChooseTarget());
+    const progress=b.enemyOrder?(e===acting?' · 行動中':b.enemyActed.includes(e.index)?' · 已行動':' · 待行動'):'';
+    const el=button('Lv.'+(e.level||1)+' '+e.name+' '+(e.index+1),'生命 '+Math.max(0,e.hp)+' / '+e.max+(mark?' · '+e.move:'')+progress,()=>{if(canChooseTarget())act(b.targeting||'attack',e);},!canChooseTarget());
     el.className='enemy-button'+(b.targeting?' targeting':'');el.dataset.kind=e.id;
+    if(e===acting){el.dataset.acting='true';el.setAttribute('aria-current','step');}
     el.style.left=100*(e.x??(.12+(e.index+.5)*.76/b.enemies.length))+'%';
-    el.style.width=Math.min(210,innerWidth*.74/b.enemies.length)+'px';
+    el.style.width='min(210px, '+(74/b.enemies.length)+'vw)';
     GameNameColors?.markMonster(el.querySelector('span'),{...e,kind:e.id});
     const bar=elem('span',null,'bar'),fill=elem('i');VitalColors.apply(bar,e.hp,e.max);fill.style.width=Math.max(0,e.hp/e.max*100)+'%';bar.append(fill);el.append(bar);by('enemy-targets').append(el);
    });
