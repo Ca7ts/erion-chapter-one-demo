@@ -168,3 +168,45 @@
 })(typeof window!=='undefined'?window:globalThis);
 
 ;ChapterTwoLoot.applySea(SeaDrops,window);
+;(function(root){'use strict';
+ const revision=40;
+ // Fixed area progression. Never read the player's level, inventory or equipment.
+ const profiles={
+  swift:{hp:.82,attack:1.14,armor:-2,skill:1.35},
+  guard:{hp:1.22,attack:.87,armor:3,skill:1.45},
+  heavy:{hp:1.06,attack:1.19,armor:-1,skill:1.60},
+  balanced:{hp:1,attack:1,armor:1,skill:1.50}
+ };
+ const roles=Object.fromEntries([
+  ['cliff','swift','heavy','guard','heavy'],
+  ['harbor','guard','swift','swift','heavy'],
+  ['reef','heavy','guard','balanced','guard'],
+  ['seabed','swift','guard','balanced','guard'],
+  ['gate','balanced','guard','balanced','swift'],
+  ['temple','swift','guard','swift','balanced'],
+  ['core','balanced','swift','heavy','balanced']
+ ].flatMap(([area,...r],zone)=>[
+  ['petrel','ram','limpet','windhorn'],['crab','eel','float','keel'],
+  ['mantis','urchin','anemone','murex'],['skate','shard','bone','oath'],
+  ['gunnel','chiton','siphon','horse'],['lamp','mask','egret','ewer'],
+  ['nautilus','ring','votive','seal']
+ ][zone].map((id,i)=>[area+'-'+id,r[i]])));
+ function stats(enemy,level=enemy.level){
+  const role=roles[enemy.id];if(!role)throw Error('Missing Chapter II combat profile: '+enemy.id);
+  const p=profiles[role],lv=Math.max(6,Math.min(12,Math.trunc(Number(level)||enemy.level))),d=lv-6,rare=!!enemy.rare;
+  return {level:lv,max:Math.round((220+32*d+2*d*d)*p.hp*(rare?1.85:1)),
+   atk:Math.round((34+4*d)*p.attack*(rare?1.25:1)),
+   armor:8+2*d+p.armor+(rare?4:0),role,
+   skillMultiplier:p.skill+(rare?.10:0),combatRevision:revision};
+ }
+ function create(enemy,level){const values=stats(enemy,level);return {id:enemy.id,name:enemy.name,...values,hp:values.max,move:enemy.move,rare:enemy.rare};}
+ // A rare creature uses two encounter slots; four ordinary creatures are still possible.
+ function encounter(ids,catalog){return ids.some(id=>catalog[id]?.rare)?ids.slice(0,3):ids.slice();}
+ // Chapter I applies defence to each attacker. Preserve a single Chapter II
+ // group impact/receipt, but do not bypass armour by combining raw attacks first.
+ function incoming(enemies,special,defense,guard,received){
+  return enemies.filter(e=>e.hp>0&&!e.object).reduce((total,e)=>total+received(e.atk*(special?(e.skillMultiplier||1.45):1),defense,guard),0);
+ }
+ const api={revision,profiles,roles,stats,create,encounter,incoming};
+ if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.SeaCombatBalance=api;
+})(typeof window!=='undefined'?window:globalThis);

@@ -36,10 +36,7 @@
   const route=document.createElement('dialog');route.id='atlas';route.innerHTML='<h2>旅程路線</h2>';document.body.append(route);
   const imageCache=new Map();let distance=0,threshold=1100;
   const pick=(arr)=>arr[Math.floor(Math.random()*arr.length)];
-  function fieldFoe(id){
-    const e=M.enemies[id],level=M.rollLevel(e),scale=e.rare?1.5:1,max=Math.round((52+level*7)*e.hp*scale);
-    return {id,name:e.name,level,hp:max,max,armor:e.armor,atk:Math.round((7+level*.9)*e.attack*scale),move:e.move,rare:e.rare};
-  }
+  function fieldFoe(id){const e=M.enemies[id];return SeaCombatBalance.create(e,M.rollLevel(e));}
   function harborTargets(){if(window.SeaNewMaps?.enabled)return [];
     if(S.area!=='harbor'||S.step<16)return [];
     const workshopEnemies=Object.values(WeaponAscent.ingredients).flat().map(m=>m.enemy);
@@ -57,7 +54,7 @@
     const roll=Math.random(),count=roll<.2?1:roll<.65?2:roll<.95?3:4;
     const group=Array.from({length:count},()=>pick(zone.monsters.filter(id=>!M.enemies[id].rare&&(!window.SeaNewMaps?.enabled||window.SeaApprovedMonsters?.includes(id)))));
     const rare=zone.monsters.find(id=>M.enemies[id].rare&&(!window.SeaNewMaps?.enabled||window.SeaApprovedMonsters?.includes(id)));if(rare&&Math.random()<.08)group[0]=rare;
-    game.beginBattle('field',group.map(fieldFoe));return true;
+    game.beginBattle('field',SeaCombatBalance.encounter(group,M.enemies).map(fieldFoe));return true;
   }
   function opening(b){
     window.SeaControls?.resetBattle();const zone=b.kind==='escort'?'seabed':b.kind==='kraken'?'gate':b.enemies[0]?.huntRegion||S.area;
