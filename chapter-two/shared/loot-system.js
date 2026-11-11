@@ -32,7 +32,10 @@
  function imprint(item){
   if(item.trait||item.relic)return;
   const kind=item.template||item.droppedBy;
-  const existing=Bestiary?.gear?.[kind]?.[item.slot]?.trait;
+  const source=Bestiary?.gear?.[kind]?.[item.slot];
+  // A new balance table must never imprint new attributes onto a saved item.
+  if(source?.balanceRevision&&!item.balanceRevision)return;
+  const existing=source?.trait;
   if(existing){item.trait={...existing};return;}
   if(inherited[kind]){const [name,stat,value]=inherited[kind];item.trait={name,stat,value};}
  }
@@ -57,7 +60,7 @@
  function roll(s,{rarity='white',slot='weapon',level=s.level||1,source='戰場拾獲',template=null,droppedBy=null,rng=Math.random}={}){const profile=Bestiary?.gear[template]?.[slot];if(!slots[slot]||(!profile&&!['weapon','body'].includes(slot))||(['ring','belt'].includes(slot)&&!Bestiary?.enemies[template]?.rare))throw new Error('Invalid equipment source/slot: '+template+'/'+slot);const l=init(s);level=Math.max(1,Math.min(12,Math.floor(level)));const q=quality(rarity),pool=slot==='weapon'?['attack','hp','mp','crit','skill']:['neck','ring'].includes(slot)?['attack','hp','mp','crit','skill']:['defense','hp','mp','crit','skill'];
   const a=[];while(a.length<q.count){const key=pool.splice(int(0,pool.length-1,rng),1)[0],[min,max]=range(key,q.id,level,slot);a.push({key,value:int(Math.round(min*10),Math.round(max*10),rng)/10,min,max});}
   const base=profile?{...profile.base}:slot==='weapon'?{attack:6}:{hp:0};if(slot==='weapon')base.attack+=level-1;else if(slot==='body')base.hp=(base.hp||0)+(level-1)*3;
-  const item={id:'loot-'+(++l.serial),name:profile?.name||(slot==='weapon'?'回收礦鎚':'礦道護衣'),template:profile?template:null,slot,rarity:q.id,level,base,affixes:a,...(droppedBy?{droppedBy}:{}),source,locked:false};imprint(item);nameBossItem(item,s);l.items.push(item);return item;
+  const item={id:'loot-'+(++l.serial),name:profile?.name||(slot==='weapon'?'回收礦鎚':'礦道護衣'),template:profile?template:null,slot,rarity:q.id,level,base,affixes:a,...(profile?.balanceRevision?{balanceRevision:profile.balanceRevision}:{}),...(droppedBy?{droppedBy}:{}),source,locked:false};imprint(item);nameBossItem(item,s);l.items.push(item);return item;
  }
  function stats(s){const l=init(s),total={attack:0,hp:0,mp:0,defense:0,crit:0,skill:0,attackPct:0,hpPct:0,mpPct:0,defensePct:0};for(const slot of slotKeys){const item=l.items.find(i=>i.id===l.equipped[slot]);if(!item)continue;for(const [k,n]of Object.entries(item.base||{}))total[k]=(total[k]||0)+n;for(const a of item.affixes||[])total[a.key]=(total[a.key]||0)+a.value;if(item.trait)total[item.trait.stat]+=item.trait.value;}total.crit=Math.min(50,total.crit);for(const k of Object.keys(total))total[k]=round1(total[k]);return total;}
  function equip(s,id,recompute){const l=init(s),item=l.items.find(i=>i.id===id);if(!item||!slots[item.slot]||l.equipped[item.slot]===id||item.level>(s.level||1))return false;const hp=s.hp/s.maxHp,mp=s.mp/s.maxMp,alive=s.hp>0;l.equipped[item.slot]=id;

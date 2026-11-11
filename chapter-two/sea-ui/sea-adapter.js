@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const originalBestiary=window.Bestiary;const game=SeaGame,S=game.S,D=game.D,M=SeaDrops,byId=id=>document.getElementById(id);
+  const originalBestiary=window.Bestiary,originalMaterialTable=originalBestiary?.materialTable;const game=SeaGame,S=game.S,D=game.D,M=SeaDrops,byId=id=>document.getElementById(id);
   const read=k=>{try{return JSON.parse(localStorage.getItem(k)||'null')}catch{return null}};
   const old=game.isolated?null:read('erion-region-adventure-v1');
   const s=ChapterContinuity.enter(S,game.isolated);
@@ -15,7 +15,7 @@
   window.REGION_MAPS={order:Object.keys(M.levels),areas:D.maps};
   const itemNames={...SharedCharacter.names,...Object.fromEntries(M.catalog.map(c=>[c.key,c.name]))};
   window.REGION_ADVENTURE={enemies:M.enemies,itemNames};
-  window.Bestiary={...window.Bestiary,gear:{...window.Bestiary?.gear,...M.gear},recipes:window.LeonCarry?.recipes,enemies:M.enemies,regional:M.regional,regionLevels:M.levels,field:M.field,skills:M.skills,materials:M.materials,materialTable:M.drops,supplies:{}};
+  window.Bestiary={...window.Bestiary,gear:{...window.Bestiary?.gear,...M.gear},recipes:{...originalBestiary.recipes,...window.LeonCarry?.recipes},enemies:{...originalBestiary.enemies,...M.enemies},regional:M.regional,regionLevels:M.levels,field:M.field,skills:M.skills,materials:{...originalBestiary.materials,...M.materials},materialTable:id=>M.enemies[id]?M.drops(id):originalMaterialTable(id),supplies:originalBestiary.supplies};
   Object.assign(originalBestiary,window.Bestiary);window.Bestiary=originalBestiary;
   // Carry only actual previous-chapter belongings into the second chapter catalogue.
   window.JourneyCatalog=[...JourneyCatalog];
@@ -83,10 +83,10 @@
   function reward(b){
     if(b.rewardSettled)return;b.rewardSettled=true;
     const rows=[];let xp=0,coins=0;
-    for(const foe of b.enemies){if(foe.hp>0)continue;const e=M.enemies[foe.id];s.bestiary.kills[e.id]=(s.bestiary.kills[e.id]||0)+1;
+    for(const foe of b.enemies){if(foe.hp>0||foe.summoned)continue;const e=M.enemies[foe.id];s.bestiary.kills[e.id]=(s.bestiary.kills[e.id]||0)+1;
       xp+=foe.level*(e.rare?8:4);coins+=foe.level+(e.rare?10:1);
       for(const [k,n,p]of e.drops)if((!LeonPatterns.byProof[k]||(!foe.summoned&&LeonPatterns.available(s,LeonPatterns.byProof[k])))&&Math.random()<p){s.items[k]=(s.items[k]||0)+n;rows.push({key:k,name:itemNames[k],count:n,color:Loot.quality(M.materials[k].tier).color});}
-      if(Math.random()<e.chance){const v=Math.random(),rarity=e.rare?(v<.6?'blue':v<.97?'purple':'orange'):(v<.45?'white':v<.88?'green':'blue');
+      if(Math.random()<e.chance){const rarity=M.rollRarity(e,Math.random);
         const it=Loot.roll(s,{template:e.id,slot:e.slot,rarity,level:foe.level,source:e.name});rows.push({key:it,name:it.name,count:1,color:Loot.quality(rarity).color});}
     }
     const receipt='c2-field-'+crypto.randomUUID();canonical.award(s,receipt,xp);s.economy.balance+=coins;recompute();save();SeaControls.victory(xp,coins,rows);

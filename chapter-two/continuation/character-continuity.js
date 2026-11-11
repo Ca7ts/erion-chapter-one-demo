@@ -2,7 +2,7 @@
    Story flags, checkpoint positions and reward receipts remain chapter-owned. */
 (function(root){'use strict';
  const key='erion-region-adventure-v1', shared='erion-character-v1';
- const fields=['growth','loot','economy','equipment','bestiary','exploration','ui'];
+ const fields=['growth','loot','economy','equipment','bestiary','exploration','ui','leonPatterns'];
  const copy=v=>v===undefined?undefined:JSON.parse(JSON.stringify(v));
  function create(storage){
   const read=k=>{try{return JSON.parse(storage.getItem(k)||'null')}catch{return null}};

@@ -118,7 +118,7 @@
  }
  const storyEnemies={entrance:['shell'],mine:['shell'],depths:['shell','larva','mother'],annex:['shell'],forest:['root'],cliff:['root'],court:['guardian','root']};
  const regionIndex=new Map();
- function regional(area=g.hooks.area()){
+ function regional(area=g.hooks.area()){if(window.SeaDrops?.region(area))return SeaDrops.region(area);
   if(regionIndex.has(area))return regionIndex.get(area);
   const habitat=area==='depths'?'mine':area;
   const wild=new Set((B.pools[habitat]||[]).flat());
@@ -171,7 +171,7 @@
   }
   lines('取得方式與機率',[...sources].join('\n')||c.source);
  }
- function monsterArt(id){
+ function monsterArt(id){if(window.SeaDrops?.enemies[id]){const im=el('img');im.src='continuation/loot-portraits-r38/'+id+'.webp';im.alt='';im.decoding='async';return im;}
   if(['shell','larva','mother','guardian','lizard','moth','root','boar','copperShell','ochreStele','drownedNewt','chainLamplighter','whiteThornStag','galeBronzeWing','brokenCenser','reefTideBearer','screeMask','chainShade','laurelMaw','bronzeHarpy','riftRam','ashAmphora','oathStatue','tidalCrab','saltSerpent','shellLament'].includes(id)){const im=el('img');im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/media/monster-portraits/'+id+'-r10.webp';im.alt='';im.decoding='async';return im;}
   if(id==='mother'){const im=el('img');im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/mother-continuity-20261102/map.webp';im.alt='';return im;}
   const e=B.enemies[id];if(e){const im=el('img');im.src='https://raw.githubusercontent.com/Ca7ts/erion-chapter-one-demo/c1e68aba7da01c0ceaac6df2b719fd9d48a03316/chapter-two/assets/private-monsters/'+e.art;im.alt='';return im;}
