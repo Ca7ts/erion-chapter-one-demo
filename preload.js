@@ -91,7 +91,7 @@
    const arena = 'media/d027451fd5b5/' + trial + '.webp';
    if (manifest.files.some(file => file.path === arena)) {
     trialTitle = trial === 'mother' ? '岩殼母蟲' : '銅根守像';
-    const essentials = new Set(['app.min.css', 'app.min.js', 'battle.min.js', 'monsters.min.js',
+    const essentials = new Set(['app.min.css', 'app.min.js', 'battle.min.js', 'monsters.min.js', 'monsters.d24223af5788b893.min.js',
      'media/weapon-runtime.glb', 'media/models/' + trial + '.glb', arena,
      trial === 'mother' ? 'media/models/shell.glb' : 'media/models/guardian-motion.json']);
     manifest.files = manifest.files.filter(file => essentials.has(file.path));
