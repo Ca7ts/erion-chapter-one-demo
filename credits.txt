@@ -1238,3 +1238,7 @@ https://bigsoundbank.com/tombstone-opening-s0580.html
 https://bigsoundbank.com/footsteps-on-gravels-4-s3216.html
 https://bigsoundbank.com/anvil-1-s3589.html
 https://creativecommons.org/publicdomain/zero/1.0/
+
+第一章音效更新（2026-11-25）
+第一章怪物 v10 與主角受擊音效包含使用已購 Fantasy Game SFX Bundle（Sonniss）製作的遊戲混音片段。這些音訊不屬於 CC0 或開源授權；本遊戲未包含整包原始素材。原有 CC0 說明僅適用於其標明的素材。
+原有 action-foley-r17 遊戲音訊銀行的缺檔修復沿用 FilmCow 音效的專案使用授權，並非 CC0；僅提供遊戲所需的混音銀行，不包含原始音效包。
